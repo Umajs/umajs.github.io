@@ -56,15 +56,16 @@ ursa.start(8058);
 初始化`Ursa`时传入的参数，参数包括
 
 ```typescript
-export type TUrsaOption = {
+type TUrsaOption = {
     Router: Function,
     ROOT: string,
+    env?: 'development' | 'production' | string,
     configPath?: string,
     proxy?: boolean,
     subdomainOffset?: number,
-    bodyParser: boolean | bodyParser.IKoaBodyOptions,
+    jsonpBody?: TJsonpBody,
+    bodyParser?: bodyParser.IKoaBodyOptions,
     createServer?: (cb: (req: IncomingMessage | Http2ServerRequest, res: ServerResponse | Http2ServerResponse) => void) => Server,
-    env?: 'development' | 'production' | string,
     beforeLoad?: (ursa: Ursa) => void,
     afterLoaded?: (ursa: Ursa) => void,
 }

@@ -57,32 +57,54 @@ export default class Index extends  BaseController {
 
 ## 发送响应
 
-### status
+返回的数据都可以通过`Result`来返回。 `BaseController`也内置了`Result`一样的方法，还内置了一些方便使用的方法。
+
+
+### set status(status: number);
 
 正确的设置http的状态码，可以增强请求的语义性。可以通过`this.status = code`设置返回的状态码。
 
-返回的数据都可以通过`Result`来返回。`Ursa`也内置了一些处理返回的内置方法，方便使用。
+### get userAgent(): any;
 
-#### `this.send(val, status)`
+获取请求的 user-agent
+
+### get param(): any;
+
+获取请求的参数
+
+### setHeader(name: string | any, value: string | string[]): void;
+
+设置请求 header
+
+### getHeader(name: string | any): any;
+
+获取请求 header
+
+### 统一返回 Result
+
+在 controller 中可以 `return Result[...](...)`，也可以 `return this[...](...)`，见控制器示例。
+
+#### `Result.send(val, status)`
 
 用于快捷返回文本内容，第二个参数为返回状态码。
 
-#### `this.json(data)`
+#### `Result.json(data)`
 
 返回json数据，并将`content-type`设置为`application/json`。
 
-#### `this.jsonp(data, callback)`
+#### `Result.jsonp(data, callback)`
 
 以jsonp的形式返回数据。
 
-#### `this.view(templatePath, data)`
+#### `Result.view(templatePath, data)`
 
 通过渲染模板的方式将数据返回。
 
-#### `this.stream(data, fileName)`
+#### `Result.stream(data, fileName)`
 
 将文件以流（stream）的方式返回
 
-#### `this.download(filePath, opts)`
+#### `Result.download(filePath, opts)`
 
 下载文件
+

@@ -105,10 +105,11 @@ export default <TPlugin>{
         test: 123,
     },
     request: {
-
+        fileName: 'a.png'
     },
     use: { // 全局加载
         async handler(ctx: IContext, next: Function) {
+            console.log(ctx.test, ctx.req.fileName);    // >> 123 a.png
             console.log('use before');
             await next();
             console.log('use after');
