@@ -15,8 +15,6 @@ app
 ### 编写service时需继承默认baseService以便我们将service挂载到ctx中
 
 ```javascript
-// /src/service/demo.service.ts 
-
 import { BaseService } from '@ursajs/core';
 
 export default class demo extends BaseService {
@@ -31,22 +29,55 @@ export default class demo extends BaseService {
 - 依赖注入  ```@Service('demo')```
 - 注入之后可直接使用无需再进行实例
 ```javascript
-// /src/controller/index.ts
-import demo from '../service/demo.service';
+import DemoService from '../service/demo.service';
 
-export default class Index extends Controller {
+export default class Index extends  BaseController {
 
     @Service('demo')
-    demo: demo
+    demoService: DemoService
 
     @Path('/demo')
     demoService() {
-        console.log(this.demo.demoService())
-        return this.demo.demoService();
+        // return this.demoService.loadAll();
     }
 }
 ```
 
-### 非 controller 中使用
+```javascript
+import { BaseService } from '@ursajs/core';
 
-因为 service 是挂载在 ctx.services 中的，因为只要有 ctx 的地方就能调用 service，例如在 Aspect.arround 中，可以使用 target.ctx.services.userService 来调用 userService。
+export default class Demp extends BaseService {
+    loadAll() {
+        // return
+    }
+}
+```
+
+### 在非 Controller 中使用 Service 时，必须传入 ctx 进行实例化才能使用。
+
+```javascript
+// plugin
+import DemoService from '../service/demo.service';
+
+export default (ursa: Ursa, options: any = {}): Koa.Middleware => {
+    return (ctx, next) = > {
+        const demoService: DemoService = new DemoService(ctx);
+        // ...
+    };
+};
+```
+
+```javascript
+// Aspect
+import DemoService from '../service/demo.service';
+
+export default class Method implements IAspect {
+    async around(proceedPoint: IProceedJoinPoint) {
+        const { target,proceed, args } = proceedPoint;
+
+        const demoService: DemoService = new DemoService(target.ctx);
+
+        return await proceed(...args);
+    }
+}
+```

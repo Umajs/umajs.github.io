@@ -38,7 +38,7 @@ export default class Test implements IAspect {
 
 ## 通知
 
-`通知`是AOP中一个很重要的概念，所谓通知指的就是在拦截到方法之后要执行的代码。通知分为前置(before)、后置(after)、异常(afterThrowing)、最终(afterReturning)、环绕(around)通知五类。
+`通知`是 AOP 中一个很重要的概念，所谓通知指的就是在拦截到方法之后要执行的代码。通知分为前置(before)、后置(after)、异常(afterThrowing)、最终(afterReturning)、环绕(around)通知五类。
 
 - 前置通知：在目标方法之前执行
 - 后置通知：在目标方法之后执行
@@ -46,7 +46,7 @@ export default class Test implements IAspect {
 - 最终通知：当目标方法有返回值之后执行，在后置通知之后
 - 环绕通知：在最开始调用时执行，会将目标方法作为参数传入，可对目标方法进行拦截
 
-在Ursa中我们对这5个通知都做了实现，你需要先在aspect文件中定义这些通知，然后在controller中通过修饰器的方式使用它。
+在 Ursa 中我们对这5个通知都做了实现，你需要先在aspect文件中定义这些通知，然后在controller中通过修饰器的方式使用它。
 
 例如上面的`${URSA_ROOT}/aspect/test.aspect.ts`中我们定义了一个前置(before)通知，如果想再定义一个环绕(around)通知，可以这样修改：
 
@@ -74,9 +74,9 @@ export default class Test implements IAspect {
 ```javascript
 // ${URSA_ROOT}/controller/index.controller.ts
 
-import { Controller, Path, Aspect } from '@ursajs/core';
+import {  BaseController, Path, Aspect } from '@ursajs/core';
 
-export default class Index extends Controller {
+export default class Index extends  BaseController {
     // ===> 在这里使用
     @Aspect.around('test')
     index() {
@@ -108,7 +108,7 @@ export default class Method implements IAspect {
     async around(proceedPoint: IProceedJoinPoint) {
         const { proceed, args } = proceedPoint;
         // 环绕通知before
-        await proceed(...args);
+        return await proceed(...args);
         // 环绕通知after
     }
     afterThrowing(e: Error) {
@@ -148,11 +148,11 @@ export interface IProceedJoinPoint extends IJoinPoint {
 ```javascript
 // 作用在class上
 @Aspect('test1')
-export default class Index extends Controller {
+export default class Index extends  BaseController {
     // 作用在方法上
     @Aspect('test2')
     index() {
-        this.send('这里是首页');
+        return this.send('这里是首页');
     }
 }
 ```
@@ -166,13 +166,13 @@ export default class Index extends Controller {
 - 对目标使用Aspect中指定通知：**@Aspect.before('xx')、@Aspect.after('xx')、@Aspect.afterThrowing('xx')、@Aspect.afterReturning('xx')、@Aspect.around('xx')**
 
 ```javascript
-export default class Index extends Controller {
+export default class Index extends  BaseController {
     // 所有通知
     @Aspect('test1')
     // 指定只作用前置通知
     @Aspect.before('test2')
     index() {
-        this.send('这里是首页');
+        return this.send('这里是首页');
     }
 }
 ```

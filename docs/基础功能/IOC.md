@@ -61,10 +61,10 @@ export default class UserModel extends BaseModel {
 然后我们可以在controller中获取该model实例
 
 ```javascript
-import { Controller, Path, Private, Param, Query, RequestMethod, Inject, Aspect } from '@ursajs/core';
+import { BaseController, Path, Private, Param, Query, RequestMethod, Inject, Aspect } from '@ursajs/core';
 import UserModel from '../model/user.model'
 
-export default class Index extends Controller {
+export default class Index extends BaseController {
 
     // ===> 获取实例，实例的名称为@Resource修饰的class所在的文件名
     @Inject('user')
@@ -73,7 +73,7 @@ export default class Index extends Controller {
     async testModel() {
         // ===> 这里不需要创建user实例，@Resource已经将userModel实例化保存在容器中
         const userList = await this.user.findAll();
-        this.json(userList);
+        return this.json(userList);
     }
 }
 ```
@@ -83,33 +83,36 @@ export default class Index extends Controller {
 `@Resource修饰器支持传入参数`，传入的参数将会被作为修饰类实例化时的`构造参数`使用。
 
 ## @Service修饰器
-
-上面提到过的@Service修饰器也是通过依赖注入的方式实现的，框架默认将`${URSA_ROOT}/service`下的文件实例化加入到`service的容器中`，当我们使用的时候，通过`@Service修饰器`去获取该实例。
+除了提供的 Resource 和 Inject 装饰器，还有一个特殊的依赖注入装饰器 Service，Service 装饰器仅提供  BaseController 使用，为了方便使用，Service 注入中内置了 ctx，框架默认将`${URSA_ROOT}/service`下的文件实例化加入到`service的容器中`，当我们使用的时候，通过`@Service修饰器`去获取该实例。
 
 ```javascript
-import demo from '../service/demo.service';
+import DemoService from '../service/demo.service';
 
-export default class Index extends Controller {
+export default class Index extends  BaseController {
 
     @Service('demo')
-    demo: demo
+    demoService: DemoService
 
     @Path('/demo')
     demoService() {
-        // this.demo.demoService();
+        // return this.demoService.loadAll();
     }
 }
 ```
 
 ```javascript
-// service/demo.service
 import { BaseService } from '@ursajs/core';
 
 export default class Demp extends BaseService {
-    demoService() {
-        return this.ctx.headers;
+    loadAll() {
+        // return
     }
 }
 ```
 
 > @Service和@Resource最大的不同是，在@Service修饰的方法中可以访问到`ctx`上下文对象，而@Resource没有
+
+### 在非 Controller 中使用 Service 时，必须传入 ctx 进行实例化才能使用。
+
+[参考文档](./Service.html)
+

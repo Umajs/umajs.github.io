@@ -1,6 +1,6 @@
-# ursa对象
+# Ursa对象
 
-框架向外暴露了ursa对象，方便在项目中随时调用
+框架向外暴露了 Ursa 对象，方便在项目中随时调用
 
 ## API
 
@@ -10,8 +10,8 @@
 
 ```javascript
 // app.ts
-import Ursa from '@ursa/core';
-import { Router } from '@ursa/router';
+import Ursa from '@ursajs/core';
+import { Router } from '@ursajs/router';
 
 const ursa = Ursa.instance({
     Router,
@@ -60,6 +60,10 @@ export type TUrsaOption = {
     Router: Function,
     ROOT: string,
     configPath?: string,
+    proxy?: boolean,
+    subdomainOffset?: number,
+    bodyParser: boolean | bodyParser.IKoaBodyOptions,
+    createServer?: (cb: (req: IncomingMessage | Http2ServerRequest, res: ServerResponse | Http2ServerResponse) => void) => Server,
     env?: 'development' | 'production' | string,
     beforeLoad?: (ursa: Ursa) => void,
     afterLoaded?: (ursa: Ursa) => void,
@@ -94,4 +98,36 @@ const ursa = Ursa.instance({
         // 服务启动完成
     }
 });
+```
+
+### 静态方法
+
+#### options
+获取运行 Ursa 的参数
+```js
+    static get options(): TUrsaOption;
+```
+
+#### config
+获取所有 Ursa 的配置
+```js
+    static get config(): TConfig;
+```
+
+#### context
+获取 context，可以对 context 进行扩展等。实例化之后就是我们使用的 ctx
+```js
+    static get context(): Koa.BaseContext & IContext;
+```
+
+#### instance
+获取/实例化 Ursa，实例化必须传参，获取实例化后的 Ursa 不用传参
+```js
+    static instance(options?: TUrsaOption): Ursa;
+```
+
+#### controllersInfo
+获取实例化之后的controller 信息，包括 controller、route 等
+```js
+    static get controllersInfo(): IterableIterator<TControllerInfo>;
 ```

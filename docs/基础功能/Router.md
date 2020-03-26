@@ -7,7 +7,6 @@
 为了方便用户对路由的选择，Router被作为参数的方式传入到Ursa中。
 
 ```javascript
-// ====> 引入router
 import { Router } from '@ursajs/router';
 
 const ursa = Ursa.instance({
@@ -26,11 +25,11 @@ ursa.start(8058);
 
 ```javascript
 // ${URSA_ROOT}/controller/test.controller.ts
-import { Controller } from '@ursajs/core';
+import { BaseController } from '@ursajs/core';
 
-export default class Test extends Controller {
+export default class Test extends BaseController {
     index() {
-        this.send('this is test/index router');
+        return this.send('this is test/index router');
     }
 }
 ```
@@ -41,48 +40,32 @@ export default class Test extends Controller {
 
 如果你不想通过默认路由的方式访问时，`Ursa`提供了`@Path修饰器`来指定controller方法被访问的URI格式。
 
-**1. 修饰方法**
+>可以装饰 class，作为跟路由，只装饰 class 不生效，必须和 method 装饰配合使用。装饰 class 只有能有一个 string 参数
+>可以装饰 method，没有根路由的时候直接作为路由使用，有根路由的时候和根路由组合使用
+>@param args 路由参数
+>eg:
+>Path('/p1')
+>Path('/p1', 'p2')
+>Path({ value: '/p1' })
+>Path({ value: '/p1', method: RequestType.GET })
+>Path({ value: ['/p1', '/p2'], method: RequestType.GET })
+>Path({ value: ['/p1', '/p2'], method: [RequestType.GET, RequestType.POST] })
 
-例如我们对上面创建的test.controller.ts文件做以下修改：
 
-```javascript
-// ${URSA_ROOT}/controller/test.controller.ts
-// ====> 1. 引入Path
-import { Controller, Path } from '@ursajs/core';
-
-export default class Test extends Controller {
-    // ====> 2. 通过@Path修饰index方法
-    @Path('/home')
-    index() {
-        this.send('this is test/index router');
-    }
-}
-```
-
-在浏览器地址栏通过访问`127.0.0.1:端口号/home`就可以看到页面显示出`this is test/index router`，通过@Path修饰器修饰过的方法访问时地址不加controller名，即不是`/test/home`而是`/home`。
-
-> 注意：此时，在浏览器地址栏访问`127.0.0.1:端口号/test/index`就不能访问到index方法了，因为在`Ursa`中，被@Path修饰器修饰过的方法，不能再通过默认路由的方式访问。
-
-**2. 修饰class**
+### 修饰class
 
 @Path修饰器除了能修饰方法外，还可以修饰controller的class，被修饰后的class，如果内层的方法同时也添加了@Path修饰器，那么该方法的访问路径将和class上的@Path指定路径合并使用。
 
 例如我们对上面创建的test.controller.ts文件做以下修改：
 
 ```javascript
-// ${URSA_ROOT}/controller/test.controller.ts
-import { Controller, Path } from '@ursajs/core';
+import { BaseController, Path } from '@ursajs/core';
 
-// ====> 修饰class
-@Path('/page')
-export default class Test extends Controller {
+@Path('/page')		// 根路由
+export default class Test extends BaseController {
     @Path('/home')
     index() {
-        this.send('this is test/index router');
-    }
-
-    test() {
-        this.send('this is test/test router');
+        return this.send('this is test/index router');
     }
 }
 ```
@@ -91,26 +74,52 @@ export default class Test extends Controller {
 
 > 注意：作用在class上的@Path不会影响默认路由，只会和方法上的@Path修饰器合并使用，即在浏览器地址栏通过访问`127.0.0.1:端口号/test/test`可以看到页面显示出`this is test/test router`，但输入`127.0.0.1:端口号/page/test`会返回Not Found。
 
-**3. 指定多个路径**
+### 修饰方法
+
+例如我们对上面创建的test.controller.ts文件做以下修改：
+
+```javascript
+export default class Test extends BaseController {
+
+    @Path('/home')
+    index() {
+        return this.send('this is test/index router');
+    }
+}
+```
+
+在浏览器地址栏通过访问`127.0.0.1:端口号/home`就可以看到页面显示出`this is test/index router`，通过@Path修饰器修饰过的方法访问时地址不加 Controller 名，即不是`/test/home`而是`/home`。
+
+> 注意：此时，在浏览器地址栏访问`127.0.0.1:端口号/test/index`就不能访问到index方法了，因为在`Ursa`中，被@Path修饰器修饰过的方法，不能再通过默认路由的方式访问。
+
+### MethodType
+在很多访问中，我们需要加入 MethodType 的限制，示例如下：
+```javascript
+export default class Test extends BaseController {
+
+    @Path({ value: '/home', method: RequestType.POST })
+    index() {
+        return this.send('this is test/index router');
+    }
+}
+```
+在浏览器地址栏通过访问`127.0.0.1:端口号/home`会展示 NOT FOUND，这是因为限制了只能采用 POST 访问。
+
+### 指定多个路径
 
 同一个方法上允许设置多个Path路径。
 
 例如我们对上面创建的test.controller.ts文件做以下修改：
 
 ```javascript
-// ${URSA_ROOT}/controller/test.controller.ts
-import { Controller, Path } from '@ursajs/core';
+import { BaseController, Path } from '@ursajs/core';
 
 @Path('/page')
-export default class Test extends Controller {
-    // ====> 传入多个指定路径
+export default class Test extends BaseController {
+
     @Path('/home', '/abc')
     index() {
-        this.send('this is test/index router');
-    }
-
-    test() {
-        this.send('this is test/test router');
+        return this.send('this is test/index router');
     }
 }
 ```
@@ -122,20 +131,15 @@ export default class Test extends Controller {
 例如我们对上面创建的test.controller.ts文件做以下修改：
 
 ```javascript
-// ${URSA_ROOT}/controller/test.controller.ts
-import { Controller, Path } from '@ursajs/core';
+import { BaseController, Path } from '@ursajs/core';
 
 @Path('/page')
-export default class Test extends Controller {
-    // ====> 使用多个@Path修饰器
+export default class Test extends BaseController {
+
     @Path('/home', '/abc')
     @Path('/test')
     index() {
-        this.send('this is test/index router');
-    }
-
-    test() {
-        this.send('this is test/test router');
+        return this.send('this is test/index router');
     }
 }
 ```
@@ -147,21 +151,15 @@ export default class Test extends Controller {
 例如我们对上面创建的test.controller.ts文件做以下修改：
 
 ```javascript
-// ${URSA_ROOT}/controller/test.controller.ts
-import { Controller, Path } from '@ursajs/core';
+import { BaseController, Path } from '@ursajs/core';
 
-// ====> class使用多个@Path修饰器
 @Path('/page')
 @Path('/tpl')
-export default class Test extends Controller {
+export default class Test extends BaseController {
     @Path('/home', '/abc')
     @Path('/test')
     index() {
-        this.send('this is test/index router');
-    }
-
-    test() {
-        this.send('this is test/test router');
+        return this.send('this is test/index router');
     }
 }
 ```
@@ -170,26 +168,21 @@ export default class Test extends Controller {
 
 同样，如果你在class上设置`@Path('/page', '/tpl')`这种传入多个参数的格式，程序会报错，因为修饰class时，@Path只接收一个参数。
 
-**4. 正则匹配**
+### 正则匹配
 
 我们对上面这种直接使用具体字符串形式设置的路由称为`静态路由`，路径除了使用`/home`这种字符串的格式外，还支持使用正则形式，我们称之为`正则路由`。
 
 例如我们对上面创建的test.controller.ts文件做以下修改：
 
 ```javascript
-// ${URSA_ROOT}/controller/test.controller.ts
-import { Controller, Path } from '@ursajs/core';
+import { BaseController, Path } from '@ursajs/core';
 
 @Path('/page')
-export default class Test extends Controller {
-    // ====> 路径改为正则方式
+export default class Test extends BaseController {
+
     @Path('/:name')
     index() {
-        this.send('this is test/index router');
-    }
-
-    test() {
-        this.send('this is test/test router');
+        return this.send('this is test/index router');
     }
 }
 ```
@@ -198,7 +191,7 @@ export default class Test extends Controller {
 
 正则路由通过[path-to-regexp](https://github.com/pillarjs/path-to-regexp)库进行匹配，具体格式格式参考path-to-regexp库。
 
-**5. 匹配顺序**
+### 匹配顺序
 
 `Ursa`会按照的指定顺序去匹配路由，当命中某一规则时，即进入该controller的方法中，了解匹配的顺序当我们设置了重复的路由时很有帮助。
 
@@ -208,34 +201,6 @@ export default class Test extends Controller {
 
 请求进来时，会先从静态路由中查找是否有匹配到的，没有的话会从正则路由中匹配是否有满足的，还未找到的话会按照静态路由的格式查找是否有匹配的，当这几种情况都不满足时，返回Not Found。
 
-## @RequestMethod修饰器
-
-`Ursa`中默认所有方法可以被`任何请求方式`访问到，如果你想为方法指定访问的请求方式，可以通过`@RequestMethod修饰器`来实现。
-
-例如我们对上面创建的test.controller.ts文件做以下修改：
-
-```javascript
-// ${URSA_ROOT}/controller/test.controller.ts
-// ====> 引入RequestMethod
-import { Controller, Path, RequestMethod } from '@ursajs/core';
-
-export default class Test extends Controller {
-    // ====> 设置请求方式
-    @RequestMethod('post')
-    index() {
-        this.send('this is test/index router');
-    }
-
-    test() {
-        this.send('this is test/test router');
-    }
-}
-```
-
-此时`/test/index`被设置有只有post方式的请求才能访问，在浏览器中输入`127.0.0.1:端口号/test/index`时会返回`Not Found`。
-
-@RequestMethod修饰器的值支持所有的请求方式，GET、POST、PUT、DELETE等，区分大小写。
-
 ## @Param、@Query修饰器
 
 在上面的正则路由中我们提到过@Param修饰器，`Ursa`中提供了两种修饰器@Param和@Query来方便的获取请求中的参数
@@ -243,21 +208,16 @@ export default class Test extends Controller {
 例如我们对上面创建的test.controller.ts文件做以下修改：
 
 ```javascript
-// ${URSA_ROOT}/controller/test.controller.ts
-// ====> 引入RequestMethod
-import { Controller, Path, RequestMethod } from '@ursajs/core';
+import { BaseController, Path } from '@ursajs/core';
 
 @Path('/page')
-export default class Test extends Controller {
+export default class Test extends BaseController {
+
     @Path('/:name')
     index(@Param('name') name: string, @Query('name') title: string) {
         console.log(`name: ${name}`);
         console.log(`title: ${title}`);
-        this.send('this is test/index router');
-    }
-
-    test() {
-        this.send('this is test/test router');
+        return this.send('this is test/index router');
     }
 }
 ```
@@ -282,21 +242,17 @@ title: ursa
 当然，除了通过@Param和@Query修饰器的方式获取参数外，`Ursa`还保留了koa的参数获取方式，可以从上下文中获取：
 
 ```javascript
-// ${URSA_ROOT}/controller/test.controller.ts
-import { Controller, Path, RequestMethod } from '@ursajs/core';
+import { BaseController, Path } from '@ursajs/core';
 
 @Path('/page')
-export default class Test extends Controller {
+export default class Test extends BaseController {
+
     @Path('/:name')
     index(@Param('name') name: string, @Query('name') title: string) {
         // ====> 从ctx中获取参数
         console.log(this.ctx.param.name);
         console.log(this.ctx.query.title);
-        this.send('this is test/index router');
-    }
-
-    test() {
-        this.send('this is test/test router');
+        return this.send('this is test/index router');
     }
 }
 ```
@@ -308,17 +264,17 @@ export default class Test extends Controller {
 例如我们对上面创建的test.controller.ts文件做以下修改：
 
 ```javascript
-// ${URSA_ROOT}/controller/test.controller.ts
-import { Controller, Path, RequestMethod } from '@ursajs/core';
+import { BaseController, Path, RequestMethod } from '@ursajs/core';
 
 @Path('/page')
-export default class Test extends Controller {
+export default class Test extends BaseController {
+
     @Path('/:name')
     index(@Param('name') name: string, @Query('name') title: string) {
         // ====> 从ctx中获取参数
         console.log(this.ctx.param.name);
         console.log(this.ctx.query.title);
-        this.send('this is test/index router');
+        return this.send('this is test/index router');
     }
 
     @Private
@@ -333,3 +289,5 @@ export default class Test extends Controller {
 ```
 
 此时，被@Private修饰过的test方式和以_开头命名的_hello方法，不能再通过`/test/test`和`/test/_hello`的方式访问到。
+
+

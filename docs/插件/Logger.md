@@ -35,7 +35,7 @@ export default function (app) {
 
 ```js
 //使用 app/src/controller/index.controller.ts
-export default class Index extends Controller {
+export default class Index extends BaseController {
     @Path('/index')
     @RequestMethod('GET')
     index() {
@@ -43,7 +43,7 @@ export default class Index extends Controller {
         this.ctx.logger.debug('debug');
         this.ctx.logger.warn('warn');
         this.ctx.logger.error('error');
-        this.ctx.body = '这里是首页';
+        reurn this.send('这里是首页');
     }
 }
 ```

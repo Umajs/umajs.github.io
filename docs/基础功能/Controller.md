@@ -10,18 +10,19 @@
 
 ### 加载
 
-控制器也是通过约定的策略进行加载：默认加载`app/controller`下所有`*.controller`文件。
+控制器也是通过约定的策略进行加载：默认加载`${URSA_ROOT}/controller`下所有`*.controller`文件。
 
 ### 控制器编写
 
-`Ursa`的控制器需要通过类的继承的方式实现。
+`Ursa`的控制器需要通过类的继承的方式实现，方法必须都返回框架内置的 Result 静态方法，如下代码
 
 ```javascript
-import { Controller } from '@ursajs/core';
+import { BaseController } from '@ursajs/core';
 
-export default class Index extends Controller {
+export default class Index extends  BaseController {
     index() {
-        this.send('this is index router');
+        // 等同于 return Result.send('this is index router');
+        return this.send('this is index router');
     }
 }
 ```
@@ -60,13 +61,7 @@ export default class Index extends Controller {
 
 正确的设置http的状态码，可以增强请求的语义性。可以通过`this.status = code`设置返回的状态码。
 
-### header
-
-通过`this.header.header(name, value)`可以增加响应头，请注意，如果请求已返回，将无法正常返回新设置的响应头。
-
-### body
-
-返回的数据都可以通过`this.ctx.body`来设置。`Ursa`也内置了一些处理返回的内置方法，方便使用。
+返回的数据都可以通过`Result`来返回。`Ursa`也内置了一些处理返回的内置方法，方便使用。
 
 #### `this.send(val, status)`
 
@@ -83,3 +78,11 @@ export default class Index extends Controller {
 #### `this.view(templatePath, data)`
 
 通过渲染模板的方式将数据返回。
+
+#### `this.stream(data, fileName)`
+
+将文件以流（stream）的方式返回
+
+#### `this.download(filePath, opts)`
+
+下载文件
