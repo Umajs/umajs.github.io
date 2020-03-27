@@ -19,15 +19,26 @@
 
 插件的配置在config目录下的`plugin.config.ts`文件中，插件顺序按照 `config/plugin.config.ts` 配置的顺序进行加载。
 
+#### 插件配置说明
+```javascript
+export type TPluginConfig = {
+    enable?: boolean        // 是否开启插件，默认值false
+    name?: string           // 插件名，可选
+    packageName?: string    // npm包名，可选，如不填写时，默认值为`@ursajs/plugin-$
+    options?: object        // 框架会将此配置用参数形式传给纯中间件形式的插件
+}
+```
+
+#### 插件配置实例
 ``` javascript
 // config/plugin.config.ts
 
 export default {
     'error-handler': {
-        enable: true, // 是否开启插件，默认值false
-        name: 'error-handler', // 插件名，可选
-        packageName: '@ursajs/plugin-error-handler', // npm包名，可选，如不填写时，默认值为`@ursajs/plugin-${name}`
-        options: {	// 框架会将此配置用参数形式传给纯中间件形式的插件
+        enable: true,
+        name: 'error-handler',
+        packageName: '@ursajs/plugin-error-handler',
+        options: {
             foo: '1'
         } // 插件的实际配置
     }
@@ -55,7 +66,7 @@ export default {
 import * as Koa from 'koa';
 import * as views from 'koa-views';
 
-import { Ursa } from '@ursa/core';
+import { Ursa } from '@ursajs/core';
 
 export default (ursa: Ursa, options: any = {}): Koa.Middleware => {
     // ursa 实例化对象；options 插件配置的 options，等同于 ursa.plugin['error-handler'].options
@@ -98,7 +109,11 @@ export type TPlugin = {
 
 
 ```javascript
-import { IContext, TPlugin } from "@ursa/core";
+// plugins/demo.plugin.ts
+import { Ursa, IContext, TPlugin } from "@ursajs/core";
+
+// 获取插件对应的配置
+const { options } = Ursa.config.plugin.demo;
 
 export default <TPlugin>{
     context: {

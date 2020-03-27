@@ -108,3 +108,7 @@ export default class Index extends  BaseController {
 
 下载文件
 
+#### `Result.done()`
+
+使用 ctx 进行完了操作，不需要使用 Result 进行其它的返回时使用此方法，常用于框架的迁移。
+
