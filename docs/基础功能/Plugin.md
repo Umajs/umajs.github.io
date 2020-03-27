@@ -79,19 +79,19 @@ export default (ursa: Ursa, options: any = {}): Koa.Middleware => {
 ```javascript
 export type TPlugin = {
     use?: {
-        handler: (ctx: IContext, next: Function) => any;
+        handler: (ctx: IContext, next?: Function, options?: any) => any;
     }
     filter?: {
         regexp: RegExp;
-        handler: (ctx: IContext, next: Function) => any;
+        handler: (ctx: IContext, next?: Function, options?: any) => any;
     };
     ignore?: {
         regexp: RegExp;
-        handler: (ctx: IContext, next: Function) => any;
+        handler: (ctx: IContext, next?: Function, options?: any) => any;
     };
     method?: {
         type: RequestMethod | RequestMethod[];
-        handler: (ctx: IContext, next: Function) => any;
+        handler: (ctx: IContext, next?: Function, options?: any) => any;
     };
     results?: { [key: string]: any };
     context?: { [key: string]: any };
@@ -123,8 +123,8 @@ export default <TPlugin>{
         fileName: 'a.png'
     },
     use: { // 全局加载
-        async handler(ctx: IContext, next: Function) {
-            console.log(ctx.test, ctx.req.fileName);    // >> 123 a.png
+        async handler(ctx: IContext, next: Function, options: any) {
+            console.log(ctx.test, ctx.req.fileName, options);    // >> 123 a.png {}
             console.log('use before');
             await next();
             console.log('use after');
