@@ -42,15 +42,14 @@ export default class Test extends BaseController {
 
 >可以装饰 class，作为跟路由，只装饰 class 不生效，必须和 method 装饰配合使用。装饰 class 只有能有一个 string 参数
 >可以装饰 method，没有根路由的时候直接作为路由使用，有根路由的时候和根路由组合使用
->@param args 路由参数
->eg:
+>export declare function Path(...args: [...string[]] | [TPathObjArgs]): Function;
+>args 路由参数 eg:
 >Path('/p1')
 >Path('/p1', 'p2')
 >Path({ value: '/p1' })
 >Path({ value: '/p1', method: RequestType.GET })
 >Path({ value: ['/p1', '/p2'], method: RequestType.GET })
 >Path({ value: ['/p1', '/p2'], method: [RequestType.GET, RequestType.POST] })
-
 
 ### 修饰class
 

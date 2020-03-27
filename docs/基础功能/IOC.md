@@ -28,33 +28,30 @@ Ursa提供了`@Resource修饰器`和`@Inject修饰器`来实现`IOC容器`和`�
 
 @Resource修饰器可以修饰`${URSA_ROOT}中的任意class`，被@Resource修饰的class，将会在IOC容器中加入一个该`class的实例`
 
+> Resource 装饰器还可以传入参数作为 class 的实例化参数。
+> export declare function Resource(...props: any[]): Function;
+```js
+@Resource('user')
+class Test {
+    constructor(readonly tablename) {
+    }
+}
+```
+
 @Inject修饰器可以将`被@Resource修饰过`的class的`实例`注入到指定变量中
 
 例如，我们在`${URSA_ROOT}/model`中创建一个`user.model.ts`，并使用@Resource将该类实例化后加入到资源容器中
 
 ```javascript
 import { Resource } from '@ursajs/core';
-import { BaseModel } from '@ursajs/plugin-model';
-import { DataTypes } from 'sequelize';
 
 // ===> @Resource修饰器
 @Resource()
-export default class UserModel extends BaseModel {
-    static tableName = 'user';
-    static setting={
-        freezeTableName: true,
-        tableName: UserModel.tableName,
-        timestamps: false,
-    };
-    static fields = {
-        id:{
-            type:DataTypes.STRING,
-            autoIncrement: true,
-            primaryKey: true,
-        },
-        name: DataTypes.STRING,
-        sex: DataTypes.STRING
-    };
+export default class UserModel {
+    findAll() {
+        // ...
+        return [];
+    }
 }
 ```
 
