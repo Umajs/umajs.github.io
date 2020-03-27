@@ -4,27 +4,27 @@
 
 ### @Resource、@Inject修饰器
 
-[IOC 参考文档](./IOC.html#resource、-inject修饰器)
+[IOC 参考文档](./IOC.md#resource、-inject修饰器)
 
 ### @Service修饰器
 
-[Service 参考文档](./IOC.html#service修饰器)
+[Service 参考文档](./IOC.md#service修饰器)
 
 ### @Aspect修饰器
 
-[Acpect 参考文档](./AOP.html#aspect修饰器)
+[Acpect 参考文档](./AOP.md#aspect修饰器)
 
 ### @Path
 
-[Router 参考文档](./Router.html#path修饰器)
+[Router 参考文档](./Router.md#path修饰器)
 
 ### @Private修饰器
 
-[Router 参考文档](./Router.html##private修饰器)
+[Router 参考文档](./Router.md##private修饰器)
 
 ### @Param、@Query修饰器
 
-[Router 参考文档](./Router.html##param、-query修饰器)
+[Router 参考文档](./Router.md##param、-query修饰器)
 
 ### 自定义参数装饰器 createArgDecorator
 ```js

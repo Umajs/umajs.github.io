@@ -114,5 +114,5 @@ export default class Demp extends BaseService {
 
 ### 在非 Controller 中使用 Service 时，必须传入 ctx 进行实例化才能使用。
 
-[Service 参考文档](./Service.html)
+[Service 参考文档](./Service.md)
 

@@ -131,20 +131,20 @@ export default <TPlugin>{
         }
     },
     filter: { // 局部加载 仅对/page/路由生效
-      regexp: new RegExp(/page/),
-      async handler(ctx: IContext, next: Function) {
-        console.log('page get before');
-        await next();
-        console.log('page get after');
-      }
+        regexp: new RegExp(/page/),
+        async handler(ctx: IContext, next: Function) {
+            console.log('page get before');
+            await next();
+            console.log('page get after');
+        }
     },
     ignore: { // 局部加载 忽略路由/Page/
-      regexp: new RegExp(/page/),
-      async handler(ctx: IContext, next: Function) {
-        console.log('page ignore before');
-        await next();
-        console.log('page ignore after');
-      }
+        regexp: new RegExp(/page/),
+        async handler(ctx: IContext, next: Function) {
+            console.log('page ignore before');
+            await next();
+            console.log('page ignore after');
+        }
     },
     method: { // 局部加载 仅对method=GET 生效
         type: 'GET',

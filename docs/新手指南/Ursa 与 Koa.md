@@ -25,8 +25,8 @@ Express一体式的架构设计能够让开发者快速的搭建一个node serve
 Express对于异步函数的处理可以说是相当不友好，当你想创建一个使用promise的控制器或中间件函数时，你必须使用`.then`。当然我们并不想这么做。  
 
 Koa对于异步函数的支持是一个重要的变化之一。  
-在koa 1.x中，使用 `co` + `generator` 作为异步处理的主要方式。  
-随着ES7官方异步方案 `async/await` 的发布以及Node v7.6.0对其的支持，koa 2.x中间件异步方案已经完全替换为async/await的调用机制。
+在 koa 1.x中，使用 `co` + `generator` 作为异步处理的主要方式。  
+随着 ES7 官方异步方案 `async/await` 的发布以及 Node.js v7.6.0对其的支持，koa 2.x中间件异步方案已经完全替换为async/await的调用机制。
 
 - **模型**  
 

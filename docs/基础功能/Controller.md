@@ -82,7 +82,7 @@ export default class Index extends  BaseController {
 
 ### 统一返回 Result
 
-在 controller 中可以 `return Result[...](...)`，也可以 `return this[...](...)`，更多介绍见[Result](./Result.html)。
+在 controller 中可以 `return Result[...](...)`，也可以 `return this[...](...)`，更多介绍见[Result](./Result.md)。
 
 #### `this.send(val, status)`
 
