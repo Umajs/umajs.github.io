@@ -176,3 +176,8 @@ export default class Index extends  BaseController {
     }
 }
 ```
+
+> 注意1：around 方式可以修改被修饰方法的入参和出参，因此在部分场景返回值需要特别注意，例如在修饰 controller 方法时，未返回或者返回值类型不是 Result 时可能会提示出错。
+>
+> 注意2：afterThrowing 会捕获并拦截错误，如果不将错误抛出，上层将不会捕获错误。
+

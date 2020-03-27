@@ -77,7 +77,9 @@ export default class Method implements IAspect {
 
         const demoService: DemoService = new DemoService(target.ctx);
 
-        return await proceed(...args);
+        const result = await proceed(...args);
+
+        return result;
     }
 }
 ```

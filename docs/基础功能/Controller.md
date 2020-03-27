@@ -82,33 +82,33 @@ export default class Index extends  BaseController {
 
 ### 统一返回 Result
 
-在 controller 中可以 `return Result[...](...)`，也可以 `return this[...](...)`，见控制器示例。
+在 controller 中可以 `return Result[...](...)`，也可以 `return this[...](...)`，更多介绍见[Result](./Result.html)。
 
-#### `Result.send(val, status)`
+#### `this.send(val, status)`
 
 用于快捷返回文本内容，第二个参数为返回状态码。
 
-#### `Result.json(data)`
+#### `this.json(data)`
 
 返回json数据，并将`content-type`设置为`application/json`。
 
-#### `Result.jsonp(data, callback)`
+#### `this.jsonp(data, callback)`
 
 以jsonp的形式返回数据。
 
-#### `Result.view(templatePath, data)`
+#### `this.view(templatePath, data)`
 
 通过渲染模板的方式将数据返回。
 
-#### `Result.stream(data, fileName)`
+#### `this.stream(data, fileName)`
 
 将文件以流（stream）的方式返回
 
-#### `Result.download(filePath, opts)`
+#### `this.download(filePath, opts)`
 
 下载文件
 
-#### `Result.done()`
+#### `this.done()`
 
 使用 ctx 进行完了操作，不需要使用 Result 进行其它的返回时使用此方法，常用于框架的迁移。
 

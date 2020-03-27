@@ -105,6 +105,8 @@ export default class Test extends BaseController {
 ```
 在浏览器地址栏通过访问`127.0.0.1:端口号/home`会展示 NOT FOUND，这是因为限制了只能采用 POST 访问。
 
+> 注意：框架内置了 POST 请求处理 `koa-body`，如果需要开启，实例化 `Ursa` 时需要传入 `bodyParse` 参数，并且安装 `koa-body` 依赖
+
 ### 指定多个路径
 
 同一个方法上允许设置多个Path路径。
