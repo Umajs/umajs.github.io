@@ -1,4 +1,4 @@
-# Service
+# 服务（Service）
 
 ## 使用
 ### cli工具在初始化会自动生成service目录，可直接在service目录中编写service

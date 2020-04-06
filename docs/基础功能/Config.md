@@ -1,4 +1,4 @@
-# Config
+# 配置（Config）
 
 ## config loader
 

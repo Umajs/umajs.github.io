@@ -1,4 +1,4 @@
-# Controller
+# 控制器（Controller）
 
 ## 什么是控制器
 

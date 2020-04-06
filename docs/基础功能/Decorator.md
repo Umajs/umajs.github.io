@@ -1,4 +1,4 @@
-# Decorator
+# 修饰器（Decorator）
 
 框架大量功能都是以 Decorator（修饰器）的方式使用。
 

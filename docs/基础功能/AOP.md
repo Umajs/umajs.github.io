@@ -1,4 +1,4 @@
-# AOP
+# 面向切面（AOP）
 
 AOP(Aspect Oriented Programming)面向切面编程是与OOP(Object Oriented Programming)面向对象编程并列的编程思想。相对于IOC(依赖注入)而言，AOP是一种可以在不修改源代码的情况下给程序动态添加功能的一种方式。
 
