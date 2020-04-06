@@ -55,7 +55,7 @@ export default class Index extends BaseController {
 import { UrsaLogger } from '@ursajs/logger';
 import * as path from 'path';
 
-const logger = new UrsaLogger({
+const logger = UrsaLogger.init({
     level: 'ALL',
     consoleLevel: 'ALL',
     encoding: 'utf-8',
