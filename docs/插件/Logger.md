@@ -49,22 +49,32 @@ export default class Index extends BaseController {
 ```
 
 ## 使用UrsaLogger
-`UrsaLogger`可单独使用，使用方式如下：
+`UrsaLogger`暴露实例化后的日志对象便于使用。
+
+引入后需要进行一次初始化`UrsaLogger.init`。 之后在service等其他文件中只需通过`import { UrsaLogger } from '@ursajs/logger';`引入后即可使用。
+
+具体使用方式如下：
 
 ```js
+//app/src/controller/index.controller.ts
 import { UrsaLogger } from '@ursajs/logger';
 import * as path from 'path';
 
-const logger = UrsaLogger.init({
+UrsaLogger.init({
     level: 'ALL',
     consoleLevel: 'ALL',
     encoding: 'utf-8',
     file: path.resolve(__dirname, '../log/logger.log')
 });
-logger.debug('debug');
-logger.info('info GET');
-logger.warn('warn');
-logger.error('error');
+UrsaLogger.debug('debug');
+UrsaLogger.info('info GET');
+UrsaLogger.warn('warn');
+UrsaLogger.error('error');
+
+//app/src/service/test.service.ts
+import { UrsaLogger } from '@ursajs/logger';
+UrsaLogger.warn('warn');
+UrsaLogger.error('error');
 ```
 
 ## 日志配置
