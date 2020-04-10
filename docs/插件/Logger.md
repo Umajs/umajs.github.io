@@ -10,7 +10,7 @@
 - 自动切割日志
 
 ## 使用`plugin-logger`
-`plugin-logger`插件将logger实例绑定在ctx上，因此可在项目中使用`this.ctx.logger`使用
+
 - 安装插件 `npm install -S @ursajs/plugin-logger`
 - 插件配置：
 
@@ -31,10 +31,12 @@ export default function (app) {
 }
 ```
 
-- logger打印
+- 在Controller中使用logger
+
+`plugin-logger`插件将logger实例绑定在ctx上，因此可在项目中使用`this.ctx.logger`使用；
 
 ```js
-//使用 app/src/controller/index.controller.ts
+// app/src/controller/index.controller.ts
 export default class Index extends BaseController {
     @Path('/index')
     @RequestMethod('GET')
@@ -43,38 +45,86 @@ export default class Index extends BaseController {
         this.ctx.logger.debug('debug');
         this.ctx.logger.warn('warn');
         this.ctx.logger.error('error');
-        reurn this.send('这里是首页');
+        return this.send('这里是首页');
     }
 }
 ```
 
+- 在Service中使用logger 【 v0.0.5 版本后支持】
+
+`plugin-logger`绑定到ctx上的logger实例可通过`UrsaLogger.instance()`获取
+
+```javascript
+// app/src/service/test.service.ts
+import { BaseService } from '@ursajs/core';
+import { UrsaLogger } from '@ursajs/logger';
+
+export default class test extends BaseService {
+    return1() {
+        UrsaLogger.instance().info('service test')
+        return 1;
+    }
+}
+// [INFO 51449] 2020-04-10 18:42:21,179 bogon [::1/GET /]: service test
+```
+
 ## 使用UrsaLogger
-`UrsaLogger`暴露实例化后的日志对象便于使用。
+`UrsaLogger`可单独使用，具体提供如下几种使用方式：
 
-引入后需要进行一次初始化`UrsaLogger.init`。 之后在service等其他文件中只需通过`import { UrsaLogger } from '@ursajs/logger';`引入后即可使用。
-
-具体使用方式如下：
+1. 通过 `new UrsaLogger()` 独立创建日志实例
 
 ```js
-//app/src/controller/index.controller.ts
+// app/src/controller/index.controller.ts
 import { UrsaLogger } from '@ursajs/logger';
 import * as path from 'path';
 
-UrsaLogger.init({
+const logger = new UrsaLogger({
     level: 'ALL',
     consoleLevel: 'ALL',
     encoding: 'utf-8',
     file: path.resolve(__dirname, '../log/logger.log')
 });
-UrsaLogger.debug('debug');
-UrsaLogger.info('info GET');
-UrsaLogger.warn('warn');
-UrsaLogger.error('error');
+logger.debug('debug');
+logger.info('info GET');
+logger.warn('warn');
+logger.error('error');
+```
 
-//app/src/service/test.service.ts
+2. 直接使用 `@ursajs/logger` 模块默认导出的实例 【 v0.0.5 版本后支持】
+
+```js
+const logger = require('@ursajs/logger');
+logger.init({
+    level: 'ALL',
+    consoleLevel: 'ALL',
+    encoding: 'utf-8',
+    file: path.resolve(__dirname, '../log/logger.log')
+});
+logger.debug('debug');
+logger.info('info GET');
+logger.warn('warn');
+logger.error('error');
+```
+
+3. 通过单例模式使用 logger 【 v0.0.5 版本后支持】
+
+只需传入一次参数，其他地方可直接使用 `UrsaLogger.instance()` 获取实例化后日志对象
+
+```js
+// app/src/controller/index.controller.ts
 import { UrsaLogger } from '@ursajs/logger';
-UrsaLogger.warn('warn');
-UrsaLogger.error('error');
+import * as path from 'path';
+
+const logger = UrsaLogger.instance({
+    level: 'ALL',
+    consoleLevel: 'ALL',
+    encoding: 'utf-8',
+    file: path.resolve(__dirname, '../log/logger.log')
+});
+logger.debug('debug');
+logger.info('info GET');
+logger.warn('warn');
+logger.error('error');
 ```
 
 ## 日志配置
