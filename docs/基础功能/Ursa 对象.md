@@ -103,6 +103,27 @@ const ursa = Ursa.instance({
 
 ### 静态方法
 
+#### instance
+获取/实例化 Ursa，实例化必须传参，获取实例化后的 Ursa 不用传参
+```js
+    static instance(options?: TUrsaOption): Ursa;
+```
+
+#### 获取运行环境
+```js
+    static get env(): string;
+```
+
+获取 app
+```js
+    static get app(): Koa<Koa.DefaultState, IContext>;
+```
+
+获取 server
+```js
+    static get server(): http.Server | https.Server;
+```
+
 #### options
 获取运行 Ursa 的参数
 ```js
@@ -115,20 +136,31 @@ const ursa = Ursa.instance({
     static get config(): TConfig;
 ```
 
+#### 获取插件配置
+```js
+    static get pluginConfig(): {
+        [pluginName: string]: boolean | import("../types/TPluginConfig").TPluginConfig;
+    };
+```
+
+### 获取生效的plugin key
+```js
+    static get pluginKeys(): any[];
+```
+
+#### 或者某个插件的参数
+```js
+    static pluginOptions(pluginName: string): object;
+```
+
 #### context
 获取 context，可以对 context 进行扩展等。实例化之后就是我们使用的 ctx
 ```js
     static get context(): Koa.BaseContext & IContext;
 ```
 
-#### instance
-获取/实例化 Ursa，实例化必须传参，获取实例化后的 Ursa 不用传参
-```js
-    static instance(options?: TUrsaOption): Ursa;
-```
-
 #### controllersInfo
 获取实例化之后的controller 信息，包括 controller、route 等
 ```js
-    static get controllersInfo(): IterableIterator<TControllerInfo>;
+    static get controllersInfo(): IterableIterator<import("..").TControllerInfo>;
 ```
