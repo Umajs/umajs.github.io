@@ -58,6 +58,12 @@ export default {
 ## 插件开发
 任何 Koa 的中间件都可以直接被框架使用。在实际使用场景中，中间件有全局加载（模版渲染中间件）和局部加载（要忽略的路由规则）的需求。针对这种情况，插件形式的中间件有下面两种形式。
 
+### 初始化插件
+通过 ```ursa``` 命令可以快速的给工程添加插件或者可发布的插件工程
+```shell
+> ursa plugin init [pluginName]
+```
+
 ### 纯中间件形式
 比如我们想使用模版渲染中间件 koa-views，就可以通过插件形式，示例如下：
 
@@ -115,45 +121,47 @@ import { Ursa, IContext, TPlugin } from "@ursajs/core";
 // 获取插件对应的配置
 const options = Ursa.pluginOptions('demo');
 
-export default <TPlugin>{
-    context: {
-        test: 123,
+export default (ursa: Ursa, options: any = {}): TPlugin => {
+    return {
+        context: {
+            test: 123,          // 给 ctx 加上 test
+        },
+        request: {
+            fileName: 'a.png'   // 给 request 加上 fileName
+        },
+        use: { // 全局加载
+            async handler(ctx: IContext, next: Function, options: any) {
+                console.log(ctx.test, ctx.req.fileName, options);    // >> 123 a.png {}
+                console.log('use before');
+                await next();
+                console.log('use after');
+            },
+        },
+        filter: { // 局部加载 仅对/page/路由生效
+            regexp: new RegExp(/page/),
+            async handler(ctx: IContext, next: Function) {
+                console.log('page get before');
+                await next();
+                console.log('page get after');
+            },
+        },
+        ignore: { // 局部加载 忽略路由/Page/
+            regexp: new RegExp(/page/),
+            async handler(ctx: IContext, next: Function) {
+                console.log('page ignore before');
+                await next();
+                console.log('page ignore after');
+            },
+        },
+        method: { // 局部加载 仅对method=GET 生效
+            type: 'GET',
+            async handler(ctx: IContext, next: Function) {
+                console.log('method get before');
+                await next();
+                console.log('method get after');
+            },
+        },
     },
-    request: {
-        fileName: 'a.png'
-    },
-    use: { // 全局加载
-        async handler(ctx: IContext, next: Function, options: any) {
-            console.log(ctx.test, ctx.req.fileName, options);    // >> 123 a.png {}
-            console.log('use before');
-            await next();
-            console.log('use after');
-        }
-    },
-    filter: { // 局部加载 仅对/page/路由生效
-        regexp: new RegExp(/page/),
-        async handler(ctx: IContext, next: Function) {
-            console.log('page get before');
-            await next();
-            console.log('page get after');
-        }
-    },
-    ignore: { // 局部加载 忽略路由/Page/
-        regexp: new RegExp(/page/),
-        async handler(ctx: IContext, next: Function) {
-            console.log('page ignore before');
-            await next();
-            console.log('page ignore after');
-        }
-    },
-    method: { // 局部加载 仅对method=GET 生效
-        type: 'GET',
-        async handler(ctx: IContext, next: Function) {
-            console.log('method get before');
-            await next();
-            console.log('method get after');
-        }
-    }
 };
 ```
 
