@@ -113,7 +113,7 @@ export type TPlugin = {
 import { Ursa, IContext, TPlugin } from "@ursajs/core";
 
 // 获取插件对应的配置
-const { options } = Ursa.config.plugin.demo;
+const options = Ursa.pluginOptions('demo');
 
 export default <TPlugin>{
     context: {
