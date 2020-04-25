@@ -45,12 +45,14 @@ export default {
 
 ```javascript
 // status.config.ts
+import { IContext } from "@ursajs/core";
+
 export default {
-    _404(ctx) {
+    _404(ctx: IContext) {
         return ctx.render('404.html');
     }
     // ===> 未被捕获错误
-    _error(e: Error, ctx) {
+    _error(e: Error, ctx: IContext) {
         // ...
     }
 }
