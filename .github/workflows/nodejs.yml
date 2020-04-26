@@ -1,0 +1,51 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Node.js CI
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "docs/**/*"
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [ 12.x ]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: mkdir -p ~/.ssh/
+    - run: echo "${{ secrets.BUILD_KEY }}" > ~/.ssh/id_rsa
+    - run: chmod 600 ~/.ssh/id_rsa
+    - run: ssh-keyscan github.com > ~/.ssh/known_hosts
+    - run: chmod 700 ~/.ssh && chmod 600 ~/.ssh/*
+    - run: git config --global user.email "199950720@qq.com"
+    - run: git config --global user.name "yywang95"
+    - run: npm init -f
+    - run: npm i vuepress -D
+    - run: touch ./docs/README.md
+    - run: ./node_modules/vuepress/cli.js build docs
+    - run: rm -r -f assets
+    - run: cp -r -f ./ursa/* ./
+    - run: rm -r -f node_modules
+    - run: rm -r -f ursa
+    - run: rm -r -f package.json
+    - run: rm -r -f package-lock.json
+    - run: rm -r -f ./docs/README.md
+    - run: echo "<script>window.location.replace('/新手指南/框架介绍.html')</script>" >> ./index.html
+    - run: git add ./
+    - run: git commit -m "deploy"
+    - run: git push origin master
+      env:
+        CI: true
