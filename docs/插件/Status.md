@@ -1,4 +1,4 @@
-# Status
+# 状态（Status）
 
 为了方便用户对response`不同状态码`情况和`错误`进行处理，`Ursa`提供了状态处理插件plugin-status
 
@@ -10,7 +10,7 @@ $ npm install -S @ursajs/plugin-status
 
 ## 开启
 
-在plugin.config.ts中开启plugin-status插件
+在 plugin.config.ts 中开启 plugin-status 插件
 
 ```javascript
 // plugin.config.ts
@@ -25,7 +25,7 @@ export default {
 
 plugin-status插件通过`对不同状态码设置处理函数`的方式来实现统一处理，函数名需要按照`_状态码`的格式来命令
 
-例如，在`${URSA_ROOT}/config/${URSA_ENV}`目录下创建`status.config.ts`
+例如，在`${URSA_ROOT}/config/${URSA_ENV}`目录下创建`status.config.ts`（也可以在 plugin.config.ts 的 status.options 配置）
 
 ```javascript
 // status.config.ts

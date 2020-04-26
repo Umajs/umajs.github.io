@@ -1,4 +1,4 @@
-# Logger
+# 日志（Logger）
 
 ## 日志
 日志对于Web项目的运行状态、问题排查等都非常重要。框架的`@ursajs/logger`模块提供日志支持。并且提供`@ursajs/plugin-logger`模块，以插件的机制将logger实例绑定在ctx上，方便用户使用。
