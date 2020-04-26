@@ -34,6 +34,7 @@ jobs:
     - run: git config --global user.name "yywang95"
     - run: npm init -f
     - run: npm i vuepress -D
+    - run: touch ./docs/README.md
     - run: ./node_modules/vuepress/cli.js build docs
     - run: rm -r -f assets
     - run: cp -r -f ./ursa/* ./
@@ -41,6 +42,7 @@ jobs:
     - run: rm -r -f ursa
     - run: rm -r -f package.json
     - run: rm -r -f package-lock.json
+    - run: echo "<script>window.location.replace('/新手指南/框架介绍.html')</script>" >> ./index.html
     - run: git add ./
     - run: git commit -m "deploy"
     - run: git push origin master
