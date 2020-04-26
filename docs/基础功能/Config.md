@@ -24,15 +24,18 @@ const ursa = Ursa.instance({
 });
 ```
 
-### 配置写法
+### cli 初始化配置
+通过 ```ursa``` 命令可以快速的给工程添加插件或者可发布的插件工程
+```shell
+$ ursa config init [configName]
+```
 
-`xx.config.ts`需export一个default值，配置将以文件名为key，default值为value存在实例上，可以通过实例的config属性来获取到所有config值
+### 配置获取
+
+`xx.config.ts`需 export 一个 default 值，配置将以文件名为 key，default 值为 value 存在实例上，可以通过```Ursa```的 config 属性来获取到所有 config 值
 
 ``` javascript
-const ursa = Ursa.instance({
-    Router,
-    ROOT: __dirname,
-});
-
-ursa.config // 配置数据
+Ursa.config         // 获取 config 所有数据
+Ursa.config.status  // 获取 status 配置
 ```
+

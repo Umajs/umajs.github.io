@@ -61,7 +61,7 @@ export default {
 ### 初始化插件
 通过 ```ursa``` 命令可以快速的给工程添加插件或者可发布的插件工程
 ```shell
-> ursa plugin init [pluginName]
+$ ursa plugin init [pluginName]
 ```
 
 ### 纯中间件形式
