@@ -19,6 +19,8 @@
 
 插件的配置在config目录下的`plugin.config.ts`文件中，插件顺序按照 `config/plugin.config.ts` 配置的顺序进行加载。
 
+> 注意：插件的顺序会影响到插件调用其它插件的功能。
+
 #### 插件配置说明
 ```javascript
 export type TPluginConfig = {
