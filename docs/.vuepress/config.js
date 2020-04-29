@@ -48,6 +48,7 @@ module.exports = {
                 collapsable: false,
                 children: [
                     '插件/Status',
+                    '插件/Static',
                     '插件/i18n',
                     '插件/Logger',
                     '插件/Session',
