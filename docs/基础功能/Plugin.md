@@ -78,6 +78,7 @@ import * as views from 'koa-views';
 
 import { Ursa } from '@ursajs/core';
 
+// options 是插件的配置及 [pluginName].config.ts 的配置结合配置
 export default (ursa: Ursa, options: any = {}): Koa.Middleware => {
     // ursa 实例化对象；options 插件配置的 options，等同于 ursa.plugin['error-handler'].options
     return views(options.root, options.opts);
