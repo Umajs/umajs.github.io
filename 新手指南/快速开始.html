@@ -7,7 +7,7 @@
     <meta name="generator" content="VuePress 1.4.1">
     
     <meta name="description" content="">
-    <link rel="preload" href="/assets/css/0.styles.b1879ce6.css" as="style"><link rel="preload" href="/assets/js/app.2883b91a.js" as="script"><link rel="preload" href="/assets/js/2.08389f58.js" as="script"><link rel="preload" href="/assets/js/25.c7607649.js" as="script"><link rel="prefetch" href="/assets/js/10.9bda21d2.js"><link rel="prefetch" href="/assets/js/11.e57cde50.js"><link rel="prefetch" href="/assets/js/12.9cdf1ceb.js"><link rel="prefetch" href="/assets/js/13.0d43e0b0.js"><link rel="prefetch" href="/assets/js/14.f2eee62f.js"><link rel="prefetch" href="/assets/js/15.fd972a7f.js"><link rel="prefetch" href="/assets/js/16.e6aee225.js"><link rel="prefetch" href="/assets/js/17.8f99ca05.js"><link rel="prefetch" href="/assets/js/18.412cac22.js"><link rel="prefetch" href="/assets/js/19.c469dc4f.js"><link rel="prefetch" href="/assets/js/20.e3ab5bc1.js"><link rel="prefetch" href="/assets/js/21.eaa23f67.js"><link rel="prefetch" href="/assets/js/22.20f9db01.js"><link rel="prefetch" href="/assets/js/23.7f8f503a.js"><link rel="prefetch" href="/assets/js/24.b7796272.js"><link rel="prefetch" href="/assets/js/26.eaa4ce72.js"><link rel="prefetch" href="/assets/js/3.c9842bc0.js"><link rel="prefetch" href="/assets/js/4.16e921c4.js"><link rel="prefetch" href="/assets/js/5.3e3f43dd.js"><link rel="prefetch" href="/assets/js/6.d78f6ba5.js"><link rel="prefetch" href="/assets/js/7.1e6c1916.js"><link rel="prefetch" href="/assets/js/8.c82812c5.js"><link rel="prefetch" href="/assets/js/9.9cb0ab01.js">
+    <link rel="preload" href="/assets/css/0.styles.b1879ce6.css" as="style"><link rel="preload" href="/assets/js/app.cb133acc.js" as="script"><link rel="preload" href="/assets/js/2.08389f58.js" as="script"><link rel="preload" href="/assets/js/25.e5811fbe.js" as="script"><link rel="prefetch" href="/assets/js/10.9bda21d2.js"><link rel="prefetch" href="/assets/js/11.e57cde50.js"><link rel="prefetch" href="/assets/js/12.1285a2d5.js"><link rel="prefetch" href="/assets/js/13.9ea4ba47.js"><link rel="prefetch" href="/assets/js/14.65860f35.js"><link rel="prefetch" href="/assets/js/15.fd972a7f.js"><link rel="prefetch" href="/assets/js/16.e6aee225.js"><link rel="prefetch" href="/assets/js/17.8f99ca05.js"><link rel="prefetch" href="/assets/js/18.412cac22.js"><link rel="prefetch" href="/assets/js/19.c469dc4f.js"><link rel="prefetch" href="/assets/js/20.e3ab5bc1.js"><link rel="prefetch" href="/assets/js/21.eaa23f67.js"><link rel="prefetch" href="/assets/js/22.bb1da78c.js"><link rel="prefetch" href="/assets/js/23.785fd794.js"><link rel="prefetch" href="/assets/js/24.f75f1f80.js"><link rel="prefetch" href="/assets/js/26.eaa4ce72.js"><link rel="prefetch" href="/assets/js/3.fc6d762f.js"><link rel="prefetch" href="/assets/js/4.16e921c4.js"><link rel="prefetch" href="/assets/js/5.3e3f43dd.js"><link rel="prefetch" href="/assets/js/6.d78f6ba5.js"><link rel="prefetch" href="/assets/js/7.1e6c1916.js"><link rel="prefetch" href="/assets/js/8.c82812c5.js"><link rel="prefetch" href="/assets/js/9.82901e8b.js">
     <link rel="stylesheet" href="/assets/css/0.styles.b1879ce6.css">
   </head>
   <body>
@@ -31,29 +31,28 @@ $ ursajs
 $ <span class="token function">npm</span> <span class="token function">install</span>
 $ <span class="token function">npm</span> start
 $ http://127.0.0.1:8058
-</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h4 id="项目结构"><a href="#项目结构" class="header-anchor">#</a> 项目结构</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token operator">|</span>--- package.json
-<span class="token operator">|</span>--- README.md
-<span class="token operator">|</span>--- .eslintrc.js
-<span class="token operator">|</span>--- tsconfig.json // ts配置文件
-<span class="token operator">|</span>--- src
-<span class="token operator">|</span> <span class="token operator">|</span>--- app.ts  // 入口
-<span class="token operator">|</span> <span class="token operator">|</span>--- aspect // 切面
-<span class="token operator">|</span> <span class="token operator">|</span> <span class="token operator">|</span>--- index.aspect.ts
-<span class="token operator">|</span> <span class="token operator">|</span>--- config  // 配置文件目录
-<span class="token operator">|</span> <span class="token operator">|</span> <span class="token operator">|</span>--- plugin.config.ts
-<span class="token operator">|</span> <span class="token operator">|</span>--- controller  // 控制器目录 
-<span class="token operator">|</span> <span class="token operator">|</span> <span class="token operator">|</span>--- index.controller.ts
-<span class="token operator">|</span> <span class="token operator">|</span>--- decorator  // 控制器目录 
-<span class="token operator">|</span> <span class="token operator">|</span> <span class="token operator">|</span>--- index.controller.ts
-<span class="token operator">|</span> <span class="token operator">|</span>--- plugins //插件
-<span class="token operator">|</span> <span class="token operator">|</span> <span class="token operator">|</span>--- error-handler
-<span class="token operator">|</span> <span class="token operator">|</span>--- <span class="token function">service</span> //服务
-<span class="token operator">|</span> <span class="token operator">|</span> <span class="token operator">|</span>--- test.service.ts
-<span class="token operator">|</span>--- static  //静态目录
-<span class="token operator">|</span> <span class="token operator">|</span>--- index_index.html
-<span class="token operator">|</span>--- views  //模板目录
-<span class="token operator">|</span> <span class="token operator">|</span>--- index.html
-</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><h2 id="服务部署"><a href="#服务部署" class="header-anchor">#</a> 服务部署</h2> <h3 id="生产环境构建"><a href="#生产环境构建" class="header-anchor">#</a> 生产环境构建</h3> <blockquote><p>生产环境部署时，将会把typescript编译成js后运行。默认构建后js源码目录是app</p></blockquote> <h3 id="构建并启动命令"><a href="#构建并启动命令" class="header-anchor">#</a> 构建并启动命令</h3> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code>$ <span class="token function">npm</span> run prod   // 会自动先执行lint校验和build命令，然后才启动生产环境代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h4 id="项目结构"><a href="#项目结构" class="header-anchor">#</a> 项目结构</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>├── src
+<span class="token operator">|</span>   ├── app.ts  // 入口
+├── aspect      // 切面
+<span class="token operator">|</span>   ├── index.aspect.ts
+├── config      // 配置文件目录
+<span class="token operator">|</span>   ├──plugin.config.ts
+├── controller  // 控制器目录 
+<span class="token operator">|</span>   ├──index.controller.ts
+├── plugins     //插件
+<span class="token operator">|</span>   ├── error-handler
+<span class="token operator">|</span>   <span class="token operator">|</span>   ├── index.ts
+├── <span class="token function">service</span>     //服务
+<span class="token operator">|</span>   ├── test.service.ts
+├── static      //静态目录
+<span class="token operator">|</span>   ├── index.html
+├── views       //模板目录
+<span class="token operator">|</span>   ├── index.html
+├── .eslintrc.js
+├── README.md
+├── package.json
+├── tsconfig.json   // ts配置文件
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><h2 id="服务部署"><a href="#服务部署" class="header-anchor">#</a> 服务部署</h2> <h3 id="生产环境构建"><a href="#生产环境构建" class="header-anchor">#</a> 生产环境构建</h3> <blockquote><p>生产环境部署时，将会把typescript编译成js后运行。默认构建后js源码目录是app</p></blockquote> <h3 id="构建并启动命令"><a href="#构建并启动命令" class="header-anchor">#</a> 构建并启动命令</h3> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code>$ <span class="token function">npm</span> run prod   // 会自动先执行lint校验和build命令，然后才启动生产环境代码
 </code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h3 id="如何区分多环境配置"><a href="#如何区分多环境配置" class="header-anchor">#</a> 如何区分多环境配置</h3> <blockquote><p>参考 <a href="/基础功能/Config.html">config</a></p></blockquote> <h2 id="文档和社区"><a href="#文档和社区" class="header-anchor">#</a> 文档和社区</h2> <ul><li><a href="https://github.com/Ursajs" target="_blank" rel="noopener noreferrer">官方站点 &amp;&amp; 文档<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
       ←
       <a href="/新手指南/Ursa 与 Koa.html" class="prev">
@@ -63,6 +62,6 @@ $ http://127.0.0.1:8058
       </a>
       →
     </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.2883b91a.js" defer></script><script src="/assets/js/2.08389f58.js" defer></script><script src="/assets/js/25.c7607649.js" defer></script>
+    <script src="/assets/js/app.cb133acc.js" defer></script><script src="/assets/js/2.08389f58.js" defer></script><script src="/assets/js/25.e5811fbe.js" defer></script>
   </body>
 </html>
