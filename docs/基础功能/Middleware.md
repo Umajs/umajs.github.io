@@ -4,6 +4,27 @@ Ursa 基于 Koa2，兼容 middleware。在已有中间件的基础上提供两�
 ## 插件形式
 [Plugin 参考文档](./Plugin.md#插件开发)
 
+### 插件快速使用已有中间件
+为了方便插件使用已发布的插件，插件配置（plugin.config.ts）可以配置中间件便捷使用，配置如下
+```js
+[middlewareName: string]: {
+    type: 'middleware',
+    handler: Koa.Middleware,
+}
+```
+```js
+// 基于 koa-views 配置模板中间件
+import * as views from 'koa-views';
+
+export default {
+    view: {
+        type: 'middleware',
+        handler: views('./views', {
+            map: { html: 'nunjucks' },
+        })
+    }
+}
+```
 
 ## AOP 装饰器形式
 中间件和 Aspect.around 方式很相似，都是包裹异步方法。中间件是 next，around 是 proceed，但是他们有一些区别：
