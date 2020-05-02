@@ -2,10 +2,13 @@
 Ursa 基于 Koa2，兼容 middleware。在已有中间件的基础上提供两种使用形式：插件形式、AOP 形式。
 
 ## 插件形式
+
+### 使用
+`Ursa` 的插件就是主要 `Koa` 的中间件，请尽量用插件形式来使用中间件。
 [Plugin 参考文档](./Plugin.md#插件开发)
 
-### 插件快速使用已有中间件
-为了方便插件使用已发布的插件，插件配置（plugin.config.ts）可以配置中间件便捷使用，配置如下
+### 其它
+为了方便插件使用已发布的中间件，插件配置（plugin.config.ts）可以配置中间件便捷使用，配置如下
 ```js
 // types
 [middlewareName: string]: {
