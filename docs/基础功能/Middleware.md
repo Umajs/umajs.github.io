@@ -31,6 +31,8 @@ export default {
 }
 ```
 
+> 请不要在插件配置（ plugin.config.ts ）中进行中间件的开发，让插件的配置更加纯粹。如需要请使用插件开发。[Plugin 参考文档](./Plugin.md#插件开发)
+>
 > 如果要动态的加载中间件，请使用复合插件形式。[Plugin 参考文档](./Plugin.md#复合插件形式)
 
 ## AOP 装饰器形式

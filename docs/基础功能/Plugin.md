@@ -29,9 +29,10 @@ export type TPluginConfig = {
     enable?: boolean        // 是否开启插件，默认值false
     name?: string           // 插件名，可选
     packageName?: string    // npm包名，可选，如不填写时，默认值为`@ursajs/plugin-$
-    options?: object        // 框架会将此配置用参数形式传给纯中间件形式的插件
+    options?: object        // 框架会将此配置用参数形式传给插件
 }
 ```
+> 当 [pluginName].config.ts 存在时， 会和配置混合后传给插件
 
 #### 插件配置实例
 ``` javascript

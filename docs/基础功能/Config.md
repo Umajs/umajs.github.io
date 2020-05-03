@@ -2,7 +2,9 @@
 
 ## config loader
 
-Ursa的配置通过自动合并app及框架的配置，并根据不同环境读取不同的配置，最终配置通过`ursa.config`获取。
+Ursa的配置通过自动合并app及框架的配置，并根据不同环境读取不同的配置，最终配置通过`Ursa.config`获取。
+
+> 插件的配置的 options 最终会和对应名称的 config 合并后传给插件。
 
 ### 配置目录
 
@@ -10,7 +12,6 @@ Ursa的配置通过自动合并app及框架的配置，并根据不同环境读�
 
 ```
 |- config
-  |- middleware.config.ts
   |- plugin.config.ts
 ```
 
