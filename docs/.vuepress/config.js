@@ -1,7 +1,7 @@
 module.exports = {
 	base: '/', // 路由basePath
 	dest: 'ursa', // 输出目录
-    title: 'Ursajs 文档', // 标题
+    title: 'UMajs 文档', // 标题
     markdown: { // markdown配置
         lineNumbers: true,
     },
