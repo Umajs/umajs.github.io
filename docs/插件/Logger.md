@@ -17,17 +17,18 @@
 ```javascript
 //app/src/config/default/plugin.config.ts
 import * as path from 'path';
-export default function (app) {
-    return {
-        logger: {
-            enable: true,
-            options: {
-                level: 'DEBUG', //日志输出级别
-                file: path.resolve(app.options.URSA_ROOT, '../log/logger.log'),
-                allowDebugAtProd: false, // 是否允许打印debug日志
-            },
+
+const { ROOT } = Uma.options
+
+export default {
+    logger: {
+        enable: true,
+        options: {
+            level: 'DEBUG', //日志输出级别
+            file: path.resolve(ROOT, '../log/logger.log'),
+            allowDebugAtProd: false, // 是否允许打印debug日志
         },
-    };
+    },
 }
 ```
 
