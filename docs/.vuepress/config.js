@@ -20,7 +20,7 @@ module.exports = {
                 collapsable: false,
                 children: [
                     '新手指南/框架介绍',
-                    '新手指南/Uma 与 Koa',
+                    '新手指南/Uma',
                     '新手指南/快速开始',
                 ],
             },
