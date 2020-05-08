@@ -42,7 +42,7 @@ export default class User extends BaseController {
 import { createArgDecorator, Result, IContext } from '@umajs/core';
 
 /**
- * 1、参数的聚合 Entity
+ * 1、参数的聚合 Model
  * 2、参数的校验
  * 3、参数的转换
  * 4、便捷方法
