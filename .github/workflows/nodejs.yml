@@ -37,9 +37,9 @@ jobs:
     - run: touch ./docs/README.md
     - run: ./node_modules/vuepress/cli.js build docs
     - run: rm -r -f assets
-    - run: cp -r -f ./ursa/* ./
+    - run: cp -r -f ./uma/* ./
     - run: rm -r -f node_modules
-    - run: rm -r -f ursa
+    - run: rm -r -f uma
     - run: rm -r -f package.json
     - run: rm -r -f package-lock.json
     - run: rm -r -f ./docs/README.md
