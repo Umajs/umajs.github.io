@@ -1,7 +1,7 @@
 # 日志（Logger）
 
 ## 日志
-日志对于Web项目的运行状态、问题排查等都非常重要。框架的`@ursajs/logger`模块提供日志支持。并且提供`@ursajs/plugin-logger`模块，以插件的机制将logger实例绑定在ctx上，方便用户使用。
+日志对于Web项目的运行状态、问题排查等都非常重要。框架的`@umajs/logger`模块提供日志支持。并且提供`@umajs/plugin-logger`模块，以插件的机制将logger实例绑定在ctx上，方便用户使用。
 
 主要特性：
 - 日志分级
@@ -11,7 +11,7 @@
 
 ## 使用`plugin-logger`
 
-- 安装插件 `npm install -S @ursajs/plugin-logger`
+- 安装插件 `npm install -S @umajs/plugin-logger`
 - 插件配置：
 
 ```javascript
@@ -52,33 +52,33 @@ export default class Index extends BaseController {
 
 - 在Service中使用logger 【 v0.0.5 版本后支持】
 
-`plugin-logger`绑定到ctx上的logger实例可通过`UrsaLogger.instance()`获取
+`plugin-logger`绑定到ctx上的logger实例可通过`UmaLogger.instance()`获取
 
 ```javascript
 // app/src/service/test.service.ts
-import { BaseService } from '@ursajs/core';
-import { UrsaLogger } from '@ursajs/logger';
+import { BaseService } from '@umajs/core';
+import { UmaLogger } from '@umajs/logger';
 
 export default class test extends BaseService {
     return1() {
-        UrsaLogger.instance().info('service test')
+        UmaLogger.instance().info('service test')
         return 1;
     }
 }
 // [INFO 51449] 2020-04-10 18:42:21,179 bogon [::1/GET /]: service test
 ```
 
-## 使用UrsaLogger
-`UrsaLogger`可单独使用，具体提供如下几种使用方式：
+## 使用UmaLogger
+`UmaLogger`可单独使用，具体提供如下几种使用方式：
 
-1. 通过 `new UrsaLogger()` 独立创建日志实例
+1. 通过 `new UmaLogger()` 独立创建日志实例
 
 ```js
 // app/src/controller/index.controller.ts
-import { UrsaLogger } from '@ursajs/logger';
+import { UmaLogger } from '@umajs/logger';
 import * as path from 'path';
 
-const logger = new UrsaLogger({
+const logger = new UmaLogger({
     level: 'ALL',
     consoleLevel: 'ALL',
     encoding: 'utf-8',
@@ -90,10 +90,10 @@ logger.warn('warn');
 logger.error('error');
 ```
 
-2. 直接使用 `@ursajs/logger` 模块默认导出的实例 【 v0.0.5 版本后支持】
+2. 直接使用 `@umajs/logger` 模块默认导出的实例 【 v0.0.5 版本后支持】
 
 ```js
-const logger = require('@ursajs/logger');
+const logger = require('@umajs/logger');
 logger.init({
     level: 'ALL',
     consoleLevel: 'ALL',
@@ -108,14 +108,14 @@ logger.error('error');
 
 3. 通过单例模式使用 logger 【 v0.0.5 版本后支持】
 
-只需传入一次参数，其他地方可直接使用 `UrsaLogger.instance()` 获取实例化后日志对象
+只需传入一次参数，其他地方可直接使用 `UmaLogger.instance()` 获取实例化后日志对象
 
 ```js
 // app/src/controller/index.controller.ts
-import { UrsaLogger } from '@ursajs/logger';
+import { UmaLogger } from '@umajs/logger';
 import * as path from 'path';
 
-const logger = UrsaLogger.instance({
+const logger = UmaLogger.instance({
     level: 'ALL',
     consoleLevel: 'ALL',
     encoding: 'utf-8',

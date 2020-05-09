@@ -1,11 +1,11 @@
 # 状态（Status）
 
-为了方便用户对response`不同状态码`情况和`错误`进行处理，`Ursa`提供了状态处理插件plugin-status
+为了方便用户对response`不同状态码`情况和`错误`进行处理，`Uma`提供了状态处理插件plugin-status
 
 ## 安装
 
 ```shell
-$ npm install -S @ursajs/plugin-status
+$ npm install -S @umajs/plugin-status
 ```
 
 ## 开启
@@ -45,7 +45,7 @@ export default {
 
 ```javascript
 // status.config.ts
-import { IContext } from "@ursajs/core";
+import { IContext } from "@umajs/core";
 
 export default {
     _404(ctx: IContext) {

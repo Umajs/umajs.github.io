@@ -15,7 +15,7 @@ app
 ### 编写service时需继承默认baseService以便我们将service挂载到ctx中
 
 ```javascript
-import { BaseService } from '@ursajs/core';
+import { BaseService } from '@umajs/core';
 
 export default class demo extends BaseService {
     demoService() {
@@ -44,7 +44,7 @@ export default class Index extends  BaseController {
 ```
 
 ```javascript
-import { BaseService } from '@ursajs/core';
+import { BaseService } from '@umajs/core';
 
 export default class Demp extends BaseService {
     loadAll() {
@@ -59,7 +59,7 @@ export default class Demp extends BaseService {
 // plugin
 import DemoService from '../service/demo.service';
 
-export default (ursa: Ursa, options: any = {}): Koa.Middleware => {
+export default (uma: Uma, options: any = {}): Koa.Middleware => {
     return (ctx, next) = > {
         const demoService: DemoService = new DemoService(ctx);
         // ...

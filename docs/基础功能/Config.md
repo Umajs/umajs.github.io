@@ -2,7 +2,7 @@
 
 ## config loader
 
-Ursa的配置通过自动合并app及框架的配置，并根据不同环境读取不同的配置，最终配置通过`Ursa.config`获取。
+Uma的配置通过自动合并app及框架的配置，并根据不同环境读取不同的配置，最终配置通过`Uma.config`获取。
 
 > 插件的配置的 options 最终会和对应名称的 config 合并后传给插件。
 
@@ -18,7 +18,7 @@ Ursa的配置通过自动合并app及框架的配置，并根据不同环境读�
 你也可以根据需求在实例化时通过`configPath`来指定配置目录
 
 ```ts
-const ursa = Ursa.instance({
+const uma = Uma.instance({
     Router,
     ROOT: __dirname,
     configPath: path.join(__dirname, 'defaultConfig')
@@ -26,17 +26,17 @@ const ursa = Ursa.instance({
 ```
 
 ### cli 初始化配置
-通过 ```ursa``` 命令可以快速的给工程添加插件或者可发布的插件工程
+通过 ```uma``` 命令可以快速的给工程添加插件或者可发布的插件工程
 ```shell
-$ ursa config init [configName]
+$ uma config init [configName]
 ```
 
 ### 配置获取
 
-`xx.config.ts`需 export 一个 default 值，配置将以文件名为 key，default 值为 value 存在实例上，可以通过```Ursa```的 config 属性来获取到所有 config 值
+`xx.config.ts`需 export 一个 default 值，配置将以文件名为 key，default 值为 value 存在实例上，可以通过```Uma```的 config 属性来获取到所有 config 值
 
 ``` javascript
-Ursa.config         // 获取 config 所有数据
-Ursa.config.status  // 获取 status 配置
+Uma.config         // 获取 config 所有数据
+Uma.config.status  // 获取 status 配置
 ```
 

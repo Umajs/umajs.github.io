@@ -29,7 +29,7 @@
 ### 自定义参数装饰器 createArgDecorator
 ```js
 // user.controller.ts
-import { BaseController, Param } from '@ursajs/core';
+import { BaseController, Param } from '@umajs/core';
 import { AgeCheck } from '../decorator/AgeCheck';
 
 export default class User extends BaseController {
@@ -39,7 +39,7 @@ export default class User extends BaseController {
 }
 
 // decorator/AgeCheck.ts
-import { createArgDecorator, Result, IContext } from '@ursajs/core';
+import { createArgDecorator, Result, IContext } from '@umajs/core';
 
 /**
  * 1、参数的聚合 Entity

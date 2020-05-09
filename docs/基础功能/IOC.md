@@ -24,7 +24,7 @@ IOC(Inversion of Control)控制反转，是面向对象编程中的一种设计�
 
 ## @Resource、@Inject修饰器
 
-Ursa提供了`@Resource修饰器`和`@Inject修饰器`来实现`IOC容器`和`依赖注入`
+Uma提供了`@Resource修饰器`和`@Inject修饰器`来实现`IOC容器`和`依赖注入`
 
 @Resource修饰器可以修饰`${URSA_ROOT}中的任意class`，被@Resource修饰的class，将会在IOC容器中加入一个该`class的实例`
 
@@ -43,7 +43,7 @@ class Test {
 例如，我们在`${URSA_ROOT}/model`中创建一个`user.model.ts`，并使用@Resource将该类实例化后加入到资源容器中
 
 ```javascript
-import { Resource } from '@ursajs/core';
+import { Resource } from '@umajs/core';
 
 // ===> @Resource修饰器
 @Resource()
@@ -58,7 +58,7 @@ export default class UserModel {
 然后我们可以在controller中获取该model实例
 
 ```javascript
-import { BaseController, Path, Private, Param, Query, RequestMethod, Inject, Aspect } from '@ursajs/core';
+import { BaseController, Path, Private, Param, Query, RequestMethod, Inject, Aspect } from '@umajs/core';
 import UserModel from '../model/user.model'
 
 export default class Index extends BaseController {
@@ -98,7 +98,7 @@ export default class Index extends  BaseController {
 ```
 
 ```javascript
-import { BaseService } from '@ursajs/core';
+import { BaseService } from '@umajs/core';
 
 export default class Demp extends BaseService {
     loadAll() {

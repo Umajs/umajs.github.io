@@ -14,10 +14,10 @@
 
 ### 控制器编写
 
-`Ursa`的控制器需要通过类的继承的方式实现，方法必须都返回框架内置的 Result 静态方法，如下代码
+`Uma`的控制器需要通过类的继承的方式实现，方法必须都返回框架内置的 Result 静态方法，如下代码
 
 ```javascript
-import { BaseController } from '@ursajs/core';
+import { BaseController } from '@umajs/core';
 
 export default class Index extends  BaseController {
     index() {
@@ -49,7 +49,7 @@ export default class Index extends  BaseController {
 
 ### session
 
-默认情况下，`Ursa`的Session插件通过cookie存储session，详细的配置和用法可以通过Plugin#Session获取。
+默认情况下，`Uma`的Session插件通过cookie存储session，详细的配置和用法可以通过Plugin#Session获取。
 
 在控制器中，可以通过`this.ctx.session`对象获取相应的session值。
 

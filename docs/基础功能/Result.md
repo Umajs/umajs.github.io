@@ -35,11 +35,11 @@
 
 
 ## 实例
-Ursa 在需要的模板返回的数据中加入 version，这里我们用 Aspect.around 可以很容易做到。
+Uma 在需要的模板返回的数据中加入 version，这里我们用 Aspect.around 可以很容易做到。
 
 ```javascript
 // version.aspect.ts
-import { IAspect, IJoinPoint, IProceedJoinPoint, Result } from '@ursajs/core';
+import { IAspect, IJoinPoint, IProceedJoinPoint, Result } from '@umajs/core';
 
 export default class implements IAspect {
     async around(proceedPoint: IProceedJoinPoint<any>) {
@@ -52,7 +52,7 @@ export default class implements IAspect {
 }
 
 // info.controller.ts
-import { BaseController, Aspect, Result } from '@ursajs/core';
+import { BaseController, Aspect, Result } from '@umajs/core';
 
 export default class Info extends BaseController {
 

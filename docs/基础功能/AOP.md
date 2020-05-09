@@ -14,7 +14,7 @@ AOP名为面向切面编程，所以切面(Aspect)是AOP中一个很关键的点
 
 ## 如何创建Aspect
 
-在Ursa中定义一个Aspect需要遵循以下几点规范：
+在Uma中定义一个Aspect需要遵循以下几点规范：
 1. 框架会扫描`${URSA_ROOT}/aspect`目录下的文件读取Aspect，所以，所有的Aspect文件都必须放在`app/aspect`目录下，支持多级目录
 2. 所有Aspect文件的命名需要按照`名称.aspect.ts`的格式，以`.aspect.ts`为后缀名，使用时Aspect的名称会取.aspect前的文件名
 3. Aspect类需要实现`IAspect接口`
@@ -24,7 +24,7 @@ AOP名为面向切面编程，所以切面(Aspect)是AOP中一个很关键的点
 ```javascript
 // app/aspect/test.aspect.ts
 
-import { IAspect, IJoinPoint } from '@ursajs/core';
+import { IAspect, IJoinPoint } from '@umajs/core';
 
 export default class Test implements IAspect {
     before(point: IJoinPoint) {
@@ -46,14 +46,14 @@ export default class Test implements IAspect {
 - 最终通知：当目标方法有返回值之后执行，在后置通知之后
 - 环绕通知：在最开始调用时执行，会将目标方法作为参数传入，可对目标方法进行拦截
 
-在 Ursa 中我们对这5个通知都做了实现，你需要先在aspect文件中定义这些通知，然后在controller中通过修饰器的方式使用它。
+在 Uma 中我们对这5个通知都做了实现，你需要先在aspect文件中定义这些通知，然后在controller中通过修饰器的方式使用它。
 
 例如上面的`${URSA_ROOT}/aspect/test.aspect.ts`中我们定义了一个前置(before)通知，如果想再定义一个环绕(around)通知，可以这样修改：
 
 ```javascript
 // ${URSA_ROOT}/aspect/test.aspect.ts
 
-import { IAspect, IJoinPoint, IProceedJoinPoint } from '@ursajs/core';
+import { IAspect, IJoinPoint, IProceedJoinPoint } from '@umajs/core';
 
 export default class Test implements IAspect {
     before(point: IJoinPoint) {
@@ -74,7 +74,7 @@ export default class Test implements IAspect {
 ```javascript
 // ${URSA_ROOT}/controller/index.controller.ts
 
-import {  BaseController, Path, Aspect } from '@ursajs/core';
+import {  BaseController, Path, Aspect } from '@umajs/core';
 
 export default class Index extends  BaseController {
     // ===> 在这里使用
@@ -96,7 +96,7 @@ export default class Index extends  BaseController {
 一个完整的Aspect切面
 
 ```javascript
-import { IAspect, IJoinPoint, IProceedJoinPoint } from '@ursajs/core';
+import { IAspect, IJoinPoint, IProceedJoinPoint } from '@umajs/core';
 
 export default class Method implements IAspect {
     before(point: IJoinPoint) {
@@ -139,7 +139,7 @@ export interface IProceedJoinPoint extends IJoinPoint {
 
 ## @Aspect修饰器
 
-在Ursa中，通过修饰器`@Aspect`的方式使用Aspect
+在Uma中，通过修饰器`@Aspect`的方式使用Aspect
 
 **1. 作用点**
 

@@ -1,12 +1,12 @@
 module.exports = {
 	base: '/', // 路由basePath
-	dest: 'ursa', // 输出目录
+	dest: 'uma', // 输出目录
     title: 'UMajs 文档', // 标题
     markdown: { // markdown配置
         lineNumbers: true,
     },
     themeConfig: {
-        repo: 'https://github.com/Ursajs', // github链接配置
+        repo: 'https://github.com/Umajs', // github链接配置
         repoLabel: 'Git',
         nav: [ // 导航栏配置
             {
@@ -20,7 +20,7 @@ module.exports = {
                 collapsable: false,
                 children: [
                     '新手指南/框架介绍',
-                    '新手指南/Ursa 与 Koa',
+                    '新手指南/Uma 与 Koa',
                     '新手指南/快速开始',
                 ],
             },
@@ -28,7 +28,7 @@ module.exports = {
                 title: '基础功能',
                 collapsable: false,
                 children: [
-                    '基础功能/Ursa 对象',
+                    '基础功能/Uma 对象',
                     '基础功能/Router',
                     '基础功能/Controller',
                     '基础功能/Result',

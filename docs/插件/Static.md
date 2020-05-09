@@ -5,7 +5,7 @@
 ## 安装
 
 ```shell
-$ npm install -S @ursajs/plugin-static
+$ npm install -S @umajs/plugin-static
 ```
 
 ## 开启

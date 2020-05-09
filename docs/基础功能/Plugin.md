@@ -2,15 +2,15 @@
 
 ## 为什么使用插件
 
-`Ursa` 的插件内部机制就是借用了 `Koa` 的中间件，但是仅有中间件无法满足框架的扩展，另外中间件的配置对于业务多样性解决也偏单一。
+`Uma` 的插件内部机制就是借用了 `Koa` 的中间件，但是仅有中间件无法满足框架的扩展，另外中间件的配置对于业务多样性解决也偏单一。
 
-`Ursa` 使用插件进行框架层面拓展，不仅可以使用中间件模式进行扩展，还可以采用复合模式对 context、request、response 进行扩展，还可以对中间件的使用场景进行快速开发，例如 results(返回值)、use(无设定场景)、filter(对符合条件的路由加载中间件)、ignore(对符合条件之外的路由加载中间件)、method(对 MethodType 符合的请求加载中间件)
+`Uma` 使用插件进行框架层面拓展，不仅可以使用中间件模式进行扩展，还可以采用复合模式对 context、request、response 进行扩展，还可以对中间件的使用场景进行快速开发，例如 results(返回值)、use(无设定场景)、filter(对符合条件的路由加载中间件)、ignore(对符合条件之外的路由加载中间件)、method(对 MethodType 符合的请求加载中间件)
 
 ## 插件使用
 
 ### 插件安装
 
-插件可以通过npm方式进行安装。`Ursa`的插件一般使用`@ursajs/plugin-`作为前缀，方便我们去搜索。同时`Ursa`也可以加载应用目录内的用户自定义插件`plugins`目录。框架在读取配置后，插件的加载优先级如下：
+插件可以通过npm方式进行安装。`Uma`的插件一般使用`@umajs/plugin-`作为前缀，方便我们去搜索。同时`Uma`也可以加载应用目录内的用户自定义插件`plugins`目录。框架在读取配置后，插件的加载优先级如下：
 
 1. {URSA_ROOT}/plugins/{packageName}
 2. {URSA_ROOT}/node_modules/{packageName}
@@ -28,7 +28,7 @@
 export type TPluginConfig = {
     enable?: boolean        // 是否开启插件，默认值false
     name?: string           // 插件名，可选
-    packageName?: string    // npm包名，可选，如不填写时，默认值为`@ursajs/plugin-$
+    packageName?: string    // npm包名，可选，如不填写时，默认值为`@umajs/plugin-$
     options?: object        // 框架会将此配置用参数形式传给插件
 }
 ```
@@ -42,7 +42,7 @@ export default {
     'error-handler': {
         enable: true,
         name: 'error-handler',
-        packageName: '@ursajs/plugin-error-handler',
+        packageName: '@umajs/plugin-error-handler',
         options: {
             foo: '1'
         } // 插件的实际配置
@@ -64,9 +64,9 @@ export default {
 任何 Koa 的中间件都可以直接被框架使用。在实际使用场景中，中间件有全局加载（模版渲染中间件）和局部加载（要忽略的路由规则）的需求。针对这种情况，插件形式的中间件有下面两种形式。
 
 ### 初始化插件
-通过 ```ursa``` 命令可以快速的给工程添加插件或者可发布的插件工程
+通过 ```uma``` 命令可以快速的给工程添加插件或者可发布的插件工程
 ```shell
-$ ursa plugin init [pluginName]
+$ uma plugin init [pluginName]
 ```
 
 ### 纯中间件形式
@@ -77,11 +77,11 @@ $ ursa plugin init [pluginName]
 import * as Koa from 'koa';
 import * as views from 'koa-views';
 
-import { Ursa } from '@ursajs/core';
+import { Uma } from '@umajs/core';
 
 // options 是插件的配置及 [pluginName].config.ts 的配置结合配置
-export default (ursa: Ursa, options: any = {}): Koa.Middleware => {
-    // ursa 实例化对象；options 插件配置的 options，等同于 ursa.plugin['error-handler'].options
+export default (uma: Uma, options: any = {}): Koa.Middleware => {
+    // uma 实例化对象；options 插件配置的 options，等同于 uma.plugin['error-handler'].options
     return views(options.root, options.opts);
 };
 ```
@@ -122,12 +122,12 @@ export type TPlugin = {
 
 ```javascript
 // plugins/demo.plugin.ts
-import { Ursa, IContext, TPlugin } from "@ursajs/core";
+import { Uma, IContext, TPlugin } from "@umajs/core";
 
 // 获取插件对应的配置
-const options = Ursa.pluginOptions('demo');
+const options = Uma.pluginOptions('demo');
 
-export default (ursa: Ursa, options: any = {}): TPlugin => {
+export default (uma: Uma, options: any = {}): TPlugin => {
     return {
         context: {
             test: 123,          // 给 ctx 加上 test

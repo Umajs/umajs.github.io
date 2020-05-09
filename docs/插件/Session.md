@@ -1,26 +1,26 @@
 # Session
 
-为`Ursa`简化会话中间件。默认为基于cookie的会话，并支持外部存储。
+为`Uma`简化会话中间件。默认为基于cookie的会话，并支持外部存储。
 
 ## 快速开始
 
 ### install
-> $ npm install -S @ursajs/plugin-session
+> $ npm install -S @umajs/plugin-session
 
 ### config
 ```
-key               (string) 保存session的Key，默认ursa:sess 
+key               (string) 保存session的Key，默认uma:sess 
 maxAge            (number) 单位ms, 默认保存1天 
-secret            (string) 加密签名，默认ursa:sess
+secret            (string) 加密签名，默认uma:sess
 overwrite         (Boolean)是否重复覆盖，默认为true
 ```
 
 ### example
 
 ```javascript
-import session from '@ursajs/session';
+import session from '@umajs/session';
 const CONFIG = {
-    key: 'ursa:sess', 
+    key: 'uma:sess', 
     maxAge: 10000,   
     secret: '12345678',
     overwrite: true 

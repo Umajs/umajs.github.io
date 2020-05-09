@@ -4,28 +4,28 @@
 
 ## 使用
 
-为了方便用户对路由的选择，Router被作为参数的方式传入到Ursa中。
+为了方便用户对路由的选择，Router被作为参数的方式传入到Uma中。
 
 ```javascript
-import { Router } from '@ursajs/router';
+import { Router } from '@umajs/router';
 
-const ursa = Ursa.instance({
+const uma = Uma.instance({
     Router,
     ROOT: __dirname
 });
 
-ursa.start(8058);
+uma.start(8058);
 ```
 
 ## 默认路由
 
-在`Ursa`中默认所有controller的`所有方法`都可以被`任何请求方式`访问到，访问的地址为`/${controller名称}/${方法名称}`，我们对这种路由称之为`默认路由`。
+在`Uma`中默认所有controller的`所有方法`都可以被`任何请求方式`访问到，访问的地址为`/${controller名称}/${方法名称}`，我们对这种路由称之为`默认路由`。
 
 例如在`${URSA_ROOT}/controller`目录下创建一个`test.controller.ts`：
 
 ```javascript
 // ${URSA_ROOT}/controller/test.controller.ts
-import { BaseController } from '@ursajs/core';
+import { BaseController } from '@umajs/core';
 
 export default class Test extends BaseController {
     index() {
@@ -38,7 +38,7 @@ export default class Test extends BaseController {
 
 ## @Path修饰器
 
-如果你不想通过默认路由的方式访问时，`Ursa`提供了`@Path修饰器`来指定controller方法被访问的URI格式。
+如果你不想通过默认路由的方式访问时，`Uma`提供了`@Path修饰器`来指定controller方法被访问的URI格式。
 
 >可以装饰 class，作为跟路由，只装饰 class 不生效，必须和 method 装饰配合使用。装饰 class 只有能有一个 string 参数
 >可以装饰 method，没有根路由的时候直接作为路由使用，有根路由的时候和根路由组合使用
@@ -58,7 +58,7 @@ export default class Test extends BaseController {
 例如我们对上面创建的test.controller.ts文件做以下修改：
 
 ```javascript
-import { BaseController, Path } from '@ursajs/core';
+import { BaseController, Path } from '@umajs/core';
 
 @Path('/page')		// 根路由
 export default class Test extends BaseController {
@@ -89,7 +89,7 @@ export default class Test extends BaseController {
 
 在浏览器地址栏通过访问`127.0.0.1:端口号/home`就可以看到页面显示出`this is test/index router`，通过@Path修饰器修饰过的方法访问时地址不加 Controller 名，即不是`/test/home`而是`/home`。
 
-> 注意：此时，在浏览器地址栏访问`127.0.0.1:端口号/test/index`就不能访问到index方法了，因为在`Ursa`中，被@Path修饰器修饰过的方法，不能再通过默认路由的方式访问。
+> 注意：此时，在浏览器地址栏访问`127.0.0.1:端口号/test/index`就不能访问到index方法了，因为在`Uma`中，被@Path修饰器修饰过的方法，不能再通过默认路由的方式访问。
 
 ### MethodType
 在很多访问中，我们需要加入 MethodType 的限制，示例如下：
@@ -104,7 +104,7 @@ export default class Test extends BaseController {
 ```
 在浏览器地址栏通过访问`127.0.0.1:端口号/home`会展示 NOT FOUND，这是因为限制了只能采用 POST 访问。
 
-> 注意：框架内置了 POST 请求处理 `koa-body`，如果需要开启，实例化 `Ursa` 时需要传入 `bodyParse` 参数，并且安装 `koa-body` 依赖
+> 注意：框架内置了 POST 请求处理 `koa-body`，如果需要开启，实例化 `Uma` 时需要传入 `bodyParse` 参数，并且安装 `koa-body` 依赖
 
 ### 指定多个路径
 
@@ -113,7 +113,7 @@ export default class Test extends BaseController {
 例如我们对上面创建的test.controller.ts文件做以下修改：
 
 ```javascript
-import { BaseController, Path } from '@ursajs/core';
+import { BaseController, Path } from '@umajs/core';
 
 @Path('/page')
 export default class Test extends BaseController {
@@ -132,7 +132,7 @@ export default class Test extends BaseController {
 例如我们对上面创建的test.controller.ts文件做以下修改：
 
 ```javascript
-import { BaseController, Path } from '@ursajs/core';
+import { BaseController, Path } from '@umajs/core';
 
 @Path('/page')
 export default class Test extends BaseController {
@@ -152,7 +152,7 @@ export default class Test extends BaseController {
 例如我们对上面创建的test.controller.ts文件做以下修改：
 
 ```javascript
-import { BaseController, Path } from '@ursajs/core';
+import { BaseController, Path } from '@umajs/core';
 
 @Path('/page')
 @Path('/tpl')
@@ -176,7 +176,7 @@ export default class Test extends BaseController {
 例如我们对上面创建的test.controller.ts文件做以下修改：
 
 ```javascript
-import { BaseController, Path } from '@ursajs/core';
+import { BaseController, Path } from '@umajs/core';
 
 @Path('/page')
 export default class Test extends BaseController {
@@ -194,9 +194,9 @@ export default class Test extends BaseController {
 
 ### 匹配顺序
 
-`Ursa`会按照的指定顺序去匹配路由，当命中某一规则时，即进入该controller的方法中，了解匹配的顺序当我们设置了重复的路由时很有帮助。
+`Uma`会按照的指定顺序去匹配路由，当命中某一规则时，即进入该controller的方法中，了解匹配的顺序当我们设置了重复的路由时很有帮助。
 
-`Ursa`匹配路由的顺序如下：
+`Uma`匹配路由的顺序如下：
 
 ![images](../assets/images/Router-rule.png)
 
@@ -204,12 +204,12 @@ export default class Test extends BaseController {
 
 ## @Param、@Query修饰器
 
-在上面的正则路由中我们提到过@Param修饰器，`Ursa`中提供了两种修饰器@Param和@Query来方便的获取请求中的参数
+在上面的正则路由中我们提到过@Param修饰器，`Uma`中提供了两种修饰器@Param和@Query来方便的获取请求中的参数
 
 例如我们对上面创建的test.controller.ts文件做以下修改：
 
 ```javascript
-import { BaseController, Path } from '@ursajs/core';
+import { BaseController, Path } from '@umajs/core';
 
 @Path('/page')
 export default class Test extends BaseController {
@@ -223,11 +223,11 @@ export default class Test extends BaseController {
 }
 ```
 
-在浏览器中访问`127.0.0.1:端口号/page/test?name=ursa`，我们可以看到控制台打印出：
+在浏览器中访问`127.0.0.1:端口号/page/test?name=uma`，我们可以看到控制台打印出：
 
 ```shell
 name: test
-title: ursa
+title: uma
 ```
 
 @Param和@Query修饰器可以快捷的获取到请求中的param和query参数，@Param传入的名称要和@Path中设置的名称一致，@Query传入的名称要和请求的query参数名称一致，才能正确获取到。
@@ -240,10 +240,10 @@ title: ursa
 + index(@Query('name') title: string, @Param('name') name: string)
 ```
 
-当然，除了通过@Param和@Query修饰器的方式获取参数外，`Ursa`还保留了koa的参数获取方式，可以从上下文中获取：
+当然，除了通过@Param和@Query修饰器的方式获取参数外，`Uma`还保留了koa的参数获取方式，可以从上下文中获取：
 
 ```javascript
-import { BaseController, Path } from '@ursajs/core';
+import { BaseController, Path } from '@umajs/core';
 
 @Path('/page')
 export default class Test extends BaseController {
@@ -260,12 +260,12 @@ export default class Test extends BaseController {
 
 ## @Private修饰器
 
-`Ursa`默认所有controller方法都可以被访问到，如果你不想某个方法被访问时，可以通过@Private修饰器或者方法以`_`开头命名。
+`Uma`默认所有controller方法都可以被访问到，如果你不想某个方法被访问时，可以通过@Private修饰器或者方法以`_`开头命名。
 
 例如我们对上面创建的test.controller.ts文件做以下修改：
 
 ```javascript
-import { BaseController, Path, RequestMethod } from '@ursajs/core';
+import { BaseController, Path, RequestMethod } from '@umajs/core';
 
 @Path('/page')
 export default class Test extends BaseController {
