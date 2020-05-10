@@ -25,6 +25,8 @@ export default {
 }
 ```
 
+> 具体开启方式请参考[plugin](../基础功能/Plugin.md)一节中的配置方式
+
 ### options.root
 静态资源的根路径
 
