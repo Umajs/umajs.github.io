@@ -35,7 +35,7 @@ jobs:
     - run: npm init -f
     - run: npm i vuepress -D
     - run: touch ./docs/README.md
-    - run: ./node_modules/vuepress/cli.js build docs
+    - run: npx vuepress build docs
     - run: rm -r -f assets
     - run: cp -r -f ./uma* ./
     - run: rm -r -f node_modules
