@@ -260,7 +260,7 @@ export default class Test extends BaseController {
 
 ## @Private修饰器
 
-`Uma`默认所有controller方法都可以被访问到，如果你不想某个方法被访问时，可以通过@Private修饰器或者方法以`_`开头命名。
+`Uma`默认所有controller方法都可以被访问到，如果你不想某个方法被访问时，可以通过@Private修饰器修饰方法。
 
 例如我们对上面创建的test.controller.ts文件做以下修改：
 
@@ -282,13 +282,9 @@ export default class Test extends BaseController {
     test() {
         this.send('this is test/test router');
     }
-
-    _hello() {
-        this.send('this is test/hello router');
-    }
 }
 ```
 
-此时，被@Private修饰过的test方式和以_开头命名的_hello方法，不能再通过`/test/test`和`/test/_hello`的方式访问到。
+此时，被@Private修饰过的test方法，不能再通过`/test/test`的方式访问到。
 
 
