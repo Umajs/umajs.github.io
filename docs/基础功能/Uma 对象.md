@@ -24,7 +24,7 @@ uma.start(8058);
 
 ### uma.config
 
-当前项目正在使用的配置信息，对config目录下的配置进行处理后得到
+当前项目正在使用的配置信息，对 ```config``` 目录下的配置进行处理后得到
 
 ```json
 {
@@ -32,21 +32,9 @@ uma.start(8058);
         "logger": true,
         "model": true
     },
-    "model": {
-        "dialect": "mysql",
-        "host": "47.105.94.52",
-        "database": "test",
-        "username": "root",
-        "password": "12345"
-    },
-    "middleware": [
-        {
-            "enable": true, 
-            "name": "test", 
-            "options": {}, 
-            "ignore": /aaa/
-        }
-    ]
+    "status": {
+        "_404": "[object, function]"
+    }
 }
 
 ```
