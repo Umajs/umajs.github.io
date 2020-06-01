@@ -89,42 +89,42 @@ const uma = Uma.instance({
 });
 ```
 
-### 静态方法
+## 静态方法
 
-#### instance
+### instance
 获取/实例化 Uma，实例化必须传参，获取实例化后的 Uma 不用传参
 ```js
     static instance(options?: TUmaOption): Uma;
 ```
 
-#### 获取运行环境
+### 获取运行环境
 ```js
     static get env(): string;
 ```
 
-获取 app
+### 获取 app
 ```js
     static get app(): Koa<Koa.DefaultState, IContext>;
 ```
 
-获取 server
+### 获取 server
 ```js
     static get server(): http.Server | https.Server;
 ```
 
-#### options
+### options
 获取运行 Uma 的参数
 ```js
     static get options(): TUmaOption;
 ```
 
-#### config
+### config
 获取所有 Uma 的配置
 ```js
     static get config(): TConfig;
 ```
 
-#### 获取插件配置
+### 获取插件配置
 ```js
     static get pluginConfig(): {
         [pluginName: string]: boolean | import("../types/TPluginConfig").TPluginConfig;
@@ -136,18 +136,18 @@ const uma = Uma.instance({
     static get pluginKeys(): any[];
 ```
 
-#### 或者某个插件的参数
+### 或者某个插件的参数
 ```js
     static pluginOptions(pluginName: string): object;
 ```
 
-#### context
+### context
 获取 context，可以对 context 进行扩展等。实例化之后就是我们使用的 ctx
 ```js
     static get context(): Koa.BaseContext & IContext;
 ```
 
-#### controllersInfo
+### controllersInfo
 获取实例化之后的controller 信息，包括 controller、route 等
 ```js
     static get controllersInfo(): IterableIterator<import("..").TControllerInfo>;

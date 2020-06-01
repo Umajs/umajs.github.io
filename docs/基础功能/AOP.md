@@ -141,7 +141,7 @@ export interface IProceedJoinPoint extends IJoinPoint {
 
 在Uma中，通过修饰器`@Aspect`的方式使用Aspect
 
-**1. 作用点**
+### 1. 作用点
 
 `@Aspect`修饰器可以作用在某个controller的`class`上或者controller的`某个方法`上
 
@@ -159,7 +159,7 @@ export default class Index extends  BaseController {
 
 作用在Class上的Aspect会被应用于Class的所有方法上
 
-**2. 语法**
+### 2. 语法
 
 `@Aspect`修饰器有两种语法形式
 - 对目标使用Aspect中的所有通知：**@Aspect('xx')**
@@ -169,8 +169,10 @@ export default class Index extends  BaseController {
 export default class Index extends  BaseController {
     // 所有通知
     @Aspect('test1')
-    // 指定只作用前置通知
+    // 指定只生效前置
     @Aspect.before('test2')
+    // 指定只生效环绕
+    @Aspect.around('test2')
     index() {
         return this.send('这里是首页');
     }
@@ -180,4 +182,8 @@ export default class Index extends  BaseController {
 > 注意1：around 方式可以修改被修饰方法的入参和出参，因此在部分场景返回值需要特别注意，例如在修饰 controller 方法时，未返回或者返回值类型不是 Result 时可能会提示出错。
 >
 > 注意2：afterThrowing 会捕获并拦截错误，如果不将错误抛出，上层将不会捕获错误。
+
+### 中间件转环绕使用
+
+[Middleware 参考文档](./Middleware.html#aop-装饰器形式)
 
