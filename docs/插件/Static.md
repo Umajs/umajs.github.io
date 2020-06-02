@@ -16,9 +16,9 @@ $ npm install -S @umajs/plugin-static
 // plugin.config.ts
 export default {
     static: {
-        options: {
+        options: <staticOptions>{
             root: './static',
-            opts: <staticOptions>{
+            opts: {
             },
         }
     }

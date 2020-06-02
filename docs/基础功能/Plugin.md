@@ -119,7 +119,6 @@ export type TPlugin = {
 - ignore 通过 `regexp: RegExp;` 属性配置局部加载规则，忽略匹配到的规则
 - method 通过 `type: RequestMethod | RequestMethod[];` 属性配置局部加载规则
 
-
 ```javascript
 // plugins/demo.plugin.ts
 import { Uma, IContext, TPlugin } from "@umajs/core";
@@ -170,5 +169,3 @@ export default (uma: Uma, options: any = {}): TPlugin => {
     },
 };
 ```
-
-

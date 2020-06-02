@@ -29,7 +29,7 @@ plugin-status插件通过`对不同状态码设置处理函数`的方式来实�
 
 ```javascript
 // status.config.ts
-export default {
+export default <statusOptions>{
     // ===> 404状态码处理方法
     _404(ctx) {
         return ctx.render('404.html');

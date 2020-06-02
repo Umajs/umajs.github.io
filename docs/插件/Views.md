@@ -10,15 +10,15 @@ $ npm install -S @ursajs/plugin-views
 
 ## 开启
 
-在plugin.config.ts中开启plugin-status插件
+在plugin.config.ts中开启plugin-views插件
 
 ```javascript
 // plugin.config.ts
 export default {
     static: {
-        options: {
-            root: './static',
-            opts: <staticOptions>{
+        options: <viewsOptions>{
+            root: './views',
+            opts: {
             },
         }
     }
@@ -57,6 +57,3 @@ type staticOptions = {
     extensions?: string[] | false;
 }
 ```
-
-
-
