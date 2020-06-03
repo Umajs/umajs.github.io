@@ -62,3 +62,65 @@ export default class Info extends BaseController {
     }
 }
 ```
+
+## 扩展
+
+想要扩展 ```Result``` 的返回方法，请使用 ```plugin``` 的扩展方式，示例如下：
+
+> 扩展带状态的 redirect 方法
+
+```js
+// plugin.config.ts
+export default {
+    redirect: true
+}
+```
+
+```js
+// plugins/redirect/index.ts
+import { IContext, TPlugin, RequestMethod, Result as R } from "@umajs/core";
+
+type TRedirect2 = {
+    url: string,
+    status: number,
+}
+
+export class Result extends R {
+    static redirect2(url: string, status: number) {
+        return new Result({
+            type: 'redirect2',
+            data: {
+                url,
+                status,
+            },
+        });
+    }
+}
+
+export default (): TPlugin => {
+    return {
+        results: {
+            redirect2(ctx: IContext, data: TRedirect2) {
+                const { url, status } = data;
+
+                ctx.status = status;
+
+                return ctx.redirect(url);
+            },
+        },
+    };
+};
+```
+
+```js
+// index.controller.ts
+import { BaseController, Path } from '@umajs/core';
+import { Result } from '../plugins/test/index';
+
+export default class Index extends BaseController {
+    @Path('/r')
+    extendResult() {
+        return Result.redirect2('/', 301);
+    }
+}
+```
