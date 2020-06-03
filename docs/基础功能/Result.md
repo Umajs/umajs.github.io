@@ -35,6 +35,8 @@
 
 
 ## 实例
+
+### controller 实例
 Uma 在需要的模板返回的数据中加入 version，这里我们用 Aspect.around 可以很容易做到。
 
 ```javascript
@@ -62,6 +64,10 @@ export default class Info extends BaseController {
     }
 }
 ```
+
+### controller 参数实例
+
+[createArgDecorator 参考文档](./Decorator.html#自定义参数装饰器-createargdecorator)
 
 ## 扩展
 
