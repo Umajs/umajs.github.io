@@ -71,9 +71,13 @@ const mwFn = function() { // 定义中间件
 
 // 将中间件转换为切面方法
 export default class implements IAspect {
-    async around({ target, proceed, args }) {
-        return await middlewareToAround(mwFn())({target, proceed, args});
-    }
+    // 第一种方法
+    // async around({ target, proceed, args }) {
+    //     return await middlewareToAround(mwFn())({target, proceed, args});
+    // }
+
+    // 第二种方法
+    around = middlewareToAround(mwFn());
 }
 ```
 
