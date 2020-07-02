@@ -79,8 +79,15 @@ import * as views from 'koa-views';
 
 import { Uma } from '@umajs/core';
 
+type TView = {
+    root: string
+    opts: {
+        // views options
+    }
+};
+
 // options 是插件的配置及 [pluginName].config.ts 的配置结合配置
-export default (uma: Uma, options: any = {}): Koa.Middleware => {
+export default (uma: Uma, options: TView = {}): Koa.Middleware => {
     // uma 实例化对象；options 插件配置的 options，等同于 uma.plugin['error-handler'].options
     return views(options.root, options.opts);
 };
@@ -91,19 +98,19 @@ export default (uma: Uma, options: any = {}): Koa.Middleware => {
 ```javascript
 export type TPlugin = {
     use?: {
-        handler: (ctx: IContext, next?: Function, options?: any) => any;
+        handler: (ctx: IContext, next?: Function) => any;
     }
     filter?: {
         regexp: RegExp;
-        handler: (ctx: IContext, next?: Function, options?: any) => any;
+        handler: (ctx: IContext, next?: Function) => any;
     };
     ignore?: {
         regexp: RegExp;
-        handler: (ctx: IContext, next?: Function, options?: any) => any;
+        handler: (ctx: IContext, next?: Function) => any;
     };
     method?: {
         type: RequestMethod | RequestMethod[];
-        handler: (ctx: IContext, next?: Function, options?: any) => any;
+        handler: (ctx: IContext, next?: Function) => any;
     };
     results?: { [key: string]: any };
     context?: { [key: string]: any };
@@ -123,9 +130,6 @@ export type TPlugin = {
 // plugins/demo.plugin.ts
 import { Uma, IContext, TPlugin } from "@umajs/core";
 
-// 获取插件对应的配置
-const options = Uma.pluginOptions('demo');
-
 export default (uma: Uma, options: any = {}): TPlugin => {
     return {
         context: {
@@ -135,7 +139,7 @@ export default (uma: Uma, options: any = {}): TPlugin => {
             fileName: 'a.png'   // 给 request 加上 fileName
         },
         use: { // 全局加载
-            async handler(ctx: IContext, next: Function, options: any) {
+            async handler(ctx: IContext, next: Function) {
                 console.log(ctx.test, ctx.req.fileName, options);    // >> 123 a.png {}
                 console.log('use before');
                 await next();
