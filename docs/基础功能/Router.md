@@ -61,7 +61,7 @@ export default class Test extends BaseController {
 
 ### 修饰class
 
-@Path修饰器除了能修饰方法外，还可以修饰controller的class，被修饰后的class，如果内层的方法同时也添加了@Path修饰器，那么该方法的访问路径将和class上的@Path指定路径合并使用。
+@Path 修饰器除了能修饰方法外，还可以修饰 controller 的 class，被修饰后的 class，如果内层的方法同时也添加了 @Path 修饰器，那么该方法的访问路径将和 class 上的 @Path 指定路径合并使用。
 
 例如我们对上面创建的test.controller.ts文件做以下修改：
 

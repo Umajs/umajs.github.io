@@ -31,6 +31,7 @@ type sessionOptions = {
     maxAge: number,     // 单位ms, 默认保存1天 
     secret: string,     // 加密签名，默认umasss，注意：不要使用默认值
     overwrite: Boolean, // 是否重复覆盖，默认为true
+    crypto: ICrypto,    // 加密/揭秘方法，需要实现 ICrypto 接口，实例化后传入
 }
 ```
 > 注意： secret 不要使用默认值
