@@ -1,12 +1,12 @@
 module.exports = {
-	base: '/', // 路由basePath
-	dest: 'uma', // 输出目录
+    base: '/', // 路由basePath
+    dest: 'uma', // 输出目录
     title: 'UMajs 文档', // 标题
     markdown: { // markdown配置
         lineNumbers: true,
     },
     themeConfig: {
-        repo: 'https://github.com/Umajs', // github链接配置
+        repo: 'https://github.com/wuba/Umajs', // github链接配置
         repoLabel: 'Git',
         nav: [ // 导航栏配置
             {
