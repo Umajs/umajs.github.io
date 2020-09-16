@@ -53,7 +53,7 @@ export default class Test implements IAspect {
 ```javascript
 // ${URSA_ROOT}/aspect/test.aspect.ts
 
-import { IAspect, IJoinPoint, IProceedJoinPoint } from '@umajs/core';
+import { IAspect, IJoinPoint, IProceedJoinPoint, Result } from '@umajs/core';
 
 export default class Test implements IAspect {
     before(point: IJoinPoint) {
@@ -63,8 +63,14 @@ export default class Test implements IAspect {
     async around(proceedPoint: IProceedJoinPoint) {
         const { proceed, args } = proceedPoint;
         console.log('index: this is around before');
-        await proceed(...args);
+
+        // 判断登录，还可以做其他判断逻辑等等
+        if (!isLogin) return Result.redirect('/login');
+
+        // args 为参数，可以对参数进行判断、修改等等操作
+        const result = await proceed(...args);
         console.log('index: this is around after');
+        return result;
     }
 }
 ```
