@@ -1,4 +1,4 @@
-# Session
+# 会话（Session）
 
 为`Uma`简化会话中间件。默认为基于cookie的会话
 

@@ -22,8 +22,24 @@ export default {
 > 具体开启方式请参考[plugin](../基础功能/Plugin.md)一节中的配置方式
 
 ## 配置
+```js
+type statusOptions = {
+    /**
+     * 前缀
+     * 默认：_
+     */
+    prefix?: string,
 
-plugin-status插件通过`对不同状态码设置处理函数`的方式来实现统一处理，函数名需要按照`_状态码`的格式来命令
+    /**
+     * 状态或者错误调用方法
+     * 错误方法参数 (err, ctx, next)
+     * 状态方法参数 (ctx, next)
+     */
+    [key: string]: string | Function,
+}
+```
+
+plugin-status插件通过`对不同状态码设置处理函数`的方式来实现统一处理，函数名需要按照`${prefix}状态码`的格式来命令
 
 例如，在`${URSA_ROOT}/config/${URSA_ENV}`目录下创建`status.config.ts`（也可以在 plugin.config.ts 的 status.options 配置）
 
