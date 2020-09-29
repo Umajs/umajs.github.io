@@ -27,6 +27,8 @@
 [Router 参考文档](./Router.md##param、-query修饰器)
 
 ### 自定义参数装饰器 createArgDecorator
+
+#### 示例如下
 ```js
 // user.controller.ts
 import { BaseController, Param } from '@umajs/core';
@@ -48,7 +50,7 @@ import { createArgDecorator, Result, IContext } from '@umajs/core';
  * 4、便捷方法
  * 5、utils、config 等也可以通过此装饰器快速引用
  */
-export const AgeCheck = createArgDecorator((ageKey: string, ctx: IContext) => {
+export const AgeCheck = createArgDecorator((ctx: IContext, ageKey: string) => {
     let age = ctx.query[ageKey];
 
     if (age === undefined) return Result.json({
@@ -66,3 +68,5 @@ export const AgeCheck = createArgDecorator((ageKey: string, ctx: IContext) => {
     return age;
 });
 ```
+
+#### 框架提供的参数装饰器 [参数装饰](./ArgDecorator.md)
