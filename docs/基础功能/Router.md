@@ -210,6 +210,10 @@ export default class Test extends BaseController {
 
 请求进来时，会先从静态路由中查找是否有匹配到的，没有的话会从正则路由中匹配是否有满足的，还未找到的话会按照静态路由的格式查找是否有匹配的，当这几种情况都不满足时，返回Not Found。
 
+### Path 扩展
+
+框架在 `@Path` 装饰器的基础上还提供了一些其它快捷的路由装饰器 [@umajs/path](../other/path.md)
+
 ## @Param、@Query修饰器
 
 在上面的正则路由中我们提到过@Param修饰器，`Uma`中提供了两种修饰器@Param和@Query来方便的获取请求中的参数
