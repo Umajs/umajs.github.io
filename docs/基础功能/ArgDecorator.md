@@ -5,7 +5,11 @@
 
 > 安装 `npm install -S @umajs/arg-decorator`
 
+## 示例
+
 ```ts
+import { Require, Body } from '@umajs/arg-decorator';
+
 // url参数类型修饰校验
 @Path('/saveUser')
 saveUser(@Require('age') age :number) {
