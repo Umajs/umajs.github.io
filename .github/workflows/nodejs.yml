@@ -34,6 +34,7 @@ jobs:
     - run: git config --global user.name "yywang95"
     - run: npm init -f
     - run: npm i vuepress -D
+    - run: npm i vue-router@3.4.5 -D
     - run: touch ./docs/README.md
     - run: npx vuepress build docs
     - run: rm -r -f assets
