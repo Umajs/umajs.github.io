@@ -5,7 +5,7 @@
 ## 安装
 
 ```shell
-$ npm install -S @ursajs/plugin-views
+$ npm install -S @umajs/plugin-views
 ```
 
 ## 开启
