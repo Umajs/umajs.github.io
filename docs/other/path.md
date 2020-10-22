@@ -1,11 +1,10 @@
-# 快捷路由装饰器
+# 路由装饰器(Get、Post)
 
-框架在 `@Path` 装饰器的基础上还提供了一些其它快捷的路由装饰器 [@umajs/path](../other/path.md)
-
+框架在 [@Path](../基础功能/Router.md#path修饰器) 装饰器的基础上还提供了一些其它快捷的路由装饰器
 
 ## 使用
 
-> 安装 `npm install -S @umajs/arg-decorator`
+> 安装 `npm install -S @umajs/path`
 >
 > 注意：提供的路由装饰器仅支持方法使用，不支持 `class` 使用
 
