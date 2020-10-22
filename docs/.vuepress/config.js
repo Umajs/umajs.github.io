@@ -39,10 +39,6 @@ module.exports = {
                     '基础功能/Config',
                     '基础功能/Middleware',
                     '基础功能/Decorator',
-                    // '基础功能/ArgDecorator',
-                    '基础功能/断点调试',
-                    '基础功能/错误处理',
-                    '基础功能/渐进迁移'
                 ],
             },
             {
@@ -55,6 +51,17 @@ module.exports = {
                     '插件/i18n',
                     '插件/Logger',
                     '插件/Session',
+                ],
+            },
+            {
+                title: '其它',
+                collapsable: false,
+                children: [
+                    'other/path',
+                    'other/ArgDecorator',
+                    'other/断点调试',
+                    'other/错误处理',
+                    'other/渐进迁移'
                 ],
             }
         ],
