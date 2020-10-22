@@ -30,6 +30,16 @@
 
 ### 自定义参数装饰器 createArgDecorator
 
+#### 注意
+> 从 v1.1.* 版本开始，`createArgDecorator` 更新了参数方式，使传入参数不受一个的限制。
+```js
+// v1.0.* 
+function createArgDecorator(fn: (argKey: string, ctx: IContext) => any): (...argProps: any[]) => ParameterDecorator;
+
+// v1.1.* 
+function createArgDecorator(fn: (ctx: IContext, ...argProps: any[]) => any): (...argProps: any[]) => ParameterDecorator;
+```
+
 #### 示例如下
 ```js
 // user.controller.ts
