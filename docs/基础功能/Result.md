@@ -32,6 +32,21 @@
 
 使用 ctx 进行完了操作，不需要使用 Result 进行其它的返回时使用此方法，常用于框架的迁移。
 
+> 例如下面两个方法 `json1` 和 `json2` 表示的意思是一样的。
+
+```js
+export default class extends BaseController {
+    json1() {
+        this.ctx.body = 'Hello';    // ctx 响应
+
+        return Result.done();
+    }
+
+    json2() {
+        return Result.send('Hello');
+    }
+}
+```
 
 
 ## 实例
@@ -130,3 +145,5 @@ export default class Index extends BaseController {
     }
 }
 ```
+
+
