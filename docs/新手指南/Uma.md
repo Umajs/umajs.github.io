@@ -62,6 +62,33 @@ app.use(async (ctx, next) => {
 
 Uma 在 Koa 2 的基础上对其进行了拓展，致力于为开发者提供一个更加强大、便捷、易于开发和维护的企业级 Web 应用框架。
 
+## 架构
+
+![image](../assets/images/design.png)
+
+## 流程图
+
+![image](../assets/images/process.png)
+
+> 用户请求达到 router
+>
+> router 解析请求穿过 plugin 中的中间件，然后到达 controller
+>
+> controller 可以通过 IOC 调用 service 和 resource
+>
+> controller、service、resource 等可以通过 AOP 的 Aspect 进行切面开发
+>
+> controller 返回 Result，Umajs 解析 Result 按 Koa 框架格式返回数据
+>
+> AOP 可以对 controller、service、resource 进行切面开发，还可以将 middleware 封装成 Aspect.around 对 controller 进行切页面开发
+>
+> 中间件（middleware）有提供两种形式使用，一种是插件配置(plugin.config.ts)，一种是封装成 Aspect.around 以装饰器形式使用
+>
+> Plugin 有两种形式进行扩展，一种中间件形式、一种复合形式
+>
+
+## 特性
+
 ### TypeScript
 
 如果你有过Java开发经验，那你一定体会过静态语言所带来的优势。
@@ -109,3 +136,4 @@ Uma 提供 @Aspect装饰器作为 IOC 容器，你可以在 aspect 文件夹下�
 开发者可以通过调用@Aspect('xx')的方式在类或方法中织入切面。
 
 更多使用方式可查看[AOP](../基础功能/AOP.md)一节。
+
