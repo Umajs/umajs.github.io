@@ -48,58 +48,8 @@ export default class Test implements IAspect {
 
 在 Uma 中我们对这5个通知都做了实现，你需要先在aspect文件中定义这些通知，然后在controller中通过修饰器的方式使用它。
 
-例如上面的`${URSA_ROOT}/aspect/test.aspect.ts`中我们定义了一个前置(before)通知，如果想再定义一个环绕(around)通知，可以这样修改：
-
-```javascript
-// ${URSA_ROOT}/aspect/test.aspect.ts
-
-import { IAspect, IJoinPoint, IProceedJoinPoint, Result } from '@umajs/core';
-
-export default class Test implements IAspect {
-    before(point: IJoinPoint) {
-        console.log('index: this is before:', point.target);
-    }
-    // ====> 创建环绕通知
-    async around(proceedPoint: IProceedJoinPoint) {
-        const { proceed, args } = proceedPoint;
-        console.log('index: this is around before');
-
-        // 判断登录，还可以做其他判断逻辑等等
-        if (!isLogin) return Result.redirect('/login');
-
-        // args 为参数，可以对参数进行判断、修改等等操作
-        const result = await proceed(...args);
-        console.log('index: this is around after');
-        return result;
-    }
-}
-```
-
-然后在`${URSA_ROOT}/controller/index.controller.ts`中使用它
-
-```javascript
-// ${URSA_ROOT}/controller/index.controller.ts
-
-import {  BaseController, Path, Aspect } from '@umajs/core';
-
-export default class Index extends  BaseController {
-    // ===> 在这里使用
-    @Aspect.around('test')
-    index() {
-        return this.view('index.html', { name: 'Abc123' });
-    }
-
-    @Aspect('test')
-    @Path('/test')
-    test() {
-        return this.json({ test: 1 });
-    }
-}
-```
-
-这样你在访问Index/index方法时，会先执行`${URSA_ROOT}/aspect/test.aspect.ts`中的around方法，index方法被框架封装后作为参数传给around通知方法
-
-一个完整的Aspect切面
+### 切面实现
+可以选择性的实现 `IAspect` 的方法（一个或者多个），调用的时候可以通过 `Aspect(aspect)` 调用全部实现方法，或者通过 `Aspect.around(aspect)` 、`Aspect.afterThrowing(aspect)` 等方法调用某一个具体方法。
 
 ```javascript
 import { IAspect, IJoinPoint, IProceedJoinPoint } from '@umajs/core';
@@ -130,12 +80,12 @@ export default class Method implements IAspect {
 
 ```javascript
 export interface IJoinPoint {
-    target: Object;
-    args: Array<any>;
+    target: Object;		// controller 实例
+    args: Array<any>;  // 方法参数
 }
 
 export interface IProceedJoinPoint extends IJoinPoint {
-    proceed: Function;
+    proceed: Function; // 方法，Around 专属
 }
 ```
 
@@ -193,3 +143,55 @@ export default class Index extends  BaseController {
 
 [Middleware 参考文档](./Middleware.html#aop-装饰器形式)
 
+### 实例
+
+例如上面的`${URSA_ROOT}/aspect/test.aspect.ts`中我们定义了一个前置(before)通知，如果想再定义一个环绕(around)通知，可以这样修改：
+
+```javascript
+// ${URSA_ROOT}/aspect/test.aspect.ts
+
+import { IAspect, IJoinPoint, IProceedJoinPoint, Result } from '@umajs/core';
+
+export default class Test implements IAspect {
+    before(point: IJoinPoint) {
+        console.log('index: this is before:', point.target);
+    }
+    // ====> 创建环绕通知
+    async around(proceedPoint: IProceedJoinPoint) {
+        const { proceed, args } = proceedPoint;
+        console.log('index: this is around before');
+
+        // 判断登录，还可以做其他判断逻辑等等
+        if (!isLogin) return Result.redirect('/login');
+
+        // args 为参数，可以对参数进行判断、修改等等操作
+        const result = await proceed(...args);
+        console.log('index: this is around after');
+        return result;
+    }
+}
+```
+
+然后在`${URSA_ROOT}/controller/index.controller.ts`中使用它
+
+```javascript
+// ${URSA_ROOT}/controller/index.controller.ts
+
+import {  BaseController, Path, Aspect } from '@umajs/core';
+
+export default class Index extends  BaseController {
+    // ===> 在这里使用
+    @Aspect.around('test')
+    index() {
+        return this.view('index.html', { name: 'Abc123' });
+    }
+
+    @Aspect('test')
+    @Path('/test')
+    test() {
+        return this.json({ test: 1 });
+    }
+}
+```
+
+这样你在访问Index/index方法时，会先执行`${URSA_ROOT}/aspect/test.aspect.ts`中的around方法，index方法被框架封装后作为参数传给around通知方法
