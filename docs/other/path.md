@@ -15,6 +15,8 @@ export declare const Delete: (...value: string[]) => Function;
 export declare const Put: (...value: string[]) => Function;
 ```
 
+## 示例
+
 ### GET
 ```js
 class {
