@@ -30,6 +30,7 @@ export default {
 
 ### options.opts
 模板文件插件配置
+
 ```js
 type TKoaViewsOptions = {
     /*
