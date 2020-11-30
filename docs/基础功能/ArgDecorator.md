@@ -75,3 +75,11 @@ export default {
 
 
 ```
+
+## 其他参数修饰器（不具备参数校验功能）
+|修饰器| 使用说明 | 
+---|---
+@Cookies(id:string) | cookies参数修饰器
+@Headers(id:string) | headers请求头参数修饰器
+@RequestParam(id:string) | GET/POST通用参数修饰器，POST请求类型时参数获取优先级为：Body < Query 相同参数url携带参数覆盖body请求体中的属性值
+@RequestFile(field: string) | 文件上传时文件参数修饰器
