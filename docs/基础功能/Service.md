@@ -33,7 +33,7 @@ import DemoService from '../service/demo.service';
 
 export default class Index extends  BaseController {
 
-    @Service('demo')
+    @Service(DemoService)
     demoService: DemoService
 
     @Path('/demo')

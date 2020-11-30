@@ -16,17 +16,11 @@ Express一体式的架构设计能够让开发者快速的搭建一个node serve
 [views](https://expressjs.com/en/guide/using-template-engines.html)
 等功能，能够为开发者提供静态文件、路由方法、模板引擎等服务。庞大的社区也为其提供了众多中间件模块，其成熟稳定的生态环境是众多开发者选择的关键因素。但是这也使整个框架显得较为厚重，毕竟一部分功能开发者可能并不会使用到。
 
-而 Koa 则是摒弃了原有思想，致力于实现一个轻量级应用框架,事实上它确实非常轻巧，只有大约550行代码。它将原有功能进行拆分，分包成各个模块，因此拥有大量有用的方法但占用空间很小,开发者可以根据需要进行引用。核心设计的不同也使得 Koa 与 Express 风格的中间件不兼容，大量原社区资源无法直接利用。
+而 Koa 则是摒弃了原有思想，致力于实现一个轻量级应用框架,事实上它确实非常轻巧，只有大约550行代码。它将原有功能进行拆分，分包成各个模块，因此拥有大量有用的方法但占用空间很小,开发者可以根据需要进行引用。
 
 ### Middleware
 
-- **async function**
-
-Express对于异步函数的处理可以说是相当不友好，当你想创建一个使用 Promise 的控制器或中间件函数时，你必须使用`.then`。当然我们并不想这么做。  
-
-Koa对于异步函数的支持是一个重要的变化之一。  
-在 koa 1.x中，使用 `co` + `generator` 作为异步处理的主要方式。  
-随着 ES7 官方异步方案 `async/await` 的发布以及 Node.js v7.6.0对其的支持，koa 2.x中间件异步方案已经完全替换为async/await的调用机制。
+核心设计的不同也使得 Koa 与 Express 风格的中间件不兼容，大量原社区资源无法直接利用。
 
 - **模型**  
 
@@ -37,7 +31,7 @@ Express 中间件只有两个参数 request 与 response，Koa 2.x比 Express �
 [Context](https://github.com/koajs/koa/blob/master/docs/api/context.md)，
 并且将 request 与 response 挂载在 context 上作为第一个参数传入。
 
-开发者可以很方便地对 ctx 对象进行拓展，并且在所有中间件中进行共享。
+在 Koa 中开发者可以很方便地对 ctx 对象进行拓展，并且在所有中间件中进行共享。
 
 ### Error handling
 
@@ -61,6 +55,33 @@ app.use(async (ctx, next) => {
 使用 Koa，你可以很快构建出性能出色的 Web 应用程序，不再被回调所困扰、更快的处理错误......但 Koa 作为一个轻量级框架它更多地只是提供一些基础性服务。
 
 Uma 在 Koa 2 的基础上对其进行了拓展，致力于为开发者提供一个更加强大、便捷、易于开发和维护的企业级 Web 应用框架。
+
+## 架构
+
+![image](../assets/images/design.png)
+
+## 流程图
+
+![image](../assets/images/process.png)
+
+> 用户请求达到 router
+>
+> router 解析请求穿过 plugin 中的中间件，然后到达 controller
+>
+> controller 可以通过 IOC 调用 service 和 resource
+>
+> controller、service、resource 等可以通过 AOP 的 Aspect 进行切面开发
+>
+> controller 返回 Result，Umajs 解析 Result 按 Koa 框架格式返回数据
+>
+> AOP 可以对 controller、service、resource 进行切面开发，还可以将 middleware 封装成 Aspect.around 对 controller 进行切页面开发
+>
+> 中间件（middleware）有提供两种形式使用，一种是插件配置(plugin.config.ts)，一种是封装成 Aspect.around 以装饰器形式使用
+>
+> Plugin 有两种形式进行扩展，一种中间件形式、一种复合形式
+>
+
+## 特性
 
 ### TypeScript
 
@@ -109,3 +130,4 @@ Uma 提供 @Aspect装饰器作为 IOC 容器，你可以在 aspect 文件夹下�
 开发者可以通过调用@Aspect('xx')的方式在类或方法中织入切面。
 
 更多使用方式可查看[AOP](../基础功能/AOP.md)一节。
+

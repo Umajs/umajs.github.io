@@ -80,14 +80,14 @@ export default class Index extends BaseController {
 `@Resource修饰器支持传入参数`，传入的参数将会被作为修饰类实例化时的`构造参数`使用。
 
 ## @Service修饰器
-除了提供的 Resource 和 Inject 装饰器，还有一个特殊的依赖注入装饰器 Service，Service 装饰器仅提供  BaseController 使用，为了方便使用，Service 注入中内置了 ctx，框架默认将`${URSA_ROOT}/service`下的文件实例化加入到`service的容器中`，当我们使用的时候，通过`@Service修饰器`去获取该实例。
+除了提供的 `Resource` 和 `Inject` 装饰器，还有一个特殊的依赖注入装饰器 `Service`，`@Service` 装饰器仅提供 `Controller` 使用，为了方便使用，Service 注入中内置了 ctx，框架默认将`${URSA_ROOT}/service`下的文件实例化加入到`service的容器中`，当我们使用的时候，通过`@Service修饰器`去获取该实例。
 
 ```javascript
 import DemoService from '../service/demo.service';
 
 export default class Index extends  BaseController {
 
-    @Service('demo')
+    @Service(DemoService)
     demoService: DemoService
 
     @Path('/demo')

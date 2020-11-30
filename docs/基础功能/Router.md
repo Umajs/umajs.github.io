@@ -47,6 +47,8 @@ export default class Test extends BaseController {
 >
 >args 路由参数 eg:
 >
+>Path()     // 仅在 class 有路由装饰时 装饰 method 使用
+>
 >Path('/p1')
 >
 >Path('/p1', 'p2')
@@ -70,7 +72,9 @@ import { BaseController, Path } from '@umajs/core';
 
 @Path('/page')		// 根路由
 export default class Test extends BaseController {
-    @Path('/home')
+
+    @Path()			// 路由： /page
+    @Path('/home')	// 路由： /page/home
     index() {
         return this.send('this is test/index router');
     }
@@ -79,7 +83,9 @@ export default class Test extends BaseController {
 
 在浏览器地址栏通过访问`127.0.0.1:端口号/page/home`就可以看到页面显示出`this is test/index router`。
 
-> 注意：作用在class上的@Path不会影响默认路由，只会和方法上的@Path修饰器合并使用，即在浏览器地址栏通过访问`127.0.0.1:端口号/test/test`可以看到页面显示出`this is test/test router`，但输入`127.0.0.1:端口号/page/test`会返回Not Found。
+> 注意：作用在class上的@Path不会影响默认路由，只会和方法上的 `@Path` 修饰器合并使用，即在浏览器地址栏通过访问`127.0.0.1:端口号/page/home`可以看到页面显示出`this is test/index router`，但输入`127.0.0.1:端口号/page/test`会返回Not Found。
+>
+> 同时，访问`127.0.0.1:端口号/page`也可以看到页面显示出`this is test/index router`
 
 ### 修饰方法
 
@@ -209,6 +215,10 @@ export default class Test extends BaseController {
 ![images](../assets/images/Router-rule.png)
 
 请求进来时，会先从静态路由中查找是否有匹配到的，没有的话会从正则路由中匹配是否有满足的，还未找到的话会按照静态路由的格式查找是否有匹配的，当这几种情况都不满足时，返回Not Found。
+
+### Path 扩展
+
+框架在 `@Path` 装饰器的基础上还提供了一些其它快捷的路由装饰器 [@umajs/path](../other/path.md)
 
 ## @Param、@Query修饰器
 

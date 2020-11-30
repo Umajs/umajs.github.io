@@ -45,13 +45,20 @@ uma.start(8058);
 
 ```typescript
 type TUmaOption = {
+    // 路由
     Router: Function,
+    // 代码根路径，用于加载代码
     ROOT: string,
+    // 运行环境
     env?: 'development' | 'production' | string,
+    // 严格目录，非严格目录只有 'plugins' 是保留目录，严格目录还有 'controller'、'service'
+    strictDir?: boolean,
+    // 配置文件夹路径
     configPath?: string,
     proxy?: boolean,
     subdomainOffset?: number,
     jsonpBody?: TJsonpBody,
+    // 自带 koa-body 时的配置，不配置时 koa-body 中间件不生效
     bodyParser?: bodyParser.IKoaBodyOptions,
     createServer?: (cb: (req: IncomingMessage | Http2ServerRequest, res: ServerResponse | Http2ServerResponse) => void) => Server,
     beforeLoad?: (uma: Uma) => void,
