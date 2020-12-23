@@ -55,11 +55,11 @@ export default class Test extends BaseController {
 >
 >Path({ value: '/p1' })
 >
->Path({ value: '/p1', method: RequestType.GET })
+>Path({ value: '/p1', method: RequestMethod.GET })
 >
->Path({ value: ['/p1', '/p2'], method: RequestType.GET })
+>Path({ value: ['/p1', '/p2'], method: RequestMethod.GET })
 >
->Path({ value: ['/p1', '/p2'], method: [RequestType.GET, RequestType.POST] })
+>Path({ value: ['/p1', '/p2'], method: [RequestMethod.GET, RequestMethod.POST] })
 
 ### 修饰class
 
@@ -108,9 +108,11 @@ export default class Test extends BaseController {
 ### MethodType
 在很多访问中，我们需要加入 MethodType 的限制，示例如下：
 ```javascript
+import { BaseController, Path, RequestMethod } from '@umajs/core';
+
 export default class Test extends BaseController {
 
-    @Path({ value: '/home', method: RequestType.POST })
+    @Path({ value: '/home', method: RequestMethod.POST })
     index() {
         return this.send('this is test/index router');
     }
