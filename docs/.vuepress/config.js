@@ -6,7 +6,7 @@ module.exports = {
         lineNumbers: true,
     },
     themeConfig: {
-        repo: 'https://github.com/wuba/Umajs', // github链接配置
+        repo: 'https://github.com/Umajs/Umajs', // github链接配置
         repoLabel: 'Git',
         nav: [ // 导航栏配置
             {
