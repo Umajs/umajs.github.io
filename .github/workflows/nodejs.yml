@@ -44,7 +44,7 @@ jobs:
     - run: rm -r -f package.json
     - run: rm -r -f package-lock.json
     - run: rm -r -f ./docs/README.md
-    - run: echo "<script>window.location.replace('/新手指南/框架介绍.html')</script>" >> ./index.html
+    # - run: echo "<script>window.location.replace('/新手指南/框架介绍.html')</script>" >> ./index.html
     - run: git add ./
     - run: git commit -m "deploy"
     - run: git push origin master
