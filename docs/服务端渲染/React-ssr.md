@@ -89,7 +89,9 @@ interface TviewOptions{
 Result.reactView(viewName:string,initProps?:object,options?:TviewOptions);
 ctx.reactView(viewName:string,initProps?:object,options?:TviewOptions);
 ```
-**如果options参数传递为空 则默认会使用全局配置属性，全局配置采用插件集成时传递的options参数**
+*如果options参数传递为空 则默认会使用全局配置属性，全局配置采用插件集成时传递的options参数*
+
+**注意** `cache`只在`生产环境`开启有效。
 
 ## **controller**中使用
 
@@ -144,7 +146,8 @@ browserRouter() {
 
 
 ## **SEO和自定义HTML**
-> 在SEO场景时，需要动态修改页面的标题和关键字等信息时，我们可以在自定义html中使用模板引擎语法，此方案需要先开启使用`@umajs/plugin-views`插件;建议和`nunjucks`搭配使用。[参考demo](https://github.com/Umajs/umajs-react-ssr/tree/master/web/pages/template)。
+> 在SEO场景时，需要动态修改页面的标题和关键字等信息时，我们可以在自定义html中使用模板引擎语法，使用模板引擎时需要先开启使用`@umajs/plugin-views`插件并设置`useEngine:true`;建议和`nunjucks`搭配使用。[参考demo](https://github.com/Umajs/umajs-react-ssr/tree/master/web/pages/template)。
+- 插件配置
 ```js
 // plugin.config.ts
 views: {
@@ -158,19 +161,41 @@ views: {
             },
         },
     },
-
-// controller中调用时开启使用模板引擎标识，为提高性能，对未动态修改模板数据的页面组件不要设置此属性
-Result.reactView('template',{msg:"This is the template text！",title:'hi,umajs-react-ssr'},{cache:false,useEngine:true});
-
-// html
-<body>
-    <div>{{title}}</div>
-    <div>{{msg}}</div>
-    <div id="app"></div>
-</body>
+```
+- 设置useEngine
+```ts
+// src/index.controller
+//调用时开启使用模板引擎标识，为提高性能，对未动态修改模板数据的页面组件不要设置此属性
+Result.reactView('index',{msg:"This is the template text！",title:'hi,umajs-react-ssr'},{cache:false,useEngine:true});
 ```
 
-## 部署
+- 模板
+> 框架内置HTMLWebpackPlugin插件，开发者在页面组件同级目录下可以覆盖默认html模板自定义引入第三方资源和脚本。 更多规则使用请看[自定义HTML](https://github.com/dazjean/Srejs/blob/mian/doc/htmlTemplate.md)
+```html
+<!-- web/pages/index/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="format-detection" content="address=no;">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="keywords" content="{{msg}}">
+    <title>{{title}}</title>
+    <!-- 引入第三方组件库样式 -->
+</head>
+<body>
+    <div id="app"></div>
+    <!-- 引入第三方sdk脚本 -->
+</body>
+</html>
+```
+
+## 生产部署
 > 在部署生产环境之前，客户端代码需要提前编译。否则线上首次访问时会耗时比较长，影响用户体验。编译脚本命令为`npx srejs build`
 ```js
 "scripts": {
@@ -182,11 +207,10 @@ Result.reactView('template',{msg:"This is the template text！",title:'hi,umajs-
 
 ```
 
-**更多插件特性配置和使用请查看[`@umajs/plugin-react-ssr`](https://github.com/Umajs/plugin-react-ssr) 和 [Srejs](https://github.com/dazjean/Srejs)** 
+**源码请查看[`@umajs/plugin-react-ssr`](https://github.com/Umajs/plugin-react-ssr) 和 [`Srejs`](https://github.com/dazjean/Srejs) 欢迎Star和提供使用反馈。** 
 
 
 ## 案例
 - [uma-css-module](https://github.com/dazjean/Srejs/tree/mian/example/uma-css-module)
 - [uma-react-redux](https://github.com/dazjean/Srejs/tree/mian/example/uma-react-redux)
 - [uma-useContext-useReducer](https://github.com/dazjean/Srejs/tree/mian/example/uma-useContext-useReducer)
-<!-- - [uma-dva](https://github.com/dazjean/Srejs/tree/mian/example/uma-dva) -->
