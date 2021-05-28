@@ -10,8 +10,16 @@ module.exports = {
         repoLabel: 'Git',
         nav: [ // 导航栏配置
             {
-                text: 'QuickStart',
+                text: '介绍',
                 link: '/新手指南/框架介绍'
+            },
+            {
+                text: 'QuickStart',
+                link: '/新手指南/快速开始'
+            },
+            {
+                text: 'React+SSR',
+                link: '服务端渲染/React-ssr',
             },
         ],
         sidebar: [ // 侧边栏配置
@@ -43,7 +51,7 @@ module.exports = {
             },
             {
                 title: '插件',
-                collapsable: false,
+                collapsable: true,
                 children: [
                     '插件/Status',
                     '插件/Static',
@@ -55,7 +63,7 @@ module.exports = {
             },
             {
                 title: '其它',
-                collapsable: false,
+                collapsable: true,
                 children: [
                     'other/path',
                     'other/ArgDecorator',
@@ -63,7 +71,15 @@ module.exports = {
                     'other/错误处理',
                     'other/渐进迁移'
                 ],
-            }
+            },
+            {
+                title: '服务端渲染',
+                collapsable: true,
+                children: [
+                    '服务端渲染/React-ssr',
+                ],
+            },
+
         ],
     },
 };
