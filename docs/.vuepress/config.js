@@ -14,6 +14,10 @@ module.exports = {
                 link: '/新手指南/框架介绍'
             },
             {
+                text: 'QuickStart',
+                link: '/新手指南/快速开始'
+            },
+            {
                 text: 'React+SSR',
                 link: '服务端渲染/React-ssr',
             },

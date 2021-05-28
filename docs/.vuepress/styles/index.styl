@@ -2,3 +2,78 @@
     background-color: #fff5f5;
     color: #ff502c;
 }
+
+.theme-container .home {
+    margin: 0;
+    padding: 3.6rem 0 0;
+    max-width: initial;
+}
+
+.theme-container .home .hero {
+    padding: 1px 0;
+    background-image: url('/home/banner-uma2.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #0c0000;
+}
+
+.theme-container .home .hero h1,
+.theme-container .home .hero .description {
+    color: #fff;
+}
+
+.theme-container .home .features {
+    margin: 0 auto;
+    padding: 4rem 0 5rem;
+}
+
+.theme-container .home .features .feature {
+    display: block;
+    flex-grow: 0;
+    flex-basis: initial;
+    box-sizing: border-box;
+    padding: 2rem;
+    max-width: initial;
+    width: 100%;
+}
+
+.theme-container .home .feature h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 700px;
+    text-align: center;
+}
+
+.theme-container .home .feature h2:before,
+.theme-container .home .feature h2:after {
+    content: "";
+    display: inline-block;
+    margin-right: 1rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    background: #3eaf7c;
+}
+
+.theme-container .home .feature h2:after {
+    content: "";
+    margin-left: 1rem;
+    margin-right: 0;
+}
+
+.theme-container .home .feature p {
+    margin: 1rem auto 0;
+    max-width: 700px;
+    text-align: center;
+}
+
+@media (min-width: 960px) {
+    .home .features {
+        max-width: 700px;
+    }
+    .theme-container .home .features .feature {
+        margin: 0 auto;
+        width: 50%;
+    }
+}
