@@ -4,7 +4,7 @@ home: true
 heroText: UMajs
 tagline: 一个简单易用、扩展灵活，基于TypeScript的Node.js Web框架
 actionText: QuickStart →
-actionLink: /新手指南/框架介绍
+actionLink: /新手指南/快速开始
 features:
   - title: 功能强大
     details: 内置丰富的装饰器，诸如IOC 装饰器、AOP 装饰器、路由装饰器等等，也可以自定义装饰器。

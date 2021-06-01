@@ -10,7 +10,7 @@ module.exports = {
         repoLabel: 'Git',
         nav: [ // 导航栏配置
             {
-                text: '介绍',
+                text: 'Introduce',
                 link: '/新手指南/框架介绍'
             },
             {
@@ -19,7 +19,7 @@ module.exports = {
             },
             {
                 text: 'React+SSR',
-                link: '服务端渲染/React-ssr',
+                link: '/服务端渲染/React-ssr',
             },
         ],
         sidebar: [ // 侧边栏配置
