@@ -61,6 +61,7 @@ module.exports = {
                     '插件/Logger',
                     '插件/Session',
                     '插件/schedule',
+                    '插件/dev',
                 ],
             },
             {
