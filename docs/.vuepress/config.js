@@ -47,6 +47,7 @@ module.exports = {
                     '基础功能/Config',
                     '基础功能/Middleware',
                     '基础功能/Decorator',
+                    'other/ArgDecorator',
                 ],
             },
             {
@@ -59,6 +60,7 @@ module.exports = {
                     '插件/i18n',
                     '插件/Logger',
                     '插件/Session',
+                    '插件/schedule',
                 ],
             },
             {
@@ -66,10 +68,8 @@ module.exports = {
                 collapsable: true,
                 children: [
                     'other/path',
-                    'other/ArgDecorator',
                     'other/断点调试',
-                    'other/错误处理',
-                    'other/渐进迁移'
+                    'other/错误处理'
                 ],
             },
             {
@@ -77,6 +77,14 @@ module.exports = {
                 collapsable: true,
                 children: [
                     '服务端渲染/React-ssr',
+                ],
+            },
+            {
+                title: '老项目升级',
+                collapsable: true,
+                children: [
+                    'other/渐进迁移',
+                    'other/express升级'
                 ],
             },
 
