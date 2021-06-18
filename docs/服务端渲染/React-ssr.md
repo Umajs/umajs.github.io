@@ -214,3 +214,10 @@ Result.reactView('index',{msg:"This is the template text！",title:'hi,umajs-rea
 - [uma-css-module](https://github.com/dazjean/Srejs/tree/mian/example/uma-css-module)
 - [uma-react-redux](https://github.com/dazjean/Srejs/tree/mian/example/uma-react-redux)
 - [uma-useContext-useReducer](https://github.com/dazjean/Srejs/tree/mian/example/uma-useContext-useReducer)
+
+
+## FAQ
+
+- 引入插件后启动项目报错`TypeError:Cannot read property 'ROOT' of undefined`
+![image](../assets/images/TypeError-Cannot-react-ssr.png)
+> 此问题为项目`@umajs/core`版本冲突导致，解决方案为升级项目所依赖的包版本号，确保项目依赖的包版本号**大于或者等于**`@umajs/plugin-react-ssr`所依赖的`@umajs/core`版本号
