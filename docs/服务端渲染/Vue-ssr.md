@@ -29,6 +29,8 @@ $ uma project umajs-vue-demo  //通过uma初始化工程，选择vue2.0模板工
 ❯ vue2.0,umajs-vue-ssr模板，包含示例代码 
 
 ```
+依赖安装和启动
+```
 cd umajs-vue-demo
 yarn install
 yarn start
@@ -42,7 +44,9 @@ yarn start
 ```
  yarn add @umajs/plugin-vue-ssr --save
 ```
+
 打开 `package.json` 文件并添加 `scripts` 配置段：
+
 ```
 "scripts": {
     "start":'node app.js',
@@ -50,6 +54,7 @@ yarn start
     "analyzer": "npx ssr analyzer",
 },
 ```
+
 - `start` 启动你的node项目
 - `build` 运行`npx ssr build`构建用于生产环境的应用程序，Srejs为多项目工程目录结构，可通过指定页面标识单独构建或者启动特定页面，命令为：`npm run build xxx`
 - `analyzer` 运行`npx ssr analyzer` 用于分析页面组件打包依赖分析 可通过 `npm run analyzer xxx` xxx为页面组件标识，可指定分析某个页面组件打包结果
@@ -295,7 +300,7 @@ Result.vue('list',{title:'xxx',keywords:'xxx',description:'xxxx'});
 
 **优先级**`web/pages/xxx/index.html` > `web/index.html`
 
-## 9、Vuex
+## 9、vuex
 > 当项目比较复杂时，我们可以在页面组件入口文件中导出Vuex store对象。框架会自动从根页面组件注入vue子组件中，通过$store访问到实例化后的store。
 
 ```js
