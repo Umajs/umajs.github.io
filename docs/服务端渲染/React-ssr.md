@@ -1,10 +1,10 @@
 # umajs-react-ssr
 > `Umajs-react-ssr`是由[@umajs/plugin-react-ssr](https://github.com/Umajs/plugin-react-ssr) 搭配[Srejs](https://github.com/dazjean/Srejs)构建的轻量级，使用简单，灵活的`React`服务端渲染解决方案;可以在`controller`和`middleware`中灵活使用,通过模板引擎式的语法对`react`页面组件进行服务端渲染。
 
-## 插件介绍
+## 1、插件介绍
 `plugin-react-ssr`插件扩展了`Umajs`中提供的统一返回处理`Result`对象，新增了`reactView`页面组件渲染方法，可在`controller`自由调用,使用类似传统模板引擎；也同时将方法挂载到了koa中间件中的`ctx`对象上；当一些公关的页面组件，比如404、异常提示页面、登录或者需要在中间件中拦截跳转时可以在`middleware`中调用。
 
-## 特性
+## 2、特性
 - 不默认路由，不需区分前端路由和后端路由概念，且支持页面级组件AB测；`灵活`
 - 页面组件中没有`__isBrowser__`之类变量对`ssr`和`csr`模式进行特殊区分处理;`统一`。
 - 自定义`HTML`采用`htmlWebpackPlugin`,没有`runtime`，页面响应速度更高;`高性能`。
@@ -15,27 +15,13 @@
 - 支持其他`koa`开发框架使用。`可扩展`。
 - 支持MPA,各页面组件可单独构建，`可页面级更新`。
 
-## 开始
-> cli中支持快速创建`umajs-react-ssr`模板工程
-```shell
-npm i @umajs/cli -g  // 安装cli工具
-uma project umajs-react-demo  //通过uma初始化工程，选择react模板工程
-```
-![image](https://user-images.githubusercontent.com/10277671/119756060-8c888200-bed5-11eb-9dda-e0ab7a0410c8.png)
 
-```
-cd umajs-react-demo
-yarn install
-yarn start
-
-```
-
-## 插件安装
+## 3、插件安装
 
 ```
  yarn add @umajs/plugin-react-ssr --save
 ```
-## 插件配置
+## 4、插件配置
 ```ts
     // plugin.config.ts
     export default <{ [key: string]: TPluginConfig }>{
@@ -52,7 +38,7 @@ yarn start
     };
 ```
 
-## web目录结构
+## 5、web目录结构
 ```js
    - web # rootDir配置可修改
         - pages # 固定目录
@@ -61,7 +47,7 @@ yarn start
                 - index.scss
 ```
 
-## 创建react页面组件
+## 6、创建react页面组件
 > 页面组件开发模式支持js ,tsx。
 
 ```tsx
@@ -78,7 +64,22 @@ export default function (props:typeProps){
 }
 ```
 
-## API
+## 7、脚手架初始化模板工程【推荐】
+> 在cli中支持快速创建`umajs-react-ssr`模板工程。
+```shell
+npm i @umajs/cli -g  // 安装cli工具
+uma project umajs-react-demo  //通过uma初始化工程，选择react模板工程
+```
+![image](https://user-images.githubusercontent.com/10277671/119756060-8c888200-bed5-11eb-9dda-e0ab7a0410c8.png)
+
+```
+cd umajs-react-demo
+yarn install
+yarn start
+
+```
+
+## 8、API
 >  插件扩展了`Umajs`中提供的统一返回处理`Result`方法，新增了`reactView`页面组件可在`controller`自由调用,方式类似传统模板引擎使用方法；也同时将方法挂载到了koa中间件中的`ctx`对象上；当一些公关的页面组件，比如404、异常提示页面、登录或者需要在中间件中拦截跳转时可以在`middleware`中调用。
 ```ts
 interface TviewOptions{
@@ -93,7 +94,7 @@ ctx.reactView(viewName:string,initProps?:object,options?:TviewOptions);
 
 **注意** `cache`只在`生产环境`开启有效。
 
-## **controller**中使用
+## 9、**controller**中使用
 
 ```ts
 
@@ -108,7 +109,7 @@ export default class Index extends BaseController {
 }
 ```
 
-## **middleware**中使用
+## 10、**middleware**中使用
 > 对于中间件的使用，引入顺序需要在插件之后。
 ```js
 async(ctx,next)=>{
@@ -120,7 +121,7 @@ async(ctx,next)=>{
 }
 ```
 
-## **browserRouter**使用
+## 11、**browserRouter**使用
 > 在页面组件中使用react-router时，只能在controller中使用，切需要服务端对路由做支持。框架默认集成了BrowserRouter，无需开发者在页面组件中引入
 ```js
 // 页面组件 web/browserRouter/index.js 
@@ -145,7 +146,7 @@ browserRouter() {
 ```
 
 
-## **SEO和自定义HTML**
+## 12、**SEO和自定义HTML**
 > 在SEO场景时，需要动态修改页面的标题和关键字等信息时，我们可以在自定义html中使用模板引擎语法，使用模板引擎时需要先开启使用`@umajs/plugin-views`插件并设置`useEngine:true`;建议和`nunjucks`搭配使用。[参考demo](https://github.com/Umajs/umajs-react-ssr/tree/master/web/pages/template)。
 - 插件配置
 ```js
@@ -195,7 +196,7 @@ Result.reactView('index',{msg:"This is the template text！",title:'hi,umajs-rea
 </html>
 ```
 
-## 生产部署
+## 13、生产部署
 > 在部署生产环境之前，客户端代码需要提前编译。否则线上首次访问时会耗时比较长，影响用户体验。编译脚本命令为`npx srejs build`
 ```js
 "scripts": {
@@ -210,13 +211,13 @@ Result.reactView('index',{msg:"This is the template text！",title:'hi,umajs-rea
 **源码请查看[`@umajs/plugin-react-ssr`](https://github.com/Umajs/plugin-react-ssr) 和 [`Srejs`](https://github.com/dazjean/Srejs) 欢迎Star和提供使用反馈。** 
 
 
-## 案例
+## 14、案例
 - [uma-css-module](https://github.com/dazjean/Srejs/tree/mian/example/uma-css-module)
 - [uma-react-redux](https://github.com/dazjean/Srejs/tree/mian/example/uma-react-redux)
 - [uma-useContext-useReducer](https://github.com/dazjean/Srejs/tree/mian/example/uma-useContext-useReducer)
 
 
-## FAQ
+## 15、FAQ
 
 - 引入插件后启动项目报错`TypeError:Cannot read property 'ROOT' of undefined`
 ![image](../assets/images/TypeError-Cannot-react-ssr.png)

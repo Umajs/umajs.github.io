@@ -21,6 +21,10 @@ module.exports = {
                 text: 'React+SSR',
                 link: '/服务端渲染/React-ssr',
             },
+            {
+                text: 'Vue+SSR',
+                link: '/服务端渲染/Vue-ssr',
+            },
         ],
         sidebar: [ // 侧边栏配置
             {
@@ -78,6 +82,7 @@ module.exports = {
                 collapsable: true,
                 children: [
                     '服务端渲染/React-ssr',
+                    '服务端渲染/Vue-ssr',
                 ],
             },
             {
