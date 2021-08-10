@@ -18,10 +18,15 @@
 ## 3、脚手架快速初始化项目[推荐]
 > 在cli中支持快速创建`umajs-vue-ssr`模板工程。
 ```shell
-npm i @umajs/cli -g  // 安装cli工具
-uma project umajs-vue-demo  //通过uma初始化工程，选择vue模板工程
-```
-![image](https://user-images.githubusercontent.com/10277671/119756060-8c888200-bed5-11eb-9dda-e0ab7a0410c8.png)
+$ npm i @umajs/cli -g  // 安装cli工具
+$ uma project umajs-vue-demo  //通过uma初始化工程，选择vue2.0模板工程
+✔ loading template
+? please choise a template to create project (Use arrow keys)
+  all,全套模板，包含部分代码示例 
+  mini,极简模板，仅有核心代码 
+  standard,标准模板，不包含示例代码 
+  react,umajs-react-ssr模板，包含示例代码 
+❯ vue2.0,umajs-vue-ssr模板，包含示例代码 
 
 ```
 cd umajs-vue-demo
