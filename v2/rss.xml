@@ -6,8 +6,8 @@
     <link>https://umajs.github.io/v2/</link>
     <description>Umajs，an easy-to-use NodeJS framework base on Typescript.</description>
     <language>zh-CN</language>
-    <pubDate>Tue, 19 Oct 2021 14:40:02 GMT</pubDate>
-    <lastBuildDate>Tue, 19 Oct 2021 14:40:02 GMT</lastBuildDate>
+    <pubDate>Tue, 19 Oct 2021 14:47:36 GMT</pubDate>
+    <lastBuildDate>Tue, 19 Oct 2021 14:47:36 GMT</lastBuildDate>
     <generator>vuepress-plugin-feed2</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <item>
@@ -569,7 +569,7 @@ For help see https://nodejs.org/en/docs/inspector
 <span><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> result;</span></span>
 <span><span style="color: #C9D1D9">}</span></span>
 <span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br></div></div><h3 id="middlewaretoaround" tabindex="-1"> middlewareToAround</h3>
-<p>Uma 提供了将<code>Middleware(中间件)转Around(环绕)</code>的方法<code>middlewareToAround</code>，将中间件专为 Around 修饰器后，我们可以以 AOP 的装饰器形式使用中间件，具体参考 <a href="/%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD/Middleware.html#aop-%E8%A3%85%E9%A5%B0%E5%99%A8%E5%BD%A2%E5%BC%8F">Middleware 参考文档</a></p>
+<p>Uma 提供了将<code>Middleware(中间件)转Around(环绕)</code>的方法<code>middlewareToAround</code>，将中间件转为 Around 修饰器后，我们可以以 AOP 的装饰器形式使用中间件，具体参考 <a href="/%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD/Middleware.html#aop-%E8%A3%85%E9%A5%B0%E5%99%A8%E5%BD%A2%E5%BC%8F">Middleware 参考文档</a></p>
 ]]></content:encoded>
     </item>
     <item>
