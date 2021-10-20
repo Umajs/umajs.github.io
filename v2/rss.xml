@@ -6,8 +6,8 @@
     <link>https://umajs.github.io/v2/</link>
     <description>Umajs，an easy-to-use NodeJS framework base on Typescript.</description>
     <language>zh-CN</language>
-    <pubDate>Tue, 19 Oct 2021 14:47:36 GMT</pubDate>
-    <lastBuildDate>Tue, 19 Oct 2021 14:47:36 GMT</lastBuildDate>
+    <pubDate>Wed, 20 Oct 2021 09:54:37 GMT</pubDate>
+    <lastBuildDate>Wed, 20 Oct 2021 09:54:37 GMT</lastBuildDate>
     <generator>vuepress-plugin-feed2</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <item>
@@ -685,6 +685,8 @@ For help see https://nodejs.org/en/docs/inspector
 <p><a href="/%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD/IOC.html#service%E4%BF%AE%E9%A5%B0%E5%99%A8">Service 参考文档</a></p>
 <h3 id="aspect-修饰器" tabindex="-1"> @Aspect 修饰器</h3>
 <p><a href="/%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD/AOP.html#aspect%E4%BF%AE%E9%A5%B0%E5%99%A8">Acpect 参考文档</a></p>
+<h3 id="middleware-修饰器" tabindex="-1"> Middleware 修饰器</h3>
+<p><a href="/%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD/Middleware.html#Middleware%E8%A3%85%E9%A5%B0%E5%99%A8">Middleware 参考文档</a></p>
 <h3 id="path" tabindex="-1"> @Path</h3>
 <p><a href="/%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD/Router.html#path%E4%BF%AE%E9%A5%B0%E5%99%A8">Router 参考文档</a></p>
 <h4 id="参数装饰器-param-query-body" tabindex="-1"> 参数装饰器 <a href="/other/ArgDecorator.html">@Param , @Query, @Body</a></h4>
@@ -869,47 +871,32 @@ export declare function Resource(...props: any[]): Function;</p>
 <p>请不要在插件配置（ plugin.config.ts ）中进行中间件的开发，让插件的配置更加纯粹。如需要请使用插件开发。<a href="/%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD/Plugin.html#%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91">Plugin 参考文档</a></p>
 <p>如果要动态的加载中间件，请使用复合插件形式。<a href="/%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD/Plugin.html#%E5%A4%8D%E5%90%88%E6%8F%92%E4%BB%B6%E5%BD%A2%E5%BC%8F">Plugin 参考文档</a></p>
 </blockquote>
-<h2 id="aop-装饰器形式" tabindex="-1"> AOP 装饰器形式</h2>
+<h2 id="middleware装饰器-v2" tabindex="-1"> Middleware装饰器 (v2+)</h2>
+<blockquote>
+<p>Middleware装饰器目前只支持函数装饰，可将koa中间件作用于特定的controller函数。这可以更灵活的控制避免全局中间件的影响；将中间件局部应用于单一或者多个路由。</p>
+</blockquote>
+<div><pre style="background-color: #0d1117"><code><span></span>
+<span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">middleware</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">async</span><span style="color: #C9D1D9"> (</span><span style="color: #FFA657">ctx</span><span style="color: #C9D1D9">,</span><span style="color: #FFA657">next</span><span style="color: #C9D1D9">)</span><span style="color: #FF7B72">=&gt;</span><span style="color: #C9D1D9">{</span></span>
+<span><span style="color: #C9D1D9">    console.</span><span style="color: #D2A8FF">log</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">&quot;****** middleware before ******&quot;</span><span style="color: #C9D1D9">);</span></span>
+<span><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">await</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">next</span><span style="color: #C9D1D9">();</span></span>
+<span><span style="color: #C9D1D9">    console.</span><span style="color: #D2A8FF">log</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">&quot;****** middleware after *******&quot;</span><span style="color: #C9D1D9">);</span></span>
+<span><span style="color: #C9D1D9">}</span></span>
+<span></span>
+<span><span style="color: #FF7B72">export</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">default</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">class</span><span style="color: #FFA657"> Index </span><span style="color: #FF7B72">extends</span><span style="color: #FFA657"> </span><span style="color: #79C0FF">BaseController</span><span style="color: #FFA657"> {</span></span>
+<span><span style="color: #FFA657">    @</span><span style="color: #D2A8FF">Middleware</span><span style="color: #FFA657">(</span><span style="color: #C9D1D9">middleware</span><span style="color: #FFA657">)</span></span>
+<span><span style="color: #FFA657">    @</span><span style="color: #D2A8FF">Path</span><span style="color: #FFA657">(</span><span style="color: #A5D6FF">&#39;/&#39;</span><span style="color: #FFA657">)</span></span>
+<span><span style="color: #FFA657">    </span><span style="color: #D2A8FF">index</span><span style="color: #FFA657">() </span><span style="color: #C9D1D9">{</span></span>
+<span><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">this</span><span style="color: #C9D1D9">.</span><span style="color: #D2A8FF">view</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">&#39;index.html&#39;</span><span style="color: #C9D1D9">, {</span></span>
+<span><span style="color: #C9D1D9">            frameName: </span><span style="color: #79C0FF">this</span><span style="color: #C9D1D9">.testService.</span><span style="color: #D2A8FF">returnFrameName</span><span style="color: #C9D1D9">(),</span></span>
+<span><span style="color: #C9D1D9">        });</span></span>
+<span><span style="color: #C9D1D9">    }</span></span>
+<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br></div></div><h2 id="aop-装饰器形式" tabindex="-1"> AOP 装饰器形式</h2>
 <p>中间件和 Around 方式很相似，都是包裹异步方法。中间件是 next，around 是 proceed，但是他们有一些区别：</p>
 <blockquote>
 <p>1、中间件不能处理参数，不能处理返回结果</p>
 <p>2、切面可以对参数进行修改、判断、注入等操作，还可以对返回结果进行修改、校验、统一封装等操作</p>
 </blockquote>
-<p>Uma 内置了将中间件转换为切面的方法 <code>middlewareToAround</code>，因此我们可以以 AOP 的装饰器形式使用中间件，使用示例如下：</p>
-<div><pre style="background-color: #0d1117"><code><span><span style="color: #8B949E">// app/src/controller/index.controller.ts AOP形式使用中间件</span></span>
-<span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">*</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">as</span><span style="color: #C9D1D9"> path </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;path&#39;</span><span style="color: #C9D1D9">;</span></span>
-<span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> { BaseController, Path, Around, Result } </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;@umajs/core&#39;</span><span style="color: #C9D1D9">;</span></span>
-<span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> { mv } </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;./../aspect/mw.aspect&#39;</span></span>
-<span></span>
-<span><span style="color: #FF7B72">export</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">default</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">class</span><span style="color: #FFA657"> Index </span><span style="color: #FF7B72">extends</span><span style="color: #FFA657"> </span><span style="color: #79C0FF">BaseController</span><span style="color: #FFA657"> {</span></span>
-<span><span style="color: #FFA657">    @</span><span style="color: #D2A8FF">Around</span><span style="color: #FFA657">(</span><span style="color: #C9D1D9">mw</span><span style="color: #FFA657">)</span></span>
-<span><span style="color: #FFA657">    @</span><span style="color: #D2A8FF">Path</span><span style="color: #FFA657">(</span><span style="color: #A5D6FF">&#39;/page&#39;</span><span style="color: #FFA657">)</span></span>
-<span><span style="color: #FFA657">    </span><span style="color: #D2A8FF">page</span><span style="color: #FFA657">() </span><span style="color: #C9D1D9">{</span></span>
-<span><span style="color: #C9D1D9">       console.</span><span style="color: #D2A8FF">log</span><span style="color: #C9D1D9">(</span><span style="color: #79C0FF">this</span><span style="color: #C9D1D9">.userService.</span><span style="color: #D2A8FF">getDefaultUserAge</span><span style="color: #C9D1D9">());</span></span>
-<span><span style="color: #C9D1D9">       </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> Result.</span><span style="color: #D2A8FF">view</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">&#39;index.html&#39;</span><span style="color: #C9D1D9">, { test: </span><span style="color: #79C0FF">3</span><span style="color: #C9D1D9"> })</span></span>
-<span><span style="color: #C9D1D9">    }</span></span>
-<span><span style="color: #FFA657">}</span></span>
-<span></span>
-<span><span style="color: #8B949E">// app/src/aspect/mw.aspect.ts 定义AOP</span></span>
-<span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> { middlewareToAround } </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;@umajs/core&#39;</span><span style="color: #C9D1D9">;</span></span>
-<span></span>
-<span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">mwFn</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">function</span><span style="color: #C9D1D9">() { </span><span style="color: #8B949E">// 定义中间件</span></span>
-<span><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">async</span><span style="color: #C9D1D9"> (</span><span style="color: #FFA657">ctx</span><span style="color: #C9D1D9">, </span><span style="color: #FFA657">next</span><span style="color: #C9D1D9">) </span><span style="color: #FF7B72">=&gt;</span><span style="color: #C9D1D9"> {</span></span>
-<span><span style="color: #C9D1D9">    console.</span><span style="color: #D2A8FF">log</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">&quot;****** mw before ******&quot;</span><span style="color: #C9D1D9">);</span></span>
-<span><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">await</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">next</span><span style="color: #C9D1D9">();</span></span>
-<span><span style="color: #C9D1D9">    console.</span><span style="color: #D2A8FF">log</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">&quot;****** mw after *******&quot;</span><span style="color: #C9D1D9">);</span></span>
-<span><span style="color: #C9D1D9">  }</span></span>
-<span><span style="color: #C9D1D9">}</span></span>
-<span></span>
-<span><span style="color: #8B949E">// 将中间件转换为切面方法</span></span>
-<span><span style="color: #FF7B72">export</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">mv</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">async</span><span style="color: #C9D1D9"> ()</span><span style="color: #FF7B72">=&gt;</span><span style="color: #C9D1D9">{</span></span>
-<span><span style="color: #C9D1D9">   </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">middlewareToAround</span><span style="color: #C9D1D9">(</span><span style="color: #D2A8FF">mwFn</span><span style="color: #C9D1D9">())</span></span>
-<span><span style="color: #C9D1D9">}</span></span>
-<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br><span>21</span><br><span>22</span><br><span>23</span><br><span>24</span><br><span>25</span><br><span>26</span><br><span>27</span><br><span>28</span><br><span>29</span><br></div></div><p>对于有局部加载需求的中间件，使用 AOP 形式代码结构更清晰，可读性更强，可以在<code>controller</code>中直观的看到当前中间件的使用。</p>
-<h2 id="middleware装饰器" tabindex="-1"> Middleware装饰器</h2>
-<blockquote>
-<p>V2之后新增了Middleware，具体使用方法待补充。。。TODO</p>
-</blockquote>
+<p>对于在中间件需要对参数，返回结构进行统一处理和校验，推荐使用 AOP 形式代码结构更清晰，可读性更强。<a href="/%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD/AOP.html">AOP 参考文档</a></p>
 ]]></content:encoded>
     </item>
     <item>
