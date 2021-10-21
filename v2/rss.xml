@@ -6,8 +6,8 @@
     <link>https://umajs.github.io/v2/</link>
     <description>Umajs，an easy-to-use NodeJS framework base on Typescript.</description>
     <language>zh-CN</language>
-    <pubDate>Thu, 21 Oct 2021 03:12:38 GMT</pubDate>
-    <lastBuildDate>Thu, 21 Oct 2021 03:12:38 GMT</lastBuildDate>
+    <pubDate>Thu, 21 Oct 2021 04:15:49 GMT</pubDate>
+    <lastBuildDate>Thu, 21 Oct 2021 04:15:49 GMT</lastBuildDate>
     <generator>vuepress-plugin-feed2</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <item>
@@ -196,11 +196,11 @@
 ]]></content:encoded>
     </item>
     <item>
-      <title>express 老项目升级</title>
+      <title>express迁移</title>
       <link>https://umajs.github.io/v2/other/express%E5%8D%87%E7%BA%A7.html</link>
       <guid>https://umajs.github.io/v2/other/express%E5%8D%87%E7%BA%A7.html</guid>
-      <source url="https://umajs.github.io/v2/rss.xml">express 老项目升级</source>
-      <content:encoded><![CDATA[<h1 id="express-老项目升级" tabindex="-1"> express 老项目升级</h1>
+      <source url="https://umajs.github.io/v2/rss.xml">express迁移</source>
+      <content:encoded><![CDATA[<h1 id="express迁移" tabindex="-1"> express迁移</h1>
 <blockquote>
 <p>对于一些历史项目，我们可以采取逐步升级，将 umajs 集成到 express 项目中。新的接口和逻辑通过 Umajs 来写，然后再慢慢将老的逻辑迁移到 Umajs 中。</p>
 </blockquote>
@@ -396,11 +396,11 @@ For help see https://nodejs.org/en/docs/inspector
 ]]></content:encoded>
     </item>
     <item>
-      <title>渐进迁移</title>
+      <title>koa渐进迁移</title>
       <link>https://umajs.github.io/v2/other/%E6%B8%90%E8%BF%9B%E8%BF%81%E7%A7%BB.html</link>
       <guid>https://umajs.github.io/v2/other/%E6%B8%90%E8%BF%9B%E8%BF%81%E7%A7%BB.html</guid>
-      <source url="https://umajs.github.io/v2/rss.xml">渐进迁移</source>
-      <content:encoded><![CDATA[<h1 id="渐进迁移" tabindex="-1"> 渐进迁移</h1>
+      <source url="https://umajs.github.io/v2/rss.xml">koa渐进迁移</source>
+      <content:encoded><![CDATA[<h1 id="koa渐进迁移" tabindex="-1"> koa渐进迁移</h1>
 <p>Uma 提供了中间件，方便 Koa 或者 Koa 衍生框架采用渐进迁移的方式迁移至 Umajs 框架。</p>
 <h2 id="中间件" tabindex="-1"> 中间件</h2>
 <h3 id="使用" tabindex="-1"> 使用</h3>
@@ -2535,11 +2535,11 @@ Koa 配合 <code>try..catch..</code> 的错误处理方式便显得更加优雅�
 <span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br></div></div>]]></content:encoded>
     </item>
     <item>
-      <title>umajs-react-ssr</title>
+      <title>react-ssr</title>
       <link>https://umajs.github.io/v2/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93/React-ssr.html</link>
       <guid>https://umajs.github.io/v2/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93/React-ssr.html</guid>
-      <source url="https://umajs.github.io/v2/rss.xml">umajs-react-ssr</source>
-      <content:encoded><![CDATA[<h1 id="umajs-react-ssr" tabindex="-1"> umajs-react-ssr</h1>
+      <source url="https://umajs.github.io/v2/rss.xml">react-ssr</source>
+      <content:encoded><![CDATA[<h1 id="react-ssr" tabindex="-1"> react-ssr</h1>
 <blockquote>
 <p><code>Umajs-react-ssr</code>是由<a href="https://github.com/Umajs/plugin-react-ssr" target="_blank" rel="noopener noreferrer">@umajs/plugin-react-ssr</a> 搭配<a href="https://github.com/dazjean/Srejs" target="_blank" rel="noopener noreferrer">Srejs</a>构建的轻量级，使用简单，灵活的<code>React</code>服务端渲染解决方案;可以在<code>controller</code>和<code>middleware</code>中灵活使用,通过模板引擎式的语法对<code>react</code>页面组件进行服务端渲染。</p>
 </blockquote>
@@ -2755,11 +2755,11 @@ yarn start
       <enclosure url="https://user-images.githubusercontent.com/10277671/119756060-8c888200-bed5-11eb-9dda-e0ab7a0410c8.png" type="image/png"/>
     </item>
     <item>
-      <title>umajs-vue-ssr</title>
+      <title>vue-ssr</title>
       <link>https://umajs.github.io/v2/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93/Vue-ssr.html</link>
       <guid>https://umajs.github.io/v2/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93/Vue-ssr.html</guid>
-      <source url="https://umajs.github.io/v2/rss.xml">umajs-vue-ssr</source>
-      <content:encoded><![CDATA[<h1 id="umajs-vue-ssr" tabindex="-1"> umajs-vue-ssr</h1>
+      <source url="https://umajs.github.io/v2/rss.xml">vue-ssr</source>
+      <content:encoded><![CDATA[<h1 id="vue-ssr" tabindex="-1"> vue-ssr</h1>
 <blockquote>
 <p><code>Umajs-vue-ssr</code>是由<a href="https://github.com/Umajs/plugin-vue-ssr" target="_blank" rel="noopener noreferrer">@umajs/plugin-vue-ssr</a> 搭配<a href="https://github.com/dazjean/Srejs" target="_blank" rel="noopener noreferrer">Srejs</a>构建的轻量级，使用简单，灵活的<code>vue</code>服务端渲染解决方案;可以在<code>controller</code>和<code>middleware</code>中灵活使用,通过模板引擎式的语法对<code>vue</code>页面组件进行服务端渲染。</p>
 </blockquote>
