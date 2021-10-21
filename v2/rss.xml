@@ -6,16 +6,16 @@
     <link>https://umajs.github.io/v2/</link>
     <description>Umajs，an easy-to-use NodeJS framework base on Typescript.</description>
     <language>zh-CN</language>
-    <pubDate>Thu, 21 Oct 2021 07:31:57 GMT</pubDate>
-    <lastBuildDate>Thu, 21 Oct 2021 07:31:57 GMT</lastBuildDate>
+    <pubDate>Thu, 21 Oct 2021 07:50:35 GMT</pubDate>
+    <lastBuildDate>Thu, 21 Oct 2021 07:50:35 GMT</lastBuildDate>
     <generator>vuepress-plugin-feed2</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <item>
-      <title>内置参数装饰器（ArgDecorator）</title>
+      <title>参数装饰器（ArgDecorator）</title>
       <link>https://umajs.github.io/v2/other/ArgDecorator.html</link>
       <guid>https://umajs.github.io/v2/other/ArgDecorator.html</guid>
-      <source url="https://umajs.github.io/v2/rss.xml">内置参数装饰器（ArgDecorator）</source>
-      <content:encoded><![CDATA[<h1 id="内置参数装饰器-argdecorator" tabindex="-1"> 内置参数装饰器（ArgDecorator）</h1>
+      <source url="https://umajs.github.io/v2/rss.xml">参数装饰器（ArgDecorator）</source>
+      <content:encoded><![CDATA[<h1 id="参数装饰器-argdecorator" tabindex="-1"> 参数装饰器（ArgDecorator）</h1>
 <p><code>Umajs</code> 提供了 <code>createArgDecorator</code> 可以很方便的创建自定义参数装饰器，并且框架还提供了如下装饰器直接使用。</p>
 <h2 id="使用" tabindex="-1"> 使用</h2>
 <blockquote>
