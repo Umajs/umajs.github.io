@@ -6,8 +6,8 @@
     <link>https://umajs.github.io/v2/</link>
     <description>Umajs，an easy-to-use NodeJS framework base on Typescript.</description>
     <language>zh-CN</language>
-    <pubDate>Wed, 20 Oct 2021 09:54:37 GMT</pubDate>
-    <lastBuildDate>Wed, 20 Oct 2021 09:54:37 GMT</lastBuildDate>
+    <pubDate>Thu, 21 Oct 2021 03:12:38 GMT</pubDate>
+    <lastBuildDate>Thu, 21 Oct 2021 03:12:38 GMT</lastBuildDate>
     <generator>vuepress-plugin-feed2</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <item>
@@ -528,21 +528,21 @@ For help see https://nodejs.org/en/docs/inspector
 <ul>
 <li>前置通知：在目标方法之前执行</li>
 <li>后置通知：在目标方法之后执行</li>
-<li>异常通知：当执行目标方法出现异常时调用</li>
+<li>异常通知：当执行目标方法出现异常时执行</li>
 <li>最终通知：当目标方法有返回值之后执行，在后置通知之后</li>
 <li>环绕通知：在最开始调用时执行，会将目标方法作为参数传入，对目标方法(proceed)及入参(args)、出参(result)进行拦截，此方法必须返回 Result</li>
 </ul>
 <blockquote>
 <p>在 Uma 的 V1 版本我们实现了5个通知，在 V2 版本我们对通知进行了简化，减少用户对 AOP 理解的成本，保留了使用最多最灵活的 环绕<code>around</code>通知</p>
 </blockquote>
-<h2 id="around-修饰器" tabindex="-1"> @Around 修饰器</h2>
+<h2 id="around修饰器" tabindex="-1"> @Around修饰器</h2>
 <p>在 Uma 中，可以通过修饰器<code>@Around</code>的方式为方法添加环绕通知，Around修饰器接收一个参数，作为通知方法</p>
-<p><strong>类型声明</strong></p>
+<h3 id="类型声明" tabindex="-1"> 类型声明</h3>
 <div><pre style="background-color: #0d1117"><code><span><span style="color: #8B949E">/**</span></span>
 <span><span style="color: #8B949E"> * </span><span style="color: #FF7B72">@param</span><span style="color: #8B949E"> </span><span style="color: #C9D1D9">around</span><span style="color: #8B949E"> 要执行的通知方法，方法需要return Uma 提供的 Result结果</span></span>
 <span><span style="color: #8B949E"> */</span></span>
 <span><span style="color: #D2A8FF">Around</span><span style="color: #C9D1D9">(around: (</span><span style="color: #FFA657">point</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">IProceedJoinPoint</span><span style="color: #C9D1D9">) </span><span style="color: #FF7B72">=&gt;</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">Promise</span><span style="color: #FF7B72">&lt;</span><span style="color: #C9D1D9">Result</span><span style="color: #FF7B72">&lt;</span><span style="color: #C9D1D9">any</span><span style="color: #FF7B72">&gt;&gt;</span><span style="color: #C9D1D9">)</span></span>
-<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br></div></div><p><strong>示例</strong></p>
+<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br></div></div><h3 id="示例" tabindex="-1"> 示例</h3>
 <div><pre style="background-color: #0d1117"><code><span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> { BaseController, Result, Around } </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;@umajs/core&#39;</span><span style="color: #C9D1D9">;</span></span>
 <span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> { method } </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;../aspect/method.aspect&#39;</span><span style="color: #C9D1D9">;</span></span>
 <span></span>
@@ -569,7 +569,7 @@ For help see https://nodejs.org/en/docs/inspector
 <span><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> result;</span></span>
 <span><span style="color: #C9D1D9">}</span></span>
 <span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br></div></div><h3 id="middlewaretoaround" tabindex="-1"> middlewareToAround</h3>
-<p>Uma 提供了将<code>Middleware(中间件)转Around(环绕)</code>的方法<code>middlewareToAround</code>，将中间件转为 Around 修饰器后，我们可以以 AOP 的装饰器形式使用中间件，具体参考 <a href="/%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD/Middleware.html#aop-%E8%A3%85%E9%A5%B0%E5%99%A8%E5%BD%A2%E5%BC%8F">Middleware 参考文档</a></p>
+<p>Uma 提供了将<code>Middleware(中间件)转Around(环绕)</code>的方法<code>middlewareToAround</code>，将中间件转为 Around 修饰器后，我们可以以 AOP 的装饰器形式使用中间件。 在V2版本之后，我们可以直接使用@Middleware修饰器直接将koa中间件作用于方法。具体参考 <a href="/%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD/Middleware.html#aop-%E8%A3%85%E9%A5%B0%E5%99%A8%E5%BD%A2%E5%BC%8F">Middleware 参考文档</a></p>
 ]]></content:encoded>
     </item>
     <item>
@@ -679,19 +679,19 @@ For help see https://nodejs.org/en/docs/inspector
       <source url="https://umajs.github.io/v2/rss.xml">修饰器（Decorator）</source>
       <content:encoded><![CDATA[<h1 id="修饰器-decorator" tabindex="-1"> 修饰器（Decorator）</h1>
 <p>框架大量功能都是以 Decorator（修饰器）的方式使用。</p>
-<h3 id="resource、-inject-修饰器" tabindex="-1"> @Resource、@Inject 修饰器</h3>
+<h2 id="resource、-inject-修饰器" tabindex="-1"> @Resource、@Inject 修饰器</h2>
 <p><a href="/%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD/IOC.html#resource%E3%80%81-inject%E4%BF%AE%E9%A5%B0%E5%99%A8">IOC 参考文档</a></p>
-<h3 id="service-修饰器" tabindex="-1"> @Service 修饰器</h3>
+<h2 id="service-修饰器" tabindex="-1"> @Service 修饰器</h2>
 <p><a href="/%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD/IOC.html#service%E4%BF%AE%E9%A5%B0%E5%99%A8">Service 参考文档</a></p>
-<h3 id="aspect-修饰器" tabindex="-1"> @Aspect 修饰器</h3>
-<p><a href="/%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD/AOP.html#aspect%E4%BF%AE%E9%A5%B0%E5%99%A8">Acpect 参考文档</a></p>
-<h3 id="middleware-修饰器" tabindex="-1"> Middleware 修饰器</h3>
+<h2 id="around-修饰器" tabindex="-1"> @Around 修饰器</h2>
+<p><a href="/%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD/AOP.html#Around%E4%BF%AE%E9%A5%B0%E5%99%A8">Acpect 参考文档</a></p>
+<h2 id="middleware-修饰器" tabindex="-1"> Middleware 修饰器</h2>
 <p><a href="/%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD/Middleware.html#Middleware%E8%A3%85%E9%A5%B0%E5%99%A8">Middleware 参考文档</a></p>
-<h3 id="path" tabindex="-1"> @Path</h3>
+<h2 id="path" tabindex="-1"> @Path</h2>
 <p><a href="/%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD/Router.html#path%E4%BF%AE%E9%A5%B0%E5%99%A8">Router 参考文档</a></p>
-<h4 id="参数装饰器-param-query-body" tabindex="-1"> 参数装饰器 <a href="/other/ArgDecorator.html">@Param , @Query, @Body</a></h4>
-<h3 id="自定义参数装饰器-createargdecorator" tabindex="-1"> 自定义参数装饰器 createArgDecorator</h3>
-<h4 id="注意" tabindex="-1"> 注意</h4>
+<h2 id="参数装饰器-param-query-body" tabindex="-1"> 参数装饰器 <a href="/other/ArgDecorator.html">@Param , @Query, @Body</a></h2>
+<h2 id="自定义参数装饰器-createargdecorator" tabindex="-1"> 自定义参数装饰器 createArgDecorator</h2>
+<h3 id="注意" tabindex="-1"> 注意</h3>
 <blockquote>
 <p>从 v1.1.* 版本开始，<code>createArgDecorator</code> 更新了参数方式，使传入参数不受一个的限制。</p>
 </blockquote>
@@ -700,7 +700,7 @@ For help see https://nodejs.org/en/docs/inspector
 <span></span>
 <span><span style="color: #8B949E">// v1.1.*</span></span>
 <span><span style="color: #FF7B72">function</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">createArgDecorator</span><span style="color: #C9D1D9">(</span><span style="color: #D2A8FF">fn</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> (</span><span style="color: #FFA657">ctx</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">IContext</span><span style="color: #C9D1D9">, </span><span style="color: #FF7B72">...</span><span style="color: #FFA657">argProps</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">any</span><span style="color: #C9D1D9">[]) </span><span style="color: #FF7B72">=&gt;</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">any</span><span style="color: #C9D1D9">)</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> (</span><span style="color: #FF7B72">...</span><span style="color: #FFA657">argProps</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">any</span><span style="color: #C9D1D9">[]) </span><span style="color: #FF7B72">=&gt;</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">ParameterDecorator</span><span style="color: #C9D1D9">;</span></span>
-<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br></div></div><h4 id="示例如下" tabindex="-1"> 示例如下</h4>
+<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br></div></div><h3 id="示例如下" tabindex="-1"> 示例如下</h3>
 <div><pre style="background-color: #0d1117"><code><span><span style="color: #8B949E">// user.controller.ts</span></span>
 <span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> { BaseController, Param } </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;@umajs/core&#39;</span></span>
 <span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> { AgeCheck } </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;../decorator/AgeCheck&#39;</span></span>
