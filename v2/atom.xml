@@ -3,7 +3,7 @@
   <id>https://umajs.github.io/v2/</id>
   <title>UMajs</title>
   <subtitle>Umajs，an easy-to-use NodeJS framework base on Typescript.</subtitle>
-  <updated>2021-10-21T11:42:44.719Z</updated>
+  <updated>2021-10-22T09:56:36.804Z</updated>
   <generator>vuepress-plugin-feed2</generator>
   <link rel="self" href="https://umajs.github.io/v2/atom.xml"/>
   <link rel="alternate" href="https://umajs.github.io/v2/"/>
@@ -11,7 +11,7 @@
     <title type="html">面向切面（AOP）</title>
     <id>https://umajs.github.io/v2/development/AOP.html</id>
     <link href="https://umajs.github.io/v2/development/AOP.html"/>
-    <updated>2021-10-21T11:43:20.018Z</updated>
+    <updated>2021-10-22T09:57:13.823Z</updated>
     <content type="html"><![CDATA[<h1 id="面向切面-aop" tabindex="-1"> 面向切面（AOP）</h1>
 <p>AOP(Aspect Oriented Programming)面向切面编程是与 OOP(Object Oriented Programming)面向对象编程并列的编程思想。相对于 IOC(依赖注入)而言，AOP 是一种可以在不修改源代码的情况下给程序动态添加功能的一种方式。</p>
 <p>使用 AOP 可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。</p>
@@ -72,7 +72,7 @@
     <title type="html">配置（Config）</title>
     <id>https://umajs.github.io/v2/development/Config.html</id>
     <link href="https://umajs.github.io/v2/development/Config.html"/>
-    <updated>2021-10-21T11:43:20.019Z</updated>
+    <updated>2021-10-22T09:57:13.823Z</updated>
     <content type="html"><![CDATA[<h1 id="配置-config" tabindex="-1"> 配置（Config）</h1>
 <h2 id="config-loader" tabindex="-1"> config loader</h2>
 <p>Uma 的配置通过自动合并 app 及框架的配置，并根据不同环境读取不同的配置，最终配置通过<code>Uma.config</code>获取。</p>
@@ -103,7 +103,7 @@
     <title type="html">控制器（Controller）</title>
     <id>https://umajs.github.io/v2/development/Controller.html</id>
     <link href="https://umajs.github.io/v2/development/Controller.html"/>
-    <updated>2021-10-21T11:43:20.019Z</updated>
+    <updated>2021-10-22T09:57:13.824Z</updated>
     <content type="html"><![CDATA[<h1 id="控制器-controller" tabindex="-1"> 控制器（Controller）</h1>
 <h2 id="什么是控制器" tabindex="-1"> 什么是控制器</h2>
 <p>控制器负责解析用户输入，并向用户返回处理结果。</p>
@@ -172,7 +172,7 @@
     <title type="html">修饰器（Decorator）</title>
     <id>https://umajs.github.io/v2/development/Decorator.html</id>
     <link href="https://umajs.github.io/v2/development/Decorator.html"/>
-    <updated>2021-10-21T11:43:20.019Z</updated>
+    <updated>2021-10-22T09:57:13.824Z</updated>
     <content type="html"><![CDATA[<h1 id="修饰器-decorator" tabindex="-1"> 修饰器（Decorator）</h1>
 <p>框架大量功能都是以 Decorator（修饰器）的方式使用。</p>
 <h2 id="resource、-inject-修饰器" tabindex="-1"> @Resource、@Inject 修饰器</h2>
@@ -242,7 +242,7 @@
     <title type="html">依赖注入（IOC）</title>
     <id>https://umajs.github.io/v2/development/IOC.html</id>
     <link href="https://umajs.github.io/v2/development/IOC.html"/>
-    <updated>2021-10-21T11:43:20.019Z</updated>
+    <updated>2021-10-22T09:57:13.824Z</updated>
     <content type="html"><![CDATA[<h1 id="依赖注入-ioc" tabindex="-1"> 依赖注入（IOC）</h1>
 <p>IOC(Inversion of Control)控制反转，是面向对象编程中的一种设计原则，可以用来减低计算机代码之间的耦合度。</p>
 <h2 id="什么是-ioc" tabindex="-1"> 什么是 IOC</h2>
@@ -284,12 +284,7 @@ export declare function Resource(...props: any[]): Function;</p>
 <div><pre style="background-color: #0d1117"><code><span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> {</span></span>
 <span><span style="color: #C9D1D9">  BaseController,</span></span>
 <span><span style="color: #C9D1D9">  Path,</span></span>
-<span><span style="color: #C9D1D9">  Private,</span></span>
-<span><span style="color: #C9D1D9">  Param,</span></span>
-<span><span style="color: #C9D1D9">  Query,</span></span>
-<span><span style="color: #C9D1D9">  RequestMethod,</span></span>
 <span><span style="color: #C9D1D9">  Inject,</span></span>
-<span><span style="color: #C9D1D9">  Aspect,</span></span>
 <span><span style="color: #C9D1D9">} </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;@umajs/core&#39;</span></span>
 <span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> UserModel </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;../model/user.model&#39;</span></span>
 <span></span>
@@ -297,14 +292,14 @@ export declare function Resource(...props: any[]): Function;</p>
 <span><span style="color: #FFA657">  </span><span style="color: #8B949E">// ===&gt; 获取实例，实例的名称为@Resource修饰的class所在的文件名</span></span>
 <span><span style="color: #FFA657">  @</span><span style="color: #D2A8FF">Inject</span><span style="color: #FFA657">(</span><span style="color: #C9D1D9">UserModel</span><span style="color: #FFA657">)</span></span>
 <span><span style="color: #FFA657">  user</span><span style="color: #FF7B72">:</span><span style="color: #FFA657"> UserModel</span></span>
-<span></span>
+<span><span style="color: #FFA657">  @</span><span style="color: #D2A8FF">Path</span><span style="color: #FFA657">(</span><span style="color: #A5D6FF">&#39;/getUser&#39;</span><span style="color: #FFA657">)</span></span>
 <span><span style="color: #FFA657">  </span><span style="color: #FF7B72">async</span><span style="color: #FFA657"> </span><span style="color: #D2A8FF">testModel</span><span style="color: #FFA657">() </span><span style="color: #C9D1D9">{</span></span>
 <span><span style="color: #C9D1D9">    </span><span style="color: #8B949E">// ===&gt; 这里不需要创建user实例，@Resource已经将userModel实例化保存在容器中</span></span>
 <span><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">userList</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">await</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">this</span><span style="color: #C9D1D9">.user.</span><span style="color: #D2A8FF">findAll</span><span style="color: #C9D1D9">()</span></span>
 <span><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">this</span><span style="color: #C9D1D9">.</span><span style="color: #D2A8FF">json</span><span style="color: #C9D1D9">(userList)</span></span>
 <span><span style="color: #C9D1D9">  }</span></span>
 <span><span style="color: #FFA657">}</span></span>
-<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br><span>21</span><br><span>22</span><br><span>23</span><br></div></div><p>@Resource 可以对<code>任何class进行修饰</code>，即任何资源都可以加入到容器中，然后通过依赖注入的方式使用。</p>
+<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br></div></div><p>@Resource 可以对<code>任何class进行修饰</code>，即任何资源都可以加入到容器中，然后通过依赖注入的方式使用。</p>
 <p><code>@Resource修饰器支持传入参数</code>，传入的参数将会被作为修饰类实例化时的<code>构造参数</code>使用。</p>
 <h2 id="service-修饰器" tabindex="-1"> @Service 修饰器</h2>
 <p>除了提供的 <code>Resource</code> 和 <code>Inject</code> 装饰器，还有一个特殊的依赖注入装饰器 <code>Service</code>，<code>@Service</code> 装饰器仅提供 <code>Controller</code> 使用，为了方便使用，Service 注入中内置了 ctx，框架默认将<code>${URSA_ROOT}/service</code>下的文件实例化加入到<code>service的容器中</code>，当我们使用的时候，通过<code>@Service修饰器</code>去获取该实例。</p>
@@ -337,7 +332,7 @@ export declare function Resource(...props: any[]): Function;</p>
     <title type="html">中间件（Middleware）</title>
     <id>https://umajs.github.io/v2/development/Middleware.html</id>
     <link href="https://umajs.github.io/v2/development/Middleware.html"/>
-    <updated>2021-10-21T11:43:20.020Z</updated>
+    <updated>2021-10-22T09:57:13.824Z</updated>
     <content type="html"><![CDATA[<h1 id="中间件-middleware" tabindex="-1"> 中间件（Middleware）</h1>
 <p>Uma 基于 Koa2，兼容 middleware。在已有中间件的基础上提供两种使用形式：插件形式、AOP 形式。</p>
 <h2 id="插件形式" tabindex="-1"> 插件形式</h2>
@@ -399,7 +394,7 @@ export declare function Resource(...props: any[]): Function;</p>
     <title type="html">插件（Plugin）</title>
     <id>https://umajs.github.io/v2/development/Plugin.html</id>
     <link href="https://umajs.github.io/v2/development/Plugin.html"/>
-    <updated>2021-10-21T11:43:20.020Z</updated>
+    <updated>2021-10-22T09:57:13.825Z</updated>
     <content type="html"><![CDATA[<h1 id="插件-plugin" tabindex="-1"> 插件（Plugin）</h1>
 <h2 id="为什么使用插件" tabindex="-1"> 为什么使用插件</h2>
 <p><code>Uma</code> 的插件内部机制就是借用了 <code>Koa</code> 的中间件，但是仅有中间件无法满足框架的扩展，另外中间件的配置对于业务多样性解决也偏单一。</p>
@@ -446,14 +441,26 @@ export declare function Resource(...props: any[]): Function;</p>
 <span><span style="color: #FF7B72">export</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">default</span><span style="color: #FFA657"> {</span></span>
 <span><span style="color: #FFA657">  </span><span style="color: #A5D6FF">&#39;error-handler&#39;</span><span style="color: #C9D1D9">: </span><span style="color: #79C0FF">true</span><span style="color: #FFA657">,</span></span>
 <span><span style="color: #FFA657">}</span></span>
-<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br></div></div><h2 id="插件开发" tabindex="-1"> <a href="/plugin/dev.html">插件开发</a></h2>
+<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br></div></div><p>插件实际上是一个接收uma对象和option参数的函数，函数必须返回中间件函数或复合插件格式<a href="/plugin/dev.html#%E5%A4%8D%E5%90%88%E6%8F%92%E4%BB%B6%E5%BD%A2%E5%BC%8F">对象</a></p>
+<div><pre style="background-color: #0d1117"><code><span><span style="color: #8B949E">// plugin/error-handler/index.ts</span></span>
+<span><span style="color: #FF7B72">export</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">default</span><span style="color: #FFA657"> (uma</span><span style="color: #FF7B72">:</span><span style="color: #FFA657"> Uma, options</span><span style="color: #FF7B72">:</span><span style="color: #FFA657"> TView </span><span style="color: #FF7B72">=</span><span style="color: #FFA657"> {})</span><span style="color: #FF7B72">:</span><span style="color: #FFA657"> Koa.Middleware </span><span style="color: #FF7B72">=&gt;</span><span style="color: #FFA657"> </span><span style="color: #C9D1D9">{</span></span>
+<span><span style="color: #C9D1D9">    </span><span style="color: #8B949E">// uma 实例化对象；options 插件配置的 options，等同于 uma.plugin[&#39;error-handler&#39;].options</span></span>
+<span><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">async</span><span style="color: #C9D1D9">(</span><span style="color: #FFA657">ctx</span><span style="color: #C9D1D9">,</span><span style="color: #FFA657">next</span><span style="color: #C9D1D9">)</span><span style="color: #FF7B72">=&gt;</span><span style="color: #C9D1D9">{</span></span>
+<span><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">try</span><span style="color: #C9D1D9">{</span></span>
+<span><span style="color: #C9D1D9">          </span><span style="color: #FF7B72">await</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">next</span><span style="color: #C9D1D9">();</span></span>
+<span><span style="color: #C9D1D9">        }</span><span style="color: #FF7B72">catch</span><span style="color: #C9D1D9">(e){</span></span>
+<span><span style="color: #C9D1D9">          console.</span><span style="color: #D2A8FF">error</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">&#39;error-handler插件捕获异常&#39;</span><span style="color: #C9D1D9">,e);</span></span>
+<span><span style="color: #C9D1D9">        }</span></span>
+<span><span style="color: #C9D1D9">    };</span></span>
+<span><span style="color: #C9D1D9">};</span></span>
+<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br></div></div><h2 id="插件开发" tabindex="-1"> <a href="/plugin/dev.html">插件开发</a></h2>
 ]]></content>
   </entry>
   <entry>
     <title type="html">统一返回（Result）</title>
     <id>https://umajs.github.io/v2/development/Result.html</id>
     <link href="https://umajs.github.io/v2/development/Result.html"/>
-    <updated>2021-10-21T11:43:20.020Z</updated>
+    <updated>2021-10-22T09:57:13.825Z</updated>
     <content type="html"><![CDATA[<h1 id="统一返回-result" tabindex="-1"> 统一返回（Result）</h1>
 <p>在 koa 和大多数框架中，没有统一返回，这样在使用框架返回数据的时候需要额外处理，如果要对返回结果做处理可能需要修改很多地方，但是在进行了统一返回之后这些都变得很简单。</p>
 <h2 id="result" tabindex="-1"> Result</h2>
@@ -487,31 +494,29 @@ export declare function Resource(...props: any[]): Function;</p>
 <span><span style="color: #FFA657">}</span></span>
 <span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br></div></div><h2 id="实例" tabindex="-1"> 实例</h2>
 <h3 id="controller-实例" tabindex="-1"> controller 实例</h3>
-<p>Uma 在需要的模板返回的数据中加入 version，这里我们用 Aspect.around 可以很容易做到。</p>
+<p>Uma 在需要的模板返回的数据中加入 version，这里我们用 Around 可以很容易做到。</p>
 <div><pre style="background-color: #0d1117"><code><span><span style="color: #8B949E">// version.aspect.ts</span></span>
-<span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> { IAspect, IJoinPoint, IProceedJoinPoint, Result } </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;@umajs/core&#39;</span><span style="color: #C9D1D9">;</span></span>
+<span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> { IJoinPoint, IProceedJoinPoint, Result } </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;@umajs/core&#39;</span><span style="color: #C9D1D9">;</span></span>
 <span></span>
-<span><span style="color: #FF7B72">export</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">default</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">class</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">implements</span><span style="color: #FFA657"> </span><span style="color: #79C0FF">IAspect</span><span style="color: #FFA657"> {</span></span>
-<span><span style="color: #FFA657">    </span><span style="color: #FF7B72">async</span><span style="color: #FFA657"> </span><span style="color: #D2A8FF">around</span><span style="color: #FFA657">(proceedPoint</span><span style="color: #FF7B72">:</span><span style="color: #FFA657"> IProceedJoinPoint&lt;</span><span style="color: #79C0FF">any</span><span style="color: #FFA657">&gt;) </span><span style="color: #C9D1D9">{</span></span>
-<span><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">result</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">Result</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">await</span><span style="color: #C9D1D9"> proceedPoint.</span><span style="color: #D2A8FF">proceed</span><span style="color: #C9D1D9">();</span></span>
+<span><span style="color: #FF7B72">export</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">version</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">async</span><span style="color: #C9D1D9">(</span><span style="color: #FFA657">proceedPoint</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">IProceedJoinPoint</span><span style="color: #C9D1D9">&lt;</span><span style="color: #79C0FF">any</span><span style="color: #C9D1D9">&gt;) {</span></span>
+<span><span style="color: #C9D1D9">        const result: Result </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">await</span><span style="color: #C9D1D9"> proceedPoint.</span><span style="color: #D2A8FF">proceed</span><span style="color: #C9D1D9">();</span></span>
 <span></span>
 <span><span style="color: #C9D1D9">        result.data.version </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;v1.0.0&#39;</span><span style="color: #C9D1D9">;</span></span>
 <span></span>
-<span><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> result;</span></span>
-<span><span style="color: #C9D1D9">    }</span></span>
-<span><span style="color: #FFA657">}</span></span>
+<span><span style="color: #C9D1D9">        return result;</span></span>
+<span><span style="color: #C9D1D9">}</span></span>
 <span></span>
 <span><span style="color: #8B949E">// info.controller.ts</span></span>
-<span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> { BaseController, Aspect, Result } </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;@umajs/core&#39;</span><span style="color: #C9D1D9">;</span></span>
-<span></span>
+<span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> { BaseController, Aournd, Result } </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;@umajs/core&#39;</span><span style="color: #C9D1D9">;</span></span>
+<span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> { version } </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;./aspect/version.aspect&#39;</span></span>
 <span><span style="color: #FF7B72">export</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">default</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">class</span><span style="color: #FFA657"> Info </span><span style="color: #FF7B72">extends</span><span style="color: #FFA657"> </span><span style="color: #79C0FF">BaseController</span><span style="color: #FFA657"> {</span></span>
 <span></span>
-<span><span style="color: #FFA657">    @</span><span style="color: #C9D1D9">Aspect</span><span style="color: #FFA657">.</span><span style="color: #D2A8FF">aournd</span><span style="color: #FFA657">(</span><span style="color: #A5D6FF">&#39;version&#39;</span><span style="color: #FFA657">)</span></span>
+<span><span style="color: #FFA657">    @</span><span style="color: #D2A8FF">Aournd</span><span style="color: #FFA657">(</span><span style="color: #C9D1D9">version</span><span style="color: #FFA657">)</span></span>
 <span><span style="color: #FFA657">    </span><span style="color: #D2A8FF">info</span><span style="color: #FFA657">() </span><span style="color: #C9D1D9">{</span></span>
 <span><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> Result.</span><span style="color: #D2A8FF">view</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">&#39;info.html&#39;</span><span style="color: #C9D1D9">, {});</span></span>
 <span><span style="color: #C9D1D9">    }</span></span>
 <span><span style="color: #FFA657">}</span></span>
-<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br><span>21</span><br><span>22</span><br><span>23</span><br></div></div><h3 id="controller-参数实例" tabindex="-1"> controller 参数实例</h3>
+<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br><span>21</span><br></div></div><h3 id="controller-参数实例" tabindex="-1"> controller 参数实例</h3>
 <p><a href="/development/Decorator.html#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%82%E6%95%B0%E8%A3%85%E9%A5%B0%E5%99%A8-createargdecorator">createArgDecorator 参考文档</a></p>
 <h2 id="扩展" tabindex="-1"> 扩展</h2>
 <p>想要扩展 <code>Result</code> 的返回方法，请使用 <code>plugin</code> 的扩展方式，示例如下：</p>
@@ -571,7 +576,7 @@ export declare function Resource(...props: any[]): Function;</p>
     <title type="html">路由（Router）</title>
     <id>https://umajs.github.io/v2/development/Router.html</id>
     <link href="https://umajs.github.io/v2/development/Router.html"/>
-    <updated>2021-10-21T11:43:20.021Z</updated>
+    <updated>2021-10-22T09:57:13.826Z</updated>
     <content type="html"><![CDATA[<h1 id="路由-router" tabindex="-1"> 路由（Router）</h1>
 <p>路由主要用于确认如何响应客户端的请求，当用户访问一个地址时，需要找到指定的 controller 的指定方法对用户请求进行处理。确认一个请求主要对请求的两部分：路径和特定 HTTP 请求方法，进行判断。</p>
 <h2 id="使用" tabindex="-1"> 使用</h2>
@@ -752,7 +757,7 @@ export declare function Resource(...props: any[]): Function;</p>
     <title type="html">服务（Service）</title>
     <id>https://umajs.github.io/v2/development/Service.html</id>
     <link href="https://umajs.github.io/v2/development/Service.html"/>
-    <updated>2021-10-21T11:43:20.021Z</updated>
+    <updated>2021-10-22T09:57:13.826Z</updated>
     <content type="html"><![CDATA[<h1 id="服务-service" tabindex="-1"> 服务（Service）</h1>
 <h2 id="使用" tabindex="-1"> 使用</h2>
 <h3 id="cli-工具在初始化会自动生成-service-目录-可直接在-service-目录中编写-service" tabindex="-1"> cli 工具在初始化会自动生成 service 目录，可直接在 service 目录中编写 service</h3>
@@ -815,9 +820,9 @@ export declare function Resource(...props: any[]): Function;</p>
 <span><span style="color: #C9D1D9">    };</span></span>
 <span><span style="color: #C9D1D9">};</span></span>
 <span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br></div></div><ul>
-<li>在 Aspect 切面中使用</li>
+<li>在 Around 面向切面编程时使用</li>
 </ul>
-<div><pre style="background-color: #0d1117"><code><span><span style="color: #8B949E">// Aspect</span></span>
+<div><pre style="background-color: #0d1117"><code><span><span style="color: #8B949E">// src/aspect/demo.aspect.ts</span></span>
 <span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> DemoService </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;../service/demo.service&#39;</span></span>
 <span></span>
 <span><span style="color: #FF7B72">export</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">default</span><span style="color: #FFA657"> </span><span style="color: #C9D1D9">async</span><span style="color: #FFA657"> </span><span style="color: #D2A8FF">around</span><span style="color: #FFA657">(</span><span style="color: #C9D1D9">proceedPoint</span><span style="color: #FFA657">: </span><span style="color: #C9D1D9">IProceedJoinPoint</span><span style="color: #FFA657">) {</span></span>
@@ -837,7 +842,7 @@ export declare function Resource(...props: any[]): Function;</p>
     <title type="html">Uma 对象</title>
     <id>https://umajs.github.io/v2/development/Uma.html</id>
     <link href="https://umajs.github.io/v2/development/Uma.html"/>
-    <updated>2021-10-21T11:43:20.022Z</updated>
+    <updated>2021-10-22T09:57:13.826Z</updated>
     <content type="html"><![CDATA[<h1 id="uma-对象" tabindex="-1"> Uma 对象</h1>
 <p>框架向外暴露了 Uma 对象，方便在项目中随时调用</p>
 <h2 id="api" tabindex="-1"> API</h2>
@@ -945,7 +950,7 @@ export declare function Resource(...props: any[]): Function;</p>
     <title type="html">Uma 与 Koa</title>
     <id>https://umajs.github.io/v2/newbieGuide/Uma.html</id>
     <link href="https://umajs.github.io/v2/newbieGuide/Uma.html"/>
-    <updated>2021-10-21T11:43:20.038Z</updated>
+    <updated>2021-10-22T09:57:13.843Z</updated>
     <content type="html"><![CDATA[<h1 id="uma-与-koa" tabindex="-1"> Uma 与 Koa</h1>
 <blockquote>
 <p>使用客户端与服务端通用开发语言的问题是一直是开发者需要面临的问题，而 NodeJs 的出现使得 JavaScript 一跃成为最流行的 web 开发语言。各类 node web 框架层出不穷，其中不乏著名的 Express、Koa......</p>
@@ -994,10 +999,10 @@ Koa 配合 <code>try..catch..</code> 的错误处理方式便显得更加优雅�
 <p>用户请求达到 router</p>
 <p>router 解析请求穿过 plugin 中的中间件，然后到达 controller</p>
 <p>controller 可以通过 IOC 调用 service 和 resource</p>
-<p>controller、service、resource 等可以通过 AOP 的 Aspect 进行切面开发</p>
+<p>controller、service、resource 等可以通过 AOP 的 Around 进行切面开发</p>
 <p>controller 返回 Result，Umajs 解析 Result 按 Koa 框架格式返回数据</p>
-<p>AOP 可以对 controller、service、resource 进行切面开发，还可以将 middleware 封装成 Aspect.around 对 controller 进行切页面开发</p>
-<p>中间件（middleware）有提供两种形式使用，一种是插件配置(plugin.config.ts)，一种是封装成 Aspect.around 以装饰器形式使用</p>
+<p>AOP 可以对 controller、service、resource 进行切面开发，还可以将 middleware 封装成 Around 对 controller 进行切页面开发</p>
+<p>中间件（middleware）有提供两种形式使用，一种是插件配置(plugin.config.ts)，一种是封装成 Around 以装饰器形式使用</p>
 <p>Plugin 有两种形式进行扩展，一种中间件形式、一种复合形式</p>
 </blockquote>
 <h2 id="特性" tabindex="-1"> 特性</h2>
@@ -1028,15 +1033,16 @@ Koa 配合 <code>try..catch..</code> 的错误处理方式便显得更加优雅�
 <p>AOP（面向切面编程）扩展了传统的 OOP（面向对象编程）模型，以改善跨不同对象层次结构的代码重用。AOP 基本概念是一个切面，这是一种常见的行为，通常分散在方法，类，对象层次结构甚至整个对象模型中。</p>
 <p>例如：我们需要在代码中添加日志功能，但日志打印并不是我们核心业务需要关注的。<br>
 在 AOP 中，日志功能作为横切关注点，会建议将其抽象化并封装到一个切面中去。</p>
-<p>Uma 提供 @Aspect 装饰器作为 IOC 容器，你可以在 aspect 文件夹下新建自己的切面，并且定义 5 类通知：</p>
+<p>Uma 提供 @Around 装饰器作为 IOC 容器，你可以在 aspect 文件夹下新建自己的切面，实现5 类通知：</p>
 <ul>
-<li>前置通知</li>
-<li>后置通知</li>
-<li>异常通知</li>
-<li>最终通知</li>
-<li>环绕通知</li>
+<li>前置通知：在目标方法之前执行</li>
+<li>后置通知：在目标方法之后执行</li>
+<li>异常通知：当执行目标方法出现异常时执行</li>
+<li>最终通知：当目标方法有返回值之后执行，在后置通知之后</li>
+<li>环绕通知：在最开始调用时执行，会将目标方法作为参数传入，对目标方法(proceed)及入参(args)、出参(result)进行拦截。</li>
 </ul>
-<p>开发者可以通过调用@Aspect('xx')的方式在类或方法中织入切面。</p>
+
+<p>开发者可以通过调用@Around(func)的方式在类或方法中织入切面。</p>
 <p>更多使用方式可查看<a href="/development/AOP.html">AOP</a>一节。</p>
 ]]></content>
   </entry>
@@ -1044,7 +1050,7 @@ Koa 配合 <code>try..catch..</code> 的错误处理方式便显得更加优雅�
     <title type="html">框架介绍</title>
     <id>https://umajs.github.io/v2/newbieGuide/introduce.html</id>
     <link href="https://umajs.github.io/v2/newbieGuide/introduce.html"/>
-    <updated>2021-10-21T11:43:20.038Z</updated>
+    <updated>2021-10-22T09:57:13.844Z</updated>
     <content type="html"><![CDATA[<h1 id="框架介绍" tabindex="-1"> 框架介绍</h1>
 <p><img src="@source/../public/images/UMajs.png" alt="image"></p>
 <p><code>Umajs</code> 是基于 Koa2 使用 TypeScript 开发、通过装饰器使用大部分功能的 Web 框架。</p>
@@ -1054,7 +1060,7 @@ Koa 配合 <code>try..catch..</code> 的错误处理方式便显得更加优雅�
 <li>统一响应 (Result)， 让 Controller 响应数据更便捷清晰</li>
 <li>装饰器 (Decorator)，代码组织更优雅方便</li>
 <li>自定义装饰器 (createArgDecorator)， 可以快速的扩展参数装饰器，用于参数校验、参数转换、参数聚合等</li>
-<li>面向切面 (AOP)，基于装饰器的 <code>Aspect</code> 可以很方便的对任意方法进行拦截、修改等，并且能将中间件转换成 <code>Aspect.around</code> 使用</li>
+<li>面向切面 (AOP)，基于装饰器的 <code>Around</code> 可以很方便的对任意方法进行拦截、修改等，并且能将中间件转换成 <code>Around</code> 使用</li>
 <li>依赖注入 (IOC)，模块依赖不再需要引入和实例化</li>
 <li>插件、切面形式让中间件(Middleware)使用更优雅</li>
 <li>高稳定高性能，单元测试覆盖全</li>
@@ -1067,15 +1073,15 @@ Koa 配合 <code>try..catch..</code> 的错误处理方式便显得更加优雅�
 <blockquote>
 <p>1、通过 <code>createArgDecorator</code> 创建参数装饰器，对 <code>age</code> 参数进行校验和类型转换</p>
 <p>2、controller 通过框架提供的 <code>Result</code> 便捷的响应数据</p>
-<p>3、<code>Aspect</code> 通过 <code>around</code> 方法进行方法的拦截，对方法的 <code>参数</code> 进行校验, 对 <code>返回值</code> 进行校验/修改</p>
+<p>3、<code>Around</code>切面装饰器方法进行方法的拦截，对方法的 <code>参数</code> 进行校验, 对 <code>返回值</code> 进行校验/修改</p>
 </blockquote>
 <div><pre style="background-color: #0d1117"><code><span><span style="color: #8B949E">// index.controller.ts</span></span>
 <span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> Method </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;./method.aspect&#39;</span></span>
 <span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> { AgeCheck } </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;./ArgDecorator&#39;</span></span>
 <span></span>
-<span><span style="color: #C9D1D9">@</span><span style="color: #D2A8FF">Aspect</span><span style="color: #C9D1D9">(Method) </span><span style="color: #8B949E">// 可以装饰在类上对所有方法进行装饰</span></span>
+<span><span style="color: #C9D1D9">@</span><span style="color: #D2A8FF">Around</span><span style="color: #C9D1D9">(Method) </span><span style="color: #8B949E">// 可以装饰在类上对所有方法进行装饰</span></span>
 <span><span style="color: #FF7B72">export</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">default</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">class</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">extends</span><span style="color: #FFA657"> </span><span style="color: #79C0FF">BaseController</span><span style="color: #FFA657"> {</span></span>
-<span><span style="color: #FFA657">  </span><span style="color: #8B949E">// @Aspect(Method) // 可以装饰在方法上对单一方法进行装饰</span></span>
+<span><span style="color: #FFA657">  </span><span style="color: #8B949E">// @Around(Method) // 可以装饰在方法上对单一方法进行装饰</span></span>
 <span><span style="color: #FFA657">  @</span><span style="color: #D2A8FF">Path</span><span style="color: #FFA657">(</span><span style="color: #A5D6FF">&#39;/hello&#39;</span><span style="color: #FFA657">)</span></span>
 <span><span style="color: #FFA657">  </span><span style="color: #D2A8FF">index</span><span style="color: #FFA657">(@</span><span style="color: #D2A8FF">Query</span><span style="color: #FFA657">(</span><span style="color: #A5D6FF">&#39;name&#39;</span><span style="color: #FFA657">) name</span><span style="color: #FF7B72">:</span><span style="color: #FFA657"> </span><span style="color: #79C0FF">string</span><span style="color: #FFA657">, @</span><span style="color: #D2A8FF">AgeCheck</span><span style="color: #FFA657">(</span><span style="color: #A5D6FF">&#39;age&#39;</span><span style="color: #FFA657">) age</span><span style="color: #FF7B72">:</span><span style="color: #FFA657"> </span><span style="color: #79C0FF">number</span><span style="color: #FFA657">) </span><span style="color: #C9D1D9">{</span></span>
 <span><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> Result.</span><span style="color: #D2A8FF">json</span><span style="color: #C9D1D9">({</span></span>
@@ -1103,11 +1109,10 @@ Koa 配合 <code>try..catch..</code> 的错误处理方式便显得更加优雅�
 <span><span style="color: #C9D1D9">    return age;</span></span>
 <span><span style="color: #C9D1D9">});</span></span>
 <span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br></div></div><div><pre style="background-color: #0d1117"><code><span><span style="color: #8B949E">// method.aspect.ts</span></span>
-<span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> { IAspect, IProceedJoinPoint } </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;@umajs/core&#39;</span><span style="color: #C9D1D9">;</span></span>
+<span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> { IProceedJoinPoint } </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;@umajs/core&#39;</span><span style="color: #C9D1D9">;</span></span>
 <span></span>
-<span><span style="color: #FF7B72">export</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">default</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">class</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">implements</span><span style="color: #FFA657"> </span><span style="color: #79C0FF">IAspect</span><span style="color: #FFA657"> {</span></span>
-<span><span style="color: #FFA657">    </span><span style="color: #FF7B72">async</span><span style="color: #FFA657"> </span><span style="color: #D2A8FF">around</span><span style="color: #FFA657">(proceedPoint</span><span style="color: #FF7B72">:</span><span style="color: #FFA657"> IProceedJoinPoint) </span><span style="color: #C9D1D9">{</span></span>
-<span><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> { </span><span style="color: #79C0FF">proceed</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">args</span><span style="color: #C9D1D9"> } </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> proceedPoint;</span></span>
+<span><span style="color: #FF7B72">export</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9">  </span><span style="color: #D2A8FF">method</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">async</span><span style="color: #C9D1D9"> (</span><span style="color: #FFA657">proceedPoint</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">IProceedJoinPoint</span><span style="color: #C9D1D9">) {</span></span>
+<span><span style="color: #C9D1D9">        const { proceed, args } </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> proceedPoint;</span></span>
 <span></span>
 <span><span style="color: #C9D1D9">        </span><span style="color: #8B949E">// 校验参数</span></span>
 <span><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (args[</span><span style="color: #79C0FF">0</span><span style="color: #C9D1D9">] </span><span style="color: #FF7B72">!==</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;Umajs&#39;</span><span style="color: #C9D1D9">) </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> Result.</span><span style="color: #D2A8FF">send</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">&#39;name 必须为 Umajs&#39;</span><span style="color: #C9D1D9">);</span></span>
@@ -1121,14 +1126,13 @@ Koa 配合 <code>try..catch..</code> 的错误处理方式便显得更加优雅�
 <span></span>
 <span><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> result;</span></span>
 <span><span style="color: #C9D1D9">    }</span></span>
-<span><span style="color: #FFA657">}</span></span>
-<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br></div></div>]]></content>
+<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br></div></div>]]></content>
   </entry>
   <entry>
     <title type="html">快速开始</title>
     <id>https://umajs.github.io/v2/newbieGuide/quickstart.html</id>
     <link href="https://umajs.github.io/v2/newbieGuide/quickstart.html"/>
-    <updated>2021-10-21T11:43:20.038Z</updated>
+    <updated>2021-10-22T09:57:13.844Z</updated>
     <content type="html"><![CDATA[<h1 id="快速开始" tabindex="-1"> 快速开始</h1>
 <h2 id="环境准备" tabindex="-1"> 环境准备</h2>
 <ul>
@@ -1178,7 +1182,7 @@ Koa 配合 <code>try..catch..</code> 的错误处理方式便显得更加优雅�
 <span><span style="color: #C9D1D9">├── tsconfig.json   // ts配置文件</span></span>
 <span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br><span>21</span><br></div></div><h4 id="保留目录" tabindex="-1"> 保留目录</h4>
 <blockquote>
-<p>src 中 config、aspect、plugins 三个目录为保留目录</p>
+<p>src 中 config、controller、plugins 三个目录为保留目录</p>
 </blockquote>
 <h2 id="服务部署" tabindex="-1"> 服务部署</h2>
 <h3 id="生产环境构建" tabindex="-1"> 生产环境构建</h3>
@@ -1201,7 +1205,7 @@ Koa 配合 <code>try..catch..</code> 的错误处理方式便显得更加优雅�
     <title type="html">参数装饰器（ArgDecorator）</title>
     <id>https://umajs.github.io/v2/other/ArgDecorator.html</id>
     <link href="https://umajs.github.io/v2/other/ArgDecorator.html"/>
-    <updated>2021-10-21T11:43:20.039Z</updated>
+    <updated>2021-10-22T09:57:13.844Z</updated>
     <content type="html"><![CDATA[<h1 id="参数装饰器-argdecorator" tabindex="-1"> 参数装饰器（ArgDecorator）</h1>
 <p><code>Umajs</code> 提供了 <code>createArgDecorator</code> 可以很方便的创建自定义参数装饰器，并且框架还提供了如下装饰器直接使用。</p>
 <h2 id="使用" tabindex="-1"> 使用</h2>
@@ -1420,7 +1424,7 @@ Koa 配合 <code>try..catch..</code> 的错误处理方式便显得更加优雅�
     <title type="html">断点调试（Debugger）</title>
     <id>https://umajs.github.io/v2/other/debug.html</id>
     <link href="https://umajs.github.io/v2/other/debug.html"/>
-    <updated>2021-10-21T11:43:20.039Z</updated>
+    <updated>2021-10-22T09:57:13.844Z</updated>
     <content type="html"><![CDATA[<h1 id="断点调试-debugger" tabindex="-1"> 断点调试（Debugger）</h1>
 <p>为了方便用户的调试，通过 cli 工具生成的项目中，为大家预置了调试配置。</p>
 <h2 id="开启调试" tabindex="-1"> 开启调试</h2>
@@ -1440,7 +1444,7 @@ For help see https://nodejs.org/en/docs/inspector
     <title type="html">错误处理（ErrorHandler）</title>
     <id>https://umajs.github.io/v2/other/errorHandling.html</id>
     <link href="https://umajs.github.io/v2/other/errorHandling.html"/>
-    <updated>2021-10-21T11:43:20.039Z</updated>
+    <updated>2021-10-22T09:57:13.845Z</updated>
     <content type="html"><![CDATA[<h1 id="错误处理-errorhandler" tabindex="-1"> 错误处理（ErrorHandler）</h1>
 <p>程序在执行过程中总会遇到一些可预测或者不可预测的异常，如果对这些异常不做处理，可能会导致程序的崩溃，所以我们需要对程序的异常进行捕获并做相应的处理。下面介绍下在使用 Uma 进行开发时有哪些方法可以捕获程序的异常。</p>
 <h2 id="在方法中-try-catch" tabindex="-1"> 在方法中 try-catch</h2>
@@ -1458,49 +1462,47 @@ For help see https://nodejs.org/en/docs/inspector
 <span><span style="color: #C9D1D9">    }</span></span>
 <span><span style="color: #C9D1D9">  }</span></span>
 <span><span style="color: #FFA657">}</span></span>
-<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br></div></div><h2 id="使用-aspect" tabindex="-1"> 使用 Aspect</h2>
-<p>Uma 提供的 Aspect 中，我们可以通过<code>afterThrowing异常通知</code>或<code>around环绕通知</code>来处理异常。</p>
-<p><strong>1. afterThrowing</strong></p>
-<p>在<a href="/other/AOP.html#%E9%80%9A%E7%9F%A5">AOP</a>一节中我们介绍了，当方法执行过程中，如果有未被捕获的异常，则会执行<code>afterThrowing</code>通知，所以我们可以通过 Aspect 的 afterThrowing 方法来处理错误。</p>
+<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br></div></div><h2 id="使用around" tabindex="-1"> 使用Around</h2>
+<p>Uma 提供的 Aspect 中，我们可以通过<code>Around</code>来处理异常。</p>
+<p>在<a href="/other/AOP.html#%E9%80%9A%E7%9F%A5">AOP</a>一节中我们介绍了，当方法执行过程中，Around装饰器传入的函数可以拦截目标函数的执行，我们可以在函数执行过程中通过try,catch捕获异常并且进行统一返回处理。</p>
 <div><pre style="background-color: #0d1117"><code><span><span style="color: #8B949E">// ${URSA_ROOT}/aspect/err.aspect.ts</span></span>
-<span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> { IAspect } </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;@umajs/core&#39;</span><span style="color: #C9D1D9">;</span></span>
+<span><span style="color: #8B949E">// /aspect/method.aspect.ts</span></span>
+<span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> { IProceedJoinPoint } </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;@umajs/core&#39;</span><span style="color: #C9D1D9">;</span></span>
 <span></span>
-<span><span style="color: #FF7B72">export</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">default</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">class</span><span style="color: #FFA657"> Err </span><span style="color: #FF7B72">implements</span><span style="color: #FFA657"> </span><span style="color: #79C0FF">IAspect</span><span style="color: #FFA657"> {</span></span>
-<span><span style="color: #FFA657">    </span><span style="color: #D2A8FF">afterThrowing</span><span style="color: #FFA657">(err</span><span style="color: #FF7B72">:</span><span style="color: #FFA657"> Error) </span><span style="color: #C9D1D9">{</span></span>
-<span><span style="color: #C9D1D9">        </span><span style="color: #8B949E">// 处理错误</span></span>
-<span><span style="color: #C9D1D9">        console.</span><span style="color: #D2A8FF">error</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">`发生错误：${</span><span style="color: #C9D1D9">err</span><span style="color: #A5D6FF">}`</span><span style="color: #C9D1D9">);</span></span>
+<span><span style="color: #FF7B72">export</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">async</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">function</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">throwErr</span><span style="color: #C9D1D9">(</span><span style="color: #FFA657">proceedPoint</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">IProceedJoinPoint</span><span style="color: #C9D1D9">&lt;</span><span style="color: #79C0FF">any</span><span style="color: #C9D1D9">&gt;) {</span></span>
+<span><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">let</span><span style="color: #C9D1D9"> result;</span></span>
+<span><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">try</span><span style="color: #C9D1D9">{</span></span>
+<span><span style="color: #C9D1D9">       </span><span style="color: #8B949E">// 执行被修饰的方法</span></span>
+<span><span style="color: #C9D1D9">      </span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">result</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">await</span><span style="color: #C9D1D9"> proceedPoint.</span><span style="color: #D2A8FF">proceed</span><span style="color: #C9D1D9">();</span></span>
+<span><span style="color: #C9D1D9">    }</span><span style="color: #FF7B72">catch</span><span style="color: #C9D1D9">(</span><span style="color: #FFA657">e</span><span style="color: #FF7B72">:</span><span style="color: #FFA657">Error</span><span style="color: #C9D1D9">){</span></span>
+<span><span style="color: #C9D1D9">      </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> Result.</span><span style="color: #D2A8FF">json</span><span style="color: #C9D1D9">({code:</span><span style="color: #79C0FF">1</span><span style="color: #C9D1D9">,message:</span><span style="color: #A5D6FF">&#39;执行方法异常！&#39;</span><span style="color: #C9D1D9">,stack:e.stack})</span></span>
 <span><span style="color: #C9D1D9">    }</span></span>
-<span><span style="color: #FFA657">}</span></span>
+<span><span style="color: #C9D1D9">   </span></span>
+<span><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> result;</span></span>
+<span><span style="color: #C9D1D9">}</span></span>
 <span></span>
 <span><span style="color: #8B949E">// ${URSA_ROOT}/controller/index.controller.ts</span></span>
 <span><span style="color: #FF7B72">export</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">default</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">class</span><span style="color: #FFA657"> Index </span><span style="color: #FF7B72">extends</span><span style="color: #FFA657">  </span><span style="color: #79C0FF">BaseController</span><span style="color: #FFA657"> {</span></span>
 <span><span style="color: #FFA657">    </span><span style="color: #8B949E">// 添加异常处理切面方法，当index执行出错时会执行afterThrowing</span></span>
-<span><span style="color: #FFA657">    @</span><span style="color: #C9D1D9">Aspect</span><span style="color: #FFA657">.</span><span style="color: #D2A8FF">afterThrowing</span><span style="color: #FFA657">(</span><span style="color: #A5D6FF">&#39;err&#39;</span><span style="color: #FFA657">)</span></span>
+<span><span style="color: #FFA657">    @</span><span style="color: #D2A8FF">Around</span><span style="color: #FFA657">(</span><span style="color: #C9D1D9">throwErr</span><span style="color: #FFA657">)</span></span>
 <span><span style="color: #FFA657">    </span><span style="color: #D2A8FF">index</span><span style="color: #FFA657">() </span><span style="color: #C9D1D9">{</span></span>
 <span><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">throw</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">new</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">Error</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">&#39;error&#39;</span><span style="color: #C9D1D9">);</span></span>
 <span><span style="color: #C9D1D9">    }</span></span>
 <span><span style="color: #FFA657">}</span></span>
-<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br></div></div><blockquote>
-<p>注意：Aspect 的 afterThrowing 会捕获所修饰方法<code>未被捕获的错误</code>，如果你已经在方法中 try-catch 了，那么 afterThrowing 方法就不会被执行</p>
-</blockquote>
-<p><strong>2. around</strong></p>
-<p>在<a href="/other/AOP.html#%E9%80%9A%E7%9F%A5">AOP</a>一节中我们介绍了，<code>around通知</code>可以决定目标方法是否执行，我们可以在<code>around</code>接收的参数中获取目标方法<code>proceed</code>，那么我们就可以对<code>proceed使用try-catch</code>来捕获目标方法执行过程中产生的异常。</p>
-<div><pre style="background-color: #0d1117"><code><span><span style="color: #8B949E">// ${URSA_ROOT}/aspect/index.aspect.ts</span></span>
-<span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> { IAspect, IProceedJoinPoint } </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;@umajs/core&#39;</span></span>
-<span></span>
-<span><span style="color: #FF7B72">export</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">default</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">class</span><span style="color: #FFA657"> Index </span><span style="color: #FF7B72">implements</span><span style="color: #FFA657"> </span><span style="color: #79C0FF">IAspect</span><span style="color: #FFA657"> {</span></span>
-<span><span style="color: #FFA657">  </span><span style="color: #FF7B72">async</span><span style="color: #FFA657"> </span><span style="color: #D2A8FF">around</span><span style="color: #FFA657">(proceedPoint</span><span style="color: #FF7B72">:</span><span style="color: #FFA657"> IProceedJoinPoint) </span><span style="color: #C9D1D9">{</span></span>
-<span><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> { </span><span style="color: #79C0FF">proceed</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">args</span><span style="color: #C9D1D9"> } </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> proceedPoint</span></span>
-<span></span>
-<span><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">try</span><span style="color: #C9D1D9"> {</span></span>
-<span><span style="color: #C9D1D9">      </span><span style="color: #FF7B72">await</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">proceed</span><span style="color: #C9D1D9">(</span><span style="color: #FF7B72">...</span><span style="color: #C9D1D9">args)</span></span>
-<span><span style="color: #C9D1D9">    } </span><span style="color: #FF7B72">catch</span><span style="color: #C9D1D9"> (err) {</span></span>
-<span><span style="color: #C9D1D9">      </span><span style="color: #8B949E">// 处理错误</span></span>
-<span><span style="color: #C9D1D9">      console.</span><span style="color: #D2A8FF">error</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">`发生错误：${</span><span style="color: #C9D1D9">err</span><span style="color: #A5D6FF">}`</span><span style="color: #C9D1D9">)</span></span>
-<span><span style="color: #C9D1D9">    }</span></span>
-<span><span style="color: #C9D1D9">  }</span></span>
-<span><span style="color: #FFA657">}</span></span>
-<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br></div></div><h2 id="使用-plugin-status" tabindex="-1"> 使用 plugin-status</h2>
+<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br><span>21</span><br><span>22</span><br><span>23</span><br><span>24</span><br></div></div><h2 id="中间件方式" tabindex="-1"> 中间件方式</h2>
+<p>在<a href="/development/Plugin.html#%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE%E5%AE%9E%E4%BE%8B">plugin</a>中，我们可以通过插件加载全局中间件，而在中间件中我们可以对next中间件进行捕获，因为插件中引入的中间件执行顺序总是在controller函数被调用之前。</p>
+<div><pre style="background-color: #0d1117"><code><span><span style="color: #8B949E">// plugin/error-handler/index.ts</span></span>
+<span><span style="color: #FF7B72">export</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">default</span><span style="color: #FFA657"> (uma</span><span style="color: #FF7B72">:</span><span style="color: #FFA657"> Uma, options</span><span style="color: #FF7B72">:</span><span style="color: #FFA657"> TView </span><span style="color: #FF7B72">=</span><span style="color: #FFA657"> {})</span><span style="color: #FF7B72">:</span><span style="color: #FFA657"> Koa.Middleware </span><span style="color: #FF7B72">=&gt;</span><span style="color: #FFA657"> </span><span style="color: #C9D1D9">{</span></span>
+<span><span style="color: #C9D1D9">    </span><span style="color: #8B949E">// uma 实例化对象；options 插件配置的 options，等同于 uma.plugin[&#39;error-handler&#39;].options</span></span>
+<span><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">async</span><span style="color: #C9D1D9">(</span><span style="color: #FFA657">ctx</span><span style="color: #C9D1D9">,</span><span style="color: #FFA657">next</span><span style="color: #C9D1D9">)</span><span style="color: #FF7B72">=&gt;</span><span style="color: #C9D1D9">{</span></span>
+<span><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">try</span><span style="color: #C9D1D9">{</span></span>
+<span><span style="color: #C9D1D9">          </span><span style="color: #FF7B72">await</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">next</span><span style="color: #C9D1D9">();</span></span>
+<span><span style="color: #C9D1D9">        }</span><span style="color: #FF7B72">catch</span><span style="color: #C9D1D9">(e){</span></span>
+<span><span style="color: #C9D1D9">          console.</span><span style="color: #D2A8FF">error</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">&#39;error-handler插件捕获异常&#39;</span><span style="color: #C9D1D9">,e);</span></span>
+<span><span style="color: #C9D1D9">        }</span></span>
+<span><span style="color: #C9D1D9">    };</span></span>
+<span><span style="color: #C9D1D9">};</span></span>
+<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br></div></div><h2 id="使用-plugin-status" tabindex="-1"> 使用 plugin-status</h2>
 <p><a href="/plugin/Status.html">plugin-status</a>是 Uma 为了方便用户对 response<code>不同状态码</code>情况和<code>错误</code>进行处理提供的插件。</p>
 <p>具体使用方法可以参考<a href="/plugin/Status.html">插件/Status</a>一章</p>
 <div><pre style="background-color: #0d1117"><code><span><span style="color: #8B949E">// status.config.ts</span></span>
@@ -1517,7 +1519,8 @@ For help see https://nodejs.org/en/docs/inspector
 <span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br></div></div><h2 id="三种错误处理方式的使用场景" tabindex="-1"> 三种错误处理方式的使用场景</h2>
 <ul>
 <li>try-catch: 适合对方法<code>单独</code>进行错误处理</li>
-<li>Aspect: 更具<code>可复用性</code>，可以对多个方法进行错误处理</li>
+<li>Around: 更具<code>可复用性</code>，可以对多个方法进行错误处理</li>
+<li>中间件方式: 属于全局异常兜底策略，适用于全局范围内未知异常捕获处理</li>
 <li>plugin-status: 对整个系统在运行中未被捕获的错误的<code>兜底操作</code>，让系统更健壮，同时除了错误处理外，更多的是<code>对不同状态码的统一处理</code></li>
 </ul>
 ]]></content>
@@ -1526,7 +1529,7 @@ For help see https://nodejs.org/en/docs/inspector
     <title type="html">express迁移</title>
     <id>https://umajs.github.io/v2/other/expressUpdate.html</id>
     <link href="https://umajs.github.io/v2/other/expressUpdate.html"/>
-    <updated>2021-10-21T11:43:20.039Z</updated>
+    <updated>2021-10-22T09:57:13.845Z</updated>
     <content type="html"><![CDATA[<h1 id="express迁移" tabindex="-1"> express迁移</h1>
 <blockquote>
 <p>对于一些历史项目，我们可以采取逐步升级，将 umajs 集成到 express 项目中。新的接口和逻辑通过 Umajs 来写，然后再慢慢将老的逻辑迁移到 Umajs 中。</p>
@@ -1567,7 +1570,7 @@ For help see https://nodejs.org/en/docs/inspector
     <title type="html">koa渐进迁移</title>
     <id>https://umajs.github.io/v2/other/preMigration.html</id>
     <link href="https://umajs.github.io/v2/other/preMigration.html"/>
-    <updated>2021-10-21T11:43:20.039Z</updated>
+    <updated>2021-10-22T09:57:13.845Z</updated>
     <content type="html"><![CDATA[<h1 id="koa渐进迁移" tabindex="-1"> koa渐进迁移</h1>
 <p>Uma 提供了中间件，方便 Koa 或者 Koa 衍生框架采用渐进迁移的方式迁移至 Umajs 框架。</p>
 <h2 id="中间件" tabindex="-1"> 中间件</h2>
@@ -1597,7 +1600,7 @@ For help see https://nodejs.org/en/docs/inspector
     <title type="html">v1迁移指南</title>
     <id>https://umajs.github.io/v2/other/v1Update.html</id>
     <link href="https://umajs.github.io/v2/other/v1Update.html"/>
-    <updated>2021-10-21T11:43:20.040Z</updated>
+    <updated>2021-10-22T09:57:13.845Z</updated>
     <content type="html"><![CDATA[<h1 id="v1迁移指南" tabindex="-1"> v1迁移指南</h1>
 <blockquote>
 <p>本文档介绍从V1版本升级到V2.0的迁移指南，想要了解V2中的变化，请查看<a href="https://github.com/Umajs/Umajs/pull/74" target="_blank" rel="noopener noreferrer">PR</a>。</p>
@@ -1736,7 +1739,7 @@ For help see https://nodejs.org/en/docs/inspector
     <title type="html">日志（Logger）</title>
     <id>https://umajs.github.io/v2/plugin/Logger.html</id>
     <link href="https://umajs.github.io/v2/plugin/Logger.html"/>
-    <updated>2021-10-21T11:43:20.040Z</updated>
+    <updated>2021-10-22T09:57:13.846Z</updated>
     <content type="html"><![CDATA[<h1 id="日志-logger" tabindex="-1"> 日志（Logger）</h1>
 <h2 id="日志" tabindex="-1"> 日志</h2>
 <p>日志对于 Web 项目的运行状态、问题排查等都非常重要。框架的<code>@umajs/logger</code>模块提供日志支持。并且提供<code>@umajs/plugin-logger</code>模块，以插件的机制将 logger 实例绑定在 ctx 上，方便用户使用。</p>
@@ -1961,7 +1964,7 @@ For help see https://nodejs.org/en/docs/inspector
     <title type="html">会话（Session）</title>
     <id>https://umajs.github.io/v2/plugin/Session.html</id>
     <link href="https://umajs.github.io/v2/plugin/Session.html"/>
-    <updated>2021-10-21T11:43:20.041Z</updated>
+    <updated>2021-10-22T09:57:13.846Z</updated>
     <content type="html"><![CDATA[<h1 id="会话-session" tabindex="-1"> 会话（Session）</h1>
 <p>为<code>Uma</code>简化会话中间件。默认为基于 cookie 的会话</p>
 <h2 id="快速开始" tabindex="-1"> 快速开始</h2>
@@ -2031,7 +2034,7 @@ For help see https://nodejs.org/en/docs/inspector
     <title type="html">静态资源（Static）</title>
     <id>https://umajs.github.io/v2/plugin/Static.html</id>
     <link href="https://umajs.github.io/v2/plugin/Static.html"/>
-    <updated>2021-10-21T11:43:20.041Z</updated>
+    <updated>2021-10-22T09:57:13.847Z</updated>
     <content type="html"><![CDATA[<h1 id="静态资源-static" tabindex="-1"> 静态资源（Static）</h1>
 <p>静态资源返回插件</p>
 <h2 id="安装" tabindex="-1"> 安装</h2>
@@ -2086,7 +2089,7 @@ For help see https://nodejs.org/en/docs/inspector
     <title type="html">状态（Status）</title>
     <id>https://umajs.github.io/v2/plugin/Status.html</id>
     <link href="https://umajs.github.io/v2/plugin/Status.html"/>
-    <updated>2021-10-21T11:43:20.041Z</updated>
+    <updated>2021-10-22T09:57:13.847Z</updated>
     <content type="html"><![CDATA[<h1 id="状态-status" tabindex="-1"> 状态（Status）</h1>
 <p>为了方便用户对 response<code>不同状态码</code>情况和<code>错误</code>进行处理，<code>Uma</code>提供了状态处理插件 plugin-status</p>
 <h2 id="安装" tabindex="-1"> 安装</h2>
@@ -2140,7 +2143,7 @@ For help see https://nodejs.org/en/docs/inspector
 <span><span style="color: #C9D1D9">    }</span></span>
 <span><span style="color: #FFA657">}</span></span>
 <span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br></div></div><blockquote>
-<p>在 AOP 一节中我们介绍了@Aspect.afterThrowing 可以用来处理方法调用时发生的异常，<code>当方法使用了@Aspect.afterThrowing</code>进行修饰后或者代码中<code>使用了try-catch</code>，plugin-status 中配置的<code>_error方法就不会被调用</code>，plugin-status 的只会捕获到未 catch 住的错误</p>
+<p>在<a href="/other/errorHandling.html#%E4%BD%BF%E7%94%A8Around">异常errorHanding</a>一节中我们介绍了@Around 可以用来处理方法调用时发生的异常，<code>当方法使用了@Around</code>进行修饰在代码中<code>使用了try-catch</code>，plugin-status 中配置的<code>_error方法就不会被调用</code>，plugin-status 的只会捕获到未 catch 住的错误</p>
 </blockquote>
 ]]></content>
   </entry>
@@ -2148,7 +2151,7 @@ For help see https://nodejs.org/en/docs/inspector
     <title type="html">模板引擎（Views）</title>
     <id>https://umajs.github.io/v2/plugin/Views.html</id>
     <link href="https://umajs.github.io/v2/plugin/Views.html"/>
-    <updated>2021-10-21T11:43:20.041Z</updated>
+    <updated>2021-10-22T09:57:13.847Z</updated>
     <content type="html"><![CDATA[<h1 id="模板引擎-views" tabindex="-1"> 模板引擎（Views）</h1>
 <p>模板引擎插件</p>
 <h2 id="安装" tabindex="-1"> 安装</h2>
@@ -2197,7 +2200,7 @@ For help see https://nodejs.org/en/docs/inspector
     <title type="html">插件开发</title>
     <id>https://umajs.github.io/v2/plugin/dev.html</id>
     <link href="https://umajs.github.io/v2/plugin/dev.html"/>
-    <updated>2021-10-21T11:43:20.041Z</updated>
+    <updated>2021-10-22T09:57:13.847Z</updated>
     <content type="html"><![CDATA[<h1 id="插件开发" tabindex="-1"> 插件开发</h1>
 <p>任何 Koa 的中间件都可以直接被框架使用。在实际使用场景中，中间件有全局加载（模版渲染中间件）和局部加载（要忽略的路由规则）的需求。针对这种情况，插件形式的中间件有下面两种形式。</p>
 <h2 id="初始化插件" tabindex="-1"> 初始化插件</h2>
@@ -2220,7 +2223,7 @@ For help see https://nodejs.org/en/docs/inspector
 <span></span>
 <span><span style="color: #8B949E">// options 是插件的配置及 [pluginName].config.ts 的配置结合配置</span></span>
 <span><span style="color: #FF7B72">export</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">default</span><span style="color: #FFA657"> (uma</span><span style="color: #FF7B72">:</span><span style="color: #FFA657"> Uma, options</span><span style="color: #FF7B72">:</span><span style="color: #FFA657"> TView </span><span style="color: #FF7B72">=</span><span style="color: #FFA657"> {})</span><span style="color: #FF7B72">:</span><span style="color: #FFA657"> Koa.Middleware </span><span style="color: #FF7B72">=&gt;</span><span style="color: #FFA657"> </span><span style="color: #C9D1D9">{</span></span>
-<span><span style="color: #C9D1D9">    </span><span style="color: #8B949E">// uma 实例化对象；options 插件配置的 options，等同于 uma.plugin[&#39;error-handler&#39;].options</span></span>
+<span><span style="color: #C9D1D9">    </span><span style="color: #8B949E">// uma 实例化对象；options 插件配置的 options，等同于 uma.plugin[&#39;view&#39;].options</span></span>
 <span><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">views</span><span style="color: #C9D1D9">(options.root, options.opts);</span></span>
 <span><span style="color: #C9D1D9">};</span></span>
 <span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br></div></div><h2 id="复合插件形式" tabindex="-1"> 复合插件形式</h2>
@@ -2308,7 +2311,7 @@ For help see https://nodejs.org/en/docs/inspector
     <title type="html">国际化（i18n）</title>
     <id>https://umajs.github.io/v2/plugin/i18n.html</id>
     <link href="https://umajs.github.io/v2/plugin/i18n.html"/>
-    <updated>2021-10-21T11:43:20.042Z</updated>
+    <updated>2021-10-22T09:57:13.848Z</updated>
     <content type="html"><![CDATA[<h1 id="国际化-i18n" tabindex="-1"> 国际化（i18n）</h1>
 <p>为了满足用户对于多语言应用的需求，本框架内置了国际化(I18n)支持</p>
 <h2 id="安装" tabindex="-1"> 安装</h2>
@@ -2438,7 +2441,7 @@ For help see https://nodejs.org/en/docs/inspector
     <title type="html">定时任务(schedule)</title>
     <id>https://umajs.github.io/v2/plugin/schedule.html</id>
     <link href="https://umajs.github.io/v2/plugin/schedule.html"/>
-    <updated>2021-10-21T11:43:20.042Z</updated>
+    <updated>2021-10-22T09:57:13.848Z</updated>
     <content type="html"><![CDATA[<h1 id="定时任务-schedule" tabindex="-1"> 定时任务(schedule)</h1>
 <p>例：我们在 app/schedule 目录下创建一个
 pvSchedule.ts 文件</p>
@@ -2569,7 +2572,7 @@ pvSchedule.ts 文件</p>
     <title type="html">react-ssr</title>
     <id>https://umajs.github.io/v2/ssr/React-ssr.html</id>
     <link href="https://umajs.github.io/v2/ssr/React-ssr.html"/>
-    <updated>2021-10-21T11:43:20.043Z</updated>
+    <updated>2021-10-22T09:57:13.850Z</updated>
     <content type="html"><![CDATA[<h1 id="react-ssr" tabindex="-1"> react-ssr</h1>
 <blockquote>
 <p><code>Umajs-react-ssr</code>是由<a href="https://github.com/Umajs/plugin-react-ssr" target="_blank" rel="noopener noreferrer">@umajs/plugin-react-ssr</a> 搭配<a href="https://github.com/dazjean/Srejs" target="_blank" rel="noopener noreferrer">Srejs</a>构建的轻量级，使用简单，灵活的<code>React</code>服务端渲染解决方案;可以在<code>controller</code>和<code>middleware</code>中灵活使用,通过模板引擎式的语法对<code>react</code>页面组件进行服务端渲染。</p>
@@ -2788,7 +2791,7 @@ yarn start
     <title type="html">vue-ssr</title>
     <id>https://umajs.github.io/v2/ssr/Vue-ssr.html</id>
     <link href="https://umajs.github.io/v2/ssr/Vue-ssr.html"/>
-    <updated>2021-10-21T11:43:20.045Z</updated>
+    <updated>2021-10-22T09:57:13.851Z</updated>
     <content type="html"><![CDATA[<h1 id="vue-ssr" tabindex="-1"> vue-ssr</h1>
 <blockquote>
 <p><code>Umajs-vue-ssr</code>是由<a href="https://github.com/Umajs/plugin-vue-ssr" target="_blank" rel="noopener noreferrer">@umajs/plugin-vue-ssr</a> 搭配<a href="https://github.com/dazjean/Srejs" target="_blank" rel="noopener noreferrer">Srejs</a>构建的轻量级，使用简单，灵活的<code>vue</code>服务端渲染解决方案;可以在<code>controller</code>和<code>middleware</code>中灵活使用,通过模板引擎式的语法对<code>vue</code>页面组件进行服务端渲染。</p>
