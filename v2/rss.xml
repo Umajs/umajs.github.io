@@ -6,8 +6,8 @@
     <link>https://umajs.github.io/v2/</link>
     <description>Umajs，an easy-to-use NodeJS framework base on Typescript.</description>
     <language>zh-CN</language>
-    <pubDate>Fri, 22 Oct 2021 09:56:36 GMT</pubDate>
-    <lastBuildDate>Fri, 22 Oct 2021 09:56:36 GMT</lastBuildDate>
+    <pubDate>Fri, 22 Oct 2021 10:23:14 GMT</pubDate>
+    <lastBuildDate>Fri, 22 Oct 2021 10:23:14 GMT</lastBuildDate>
     <generator>vuepress-plugin-feed2</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <item>
@@ -179,13 +179,13 @@
       <content:encoded><![CDATA[<h1 id="修饰器-decorator" tabindex="-1"> 修饰器（Decorator）</h1>
 <p>框架大量功能都是以 Decorator（修饰器）的方式使用。</p>
 <h2 id="resource、-inject-修饰器" tabindex="-1"> @Resource、@Inject 修饰器</h2>
-<p><a href="/development/IOC.html#resource%E3%80%81-inject%E4%BF%AE%E9%A5%B0%E5%99%A8">IOC 参考文档</a></p>
+<p><a href="/development/IOC.html#resource%E3%80%81-inject-%E4%BF%AE%E9%A5%B0%E5%99%A8">IOC 参考文档</a></p>
 <h2 id="service-修饰器" tabindex="-1"> @Service 修饰器</h2>
 <p><a href="/development/IOC.html#service%E4%BF%AE%E9%A5%B0%E5%99%A8">Service 参考文档</a></p>
 <h2 id="around-修饰器" tabindex="-1"> @Around 修饰器</h2>
-<p><a href="/development/AOP.html#Around%E4%BF%AE%E9%A5%B0%E5%99%A8">Acpect 参考文档</a></p>
+<p><a href="/development/AOP.html#around%E4%BF%AE%E9%A5%B0%E5%99%A8">Acpect 参考文档</a></p>
 <h2 id="middleware-修饰器" tabindex="-1"> Middleware 修饰器</h2>
-<p><a href="/development/Middleware.html#Middleware%E8%A3%85%E9%A5%B0%E5%99%A8">Middleware 参考文档</a></p>
+<p><a href="/development/Middleware.html#middleware%E8%A3%85%E9%A5%B0%E5%99%A8">Middleware 参考文档</a></p>
 <h2 id="path" tabindex="-1"> @Path</h2>
 <p><a href="/development/Router.html#path%E4%BF%AE%E9%A5%B0%E5%99%A8">Router 参考文档</a></p>
 <h2 id="参数装饰器-param-query-body" tabindex="-1"> 参数装饰器 <a href="/other/ArgDecorator.html">@Param , @Query, @Body</a></h2>
@@ -304,7 +304,7 @@ export declare function Resource(...props: any[]): Function;</p>
 <span><span style="color: #FFA657">}</span></span>
 <span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br></div></div><p>@Resource 可以对<code>任何class进行修饰</code>，即任何资源都可以加入到容器中，然后通过依赖注入的方式使用。</p>
 <p><code>@Resource修饰器支持传入参数</code>，传入的参数将会被作为修饰类实例化时的<code>构造参数</code>使用。</p>
-<h2 id="service-修饰器" tabindex="-1"> @Service 修饰器</h2>
+<h2 id="service修饰器" tabindex="-1"> @Service修饰器</h2>
 <p>除了提供的 <code>Resource</code> 和 <code>Inject</code> 装饰器，还有一个特殊的依赖注入装饰器 <code>Service</code>，<code>@Service</code> 装饰器仅提供 <code>Controller</code> 使用，为了方便使用，Service 注入中内置了 ctx，框架默认将<code>${URSA_ROOT}/service</code>下的文件实例化加入到<code>service的容器中</code>，当我们使用的时候，通过<code>@Service修饰器</code>去获取该实例。</p>
 <div><pre style="background-color: #0d1117"><code><span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> DemoService </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;../service/demo.service&#39;</span></span>
 <span></span>
@@ -365,9 +365,9 @@ export declare function Resource(...props: any[]): Function;</p>
 <p>请不要在插件配置（ plugin.config.ts ）中进行中间件的开发，让插件的配置更加纯粹。如需要请使用插件开发。<a href="/development/Plugin.html#%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91">Plugin 参考文档</a></p>
 <p>如果要动态的加载中间件，请使用复合插件形式。<a href="/development/Plugin.html#%E5%A4%8D%E5%90%88%E6%8F%92%E4%BB%B6%E5%BD%A2%E5%BC%8F">Plugin 参考文档</a></p>
 </blockquote>
-<h2 id="middleware装饰器-v2" tabindex="-1"> Middleware装饰器 (v2+)</h2>
+<h2 id="middleware装饰器" tabindex="-1"> Middleware装饰器</h2>
 <blockquote>
-<p>Middleware装饰器目前只支持函数装饰，可将koa中间件作用于特定的controller函数。这可以更灵活的控制避免全局中间件的影响；将中间件局部应用于单一或者多个路由。</p>
+<p>Middleware装饰器(v2+)目前只支持函数装饰，可将koa中间件作用于特定的controller函数。这可以更灵活的控制避免全局中间件的影响；将中间件局部应用于单一或者多个路由。</p>
 </blockquote>
 <div><pre style="background-color: #0d1117"><code><span></span>
 <span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">middleware</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">async</span><span style="color: #C9D1D9"> (</span><span style="color: #FFA657">ctx</span><span style="color: #C9D1D9">,</span><span style="color: #FFA657">next</span><span style="color: #C9D1D9">)</span><span style="color: #FF7B72">=&gt;</span><span style="color: #C9D1D9">{</span></span>
