@@ -6,8 +6,8 @@
     <link>https://umajs.github.io/v2/</link>
     <description>Umajs，an easy-to-use NodeJS framework base on Typescript.</description>
     <language>zh-CN</language>
-    <pubDate>Fri, 29 Oct 2021 09:25:39 GMT</pubDate>
-    <lastBuildDate>Fri, 29 Oct 2021 09:25:39 GMT</lastBuildDate>
+    <pubDate>Fri, 29 Oct 2021 10:03:41 GMT</pubDate>
+    <lastBuildDate>Fri, 29 Oct 2021 10:03:41 GMT</lastBuildDate>
     <generator>vuepress-plugin-feed2</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <item>
@@ -1055,7 +1055,7 @@ Koa 配合 <code>try..catch..</code> 的错误处理方式便显得更加优雅�
       <guid>https://umajs.github.io/v2/newbieGuide/introduce.html</guid>
       <source url="https://umajs.github.io/v2/rss.xml">框架介绍</source>
       <content:encoded><![CDATA[<h1 id="框架介绍" tabindex="-1"> 框架介绍</h1>
-<p><img src="@source/../public/images/UMajs.png" alt="image"></p>
+<p><img src="@source/../public/images/UMajsV2.png" alt="image"></p>
 <p><code>Umajs</code> 是基于 Koa2 使用 TypeScript 开发、通过装饰器使用大部分功能的 Web 框架。</p>
 <h2 id="特性" tabindex="-1"> 特性</h2>
 <ul>
