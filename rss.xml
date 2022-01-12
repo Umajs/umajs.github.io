@@ -6,8 +6,8 @@
     <link>https://umajs.github.io/</link>
     <description>Umajs，an easy-to-use NodeJS framework base on Typescript.</description>
     <language>zh-CN</language>
-    <pubDate>Mon, 08 Nov 2021 08:43:40 GMT</pubDate>
-    <lastBuildDate>Mon, 08 Nov 2021 08:43:40 GMT</lastBuildDate>
+    <pubDate>Wed, 12 Jan 2022 03:27:08 GMT</pubDate>
+    <lastBuildDate>Wed, 12 Jan 2022 03:27:08 GMT</lastBuildDate>
     <generator>vuepress-plugin-feed2</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <item>
@@ -2781,6 +2781,22 @@ yarn start
 <li><a href="https://github.com/dazjean/Srejs/tree/mian/example/uma-useContext-useReducer" target="_blank" rel="noopener noreferrer">uma-useContext-useReducer</a></li>
 </ul>
 <h2 id="_15、faq" tabindex="-1"> 15、FAQ</h2>
+<ul>
+<li>自定义覆盖框架webpack配置</li>
+</ul>
+<p>框架默认集成了常用的webpack配置，可满足日常开发使用，比如默认集成了Sass,less,tsx,ts,静态文件，字体等leader配置；当框架默认配置无法满足时，开发者可通过自定义webpack.config.js去覆盖。</p>
+<div><pre style="background-color: #0d1117"><code><span><span style="color: #79C0FF">module</span><span style="color: #C9D1D9">.</span><span style="color: #79C0FF">exports</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> (</span><span style="color: #FFA657">configureWebpack</span><span style="color: #C9D1D9">, </span><span style="color: #FFA657">type</span><span style="color: #C9D1D9">) </span><span style="color: #FF7B72">=&gt;</span><span style="color: #C9D1D9"> {</span></span>
+<span><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (type </span><span style="color: #FF7B72">==</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;ssr&#39;</span><span style="color: #C9D1D9">) {</span></span>
+<span><span style="color: #C9D1D9">        </span><span style="color: #8B949E">//服务端渲染配置</span></span>
+<span><span style="color: #C9D1D9">    } </span><span style="color: #FF7B72">else</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (type </span><span style="color: #FF7B72">===</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;csr&#39;</span><span style="color: #C9D1D9">) {</span></span>
+<span><span style="color: #C9D1D9">        </span><span style="color: #8B949E">//客户端构建配置</span></span>
+<span><span style="color: #C9D1D9">        </span><span style="color: #8B949E">// configureWebpack.module.rules[0].exclude = /\/node_module\/!(antd.*)/;</span></span>
+<span><span style="color: #C9D1D9">    }</span></span>
+<span></span>
+<span><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> configureWebpack;</span></span>
+<span><span style="color: #C9D1D9">};</span></span>
+<span></span>
+<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br></div></div><p><a href="https://github.com/dazjean/Srejs/blob/main/doc/react/webpackconfig.md#%E8%A6%86%E7%9B%96%E6%88%96%E8%80%85%E6%96%B0%E5%A2%9Ewebpack%E9%85%8D%E7%BD%AE" target="_blank" rel="noopener noreferrer">自定义覆盖webpack配置文档</a></p>
 <ul>
 <li>引入插件后启动项目报错<code>TypeError:Cannot read property 'ROOT' of undefined</code>
 <img src="@source/../public/images/TypeError-Cannot-react-ssr.png" alt="image"></li>
