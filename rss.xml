@@ -6,8 +6,8 @@
     <link>https://umajs.github.io/</link>
     <description>Umajs，an easy-to-use NodeJS framework base on Typescript.</description>
     <language>zh-CN</language>
-    <pubDate>Wed, 12 Jan 2022 03:52:11 GMT</pubDate>
-    <lastBuildDate>Wed, 12 Jan 2022 03:52:11 GMT</lastBuildDate>
+    <pubDate>Mon, 14 Mar 2022 04:05:44 GMT</pubDate>
+    <lastBuildDate>Mon, 14 Mar 2022 04:05:44 GMT</lastBuildDate>
     <generator>vuepress-plugin-feed2</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <item>
@@ -1216,11 +1216,11 @@ Koa 配合 <code>try..catch..</code> 的错误处理方式便显得更加优雅�
 <p>安装 <code>npm install -S @umajs/arg-decorator</code></p>
 </blockquote>
 <h2 id="示例" tabindex="-1"> 示例</h2>
-<div><pre style="background-color: #0d1117"><code><span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> { ToNumber, Body } </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;@umajs/arg-decorator&#39;</span><span style="color: #C9D1D9">;</span></span>
+<div><pre style="background-color: #0d1117"><code><span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> { Query, Body } </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;@umajs/arg-decorator&#39;</span><span style="color: #C9D1D9">;</span></span>
 <span></span>
 <span><span style="color: #8B949E">// url参数类型修饰校验</span></span>
 <span><span style="color: #C9D1D9">@</span><span style="color: #D2A8FF">Path</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">&#39;/saveUser&#39;</span><span style="color: #C9D1D9">)</span></span>
-<span><span style="color: #D2A8FF">saveUser</span><span style="color: #C9D1D9">(@</span><span style="color: #D2A8FF">ToNumber</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">&#39;age&#39;</span><span style="color: #C9D1D9">) age :number) {</span></span>
+<span><span style="color: #D2A8FF">saveUser</span><span style="color: #C9D1D9">(@Query.</span><span style="color: #D2A8FF">ToNumber</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">&#39;age&#39;</span><span style="color: #C9D1D9">) age :number) {</span></span>
 <span><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> Result.</span><span style="color: #D2A8FF">send</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">`This router queryParms is ${</span><span style="color: #C9D1D9">userId</span><span style="color: #A5D6FF">} ${</span><span style="color: #C9D1D9">age</span><span style="color: #A5D6FF">}`</span><span style="color: #C9D1D9">);</span></span>
 <span><span style="color: #C9D1D9">}</span></span>
 <span></span>
