@@ -6,8 +6,8 @@
     <link>https://umajs.github.io/</link>
     <description>Umajs，an easy-to-use NodeJS framework base on Typescript.</description>
     <language>zh-CN</language>
-    <pubDate>Mon, 14 Mar 2022 04:05:44 GMT</pubDate>
-    <lastBuildDate>Mon, 14 Mar 2022 04:05:44 GMT</lastBuildDate>
+    <pubDate>Mon, 28 Mar 2022 09:25:33 GMT</pubDate>
+    <lastBuildDate>Mon, 28 Mar 2022 09:25:33 GMT</lastBuildDate>
     <generator>vuepress-plugin-feed2</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <item>
@@ -1739,6 +1739,26 @@ For help see https://nodejs.org/en/docs/inspector
 ]]></content:encoded>
     </item>
     <item>
+      <title>跨域处理（Cors）</title>
+      <link>https://umajs.github.io/plugin/Cors.html</link>
+      <guid>https://umajs.github.io/plugin/Cors.html</guid>
+      <source url="https://umajs.github.io/rss.xml">跨域处理（Cors）</source>
+      <content:encoded><![CDATA[<h1 id="跨域处理-cors" tabindex="-1"> 跨域处理（Cors）</h1>
+<p>跨域处理插件</p>
+<h2 id="安装" tabindex="-1"> 安装</h2>
+<div><pre style="background-color: #0d1117"><code><span><span style="color: #C9D1D9">$ npm install -S @umajs/plugin-cors</span></span>
+<span></span></code></pre><div><span>1</span><br></div></div><h2 id="开启" tabindex="-1"> 开启</h2>
+<p>在 plugin.config.ts 中开启 plugin-cors 插件</p>
+<div><pre style="background-color: #0d1117"><code><span><span style="color: #8B949E">// plugin.config.ts</span></span>
+<span><span style="color: #FF7B72">export</span><span style="color: #FFA657"> </span><span style="color: #FF7B72">default</span><span style="color: #FFA657"> {</span></span>
+<span><span style="color: #FFA657">    </span><span style="color: #C9D1D9">cors: </span><span style="color: #79C0FF">true</span></span>
+<span><span style="color: #FFA657">}</span></span>
+<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br></div></div><blockquote>
+<p>具体开启方式请参考<a href="/development/Plugin.html">plugin</a>一节中的配置方式</p>
+</blockquote>
+]]></content:encoded>
+    </item>
+    <item>
       <title>日志（Logger）</title>
       <link>https://umajs.github.io/plugin/Logger.html</link>
       <guid>https://umajs.github.io/plugin/Logger.html</guid>
@@ -2311,11 +2331,11 @@ For help see https://nodejs.org/en/docs/inspector
 ]]></content:encoded>
     </item>
     <item>
-      <title>国际化（i18n）</title>
+      <title>国际化（I18n）</title>
       <link>https://umajs.github.io/plugin/i18n.html</link>
       <guid>https://umajs.github.io/plugin/i18n.html</guid>
-      <source url="https://umajs.github.io/rss.xml">国际化（i18n）</source>
-      <content:encoded><![CDATA[<h1 id="国际化-i18n" tabindex="-1"> 国际化（i18n）</h1>
+      <source url="https://umajs.github.io/rss.xml">国际化（I18n）</source>
+      <content:encoded><![CDATA[<h1 id="国际化-i18n" tabindex="-1"> 国际化（I18n）</h1>
 <p>为了满足用户对于多语言应用的需求，本框架内置了国际化(I18n)支持</p>
 <h2 id="安装" tabindex="-1"> 安装</h2>
 <blockquote>
@@ -2441,11 +2461,11 @@ For help see https://nodejs.org/en/docs/inspector
 <span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br></div></div>]]></content:encoded>
     </item>
     <item>
-      <title>定时任务(schedule)</title>
+      <title>定时任务(Schedule)</title>
       <link>https://umajs.github.io/plugin/schedule.html</link>
       <guid>https://umajs.github.io/plugin/schedule.html</guid>
-      <source url="https://umajs.github.io/rss.xml">定时任务(schedule)</source>
-      <content:encoded><![CDATA[<h1 id="定时任务-schedule" tabindex="-1"> 定时任务(schedule)</h1>
+      <source url="https://umajs.github.io/rss.xml">定时任务(Schedule)</source>
+      <content:encoded><![CDATA[<h1 id="定时任务-schedule" tabindex="-1"> 定时任务(Schedule)</h1>
 <p>例：我们在 app/schedule 目录下创建一个
 pvSchedule.ts 文件</p>
 <div><pre style="background-color: #0d1117"><code><span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> {AbstractSchedule}  </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;@umajs/plugin-schedule&#39;</span></span>
