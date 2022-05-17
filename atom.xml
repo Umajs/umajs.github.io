@@ -3,7 +3,7 @@
   <id>https://umajs.github.io/</id>
   <title>UMajs</title>
   <subtitle>Umajs，an easy-to-use NodeJS framework base on Typescript.</subtitle>
-  <updated>2022-05-17T05:10:26.324Z</updated>
+  <updated>2022-05-17T05:10:37.941Z</updated>
   <generator>vuepress-plugin-feed2</generator>
   <link rel="self" href="https://umajs.github.io/atom.xml"/>
   <link rel="alternate" href="https://umajs.github.io/"/>
@@ -11,7 +11,7 @@
     <title type="html">面向切面（AOP）</title>
     <id>https://umajs.github.io/development/AOP.html</id>
     <link href="https://umajs.github.io/development/AOP.html"/>
-    <updated>2022-05-17T05:10:54.376Z</updated>
+    <updated>2022-05-17T05:11:03.820Z</updated>
     <content type="html"><![CDATA[<h1 id="面向切面-aop" tabindex="-1"> 面向切面（AOP）</h1>
 <p>AOP(Aspect Oriented Programming)面向切面编程是与 OOP(Object Oriented Programming)面向对象编程并列的编程思想。相对于 IOC(依赖注入)而言，AOP 是一种可以在不修改源代码的情况下给程序动态添加功能的一种方式。</p>
 <p>使用 AOP 可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。</p>
@@ -72,7 +72,7 @@
     <title type="html">配置（Config）</title>
     <id>https://umajs.github.io/development/Config.html</id>
     <link href="https://umajs.github.io/development/Config.html"/>
-    <updated>2022-05-17T05:10:54.376Z</updated>
+    <updated>2022-05-17T05:11:03.820Z</updated>
     <content type="html"><![CDATA[<h1 id="配置-config" tabindex="-1"> 配置（Config）</h1>
 <h2 id="config-loader" tabindex="-1"> config loader</h2>
 <p>Uma 的配置通过自动合并 app 及框架的配置，并根据不同环境读取不同的配置，最终配置通过<code>Uma.config</code>获取。</p>
@@ -103,7 +103,7 @@
     <title type="html">控制器（Controller）</title>
     <id>https://umajs.github.io/development/Controller.html</id>
     <link href="https://umajs.github.io/development/Controller.html"/>
-    <updated>2022-05-17T05:10:54.377Z</updated>
+    <updated>2022-05-17T05:11:03.820Z</updated>
     <content type="html"><![CDATA[<h1 id="控制器-controller" tabindex="-1"> 控制器（Controller）</h1>
 <h2 id="什么是控制器" tabindex="-1"> 什么是控制器</h2>
 <p>控制器负责解析用户输入，并向用户返回处理结果。</p>
@@ -172,7 +172,7 @@
     <title type="html">修饰器（Decorator）</title>
     <id>https://umajs.github.io/development/Decorator.html</id>
     <link href="https://umajs.github.io/development/Decorator.html"/>
-    <updated>2022-05-17T05:10:54.377Z</updated>
+    <updated>2022-05-17T05:11:03.821Z</updated>
     <content type="html"><![CDATA[<h1 id="修饰器-decorator" tabindex="-1"> 修饰器（Decorator）</h1>
 <p>框架大量功能都是以 Decorator（修饰器）的方式使用。</p>
 <h2 id="resource、-inject-修饰器" tabindex="-1"> @Resource、@Inject 修饰器</h2>
@@ -242,7 +242,7 @@
     <title type="html">依赖注入（IOC）</title>
     <id>https://umajs.github.io/development/IOC.html</id>
     <link href="https://umajs.github.io/development/IOC.html"/>
-    <updated>2022-05-17T05:10:54.377Z</updated>
+    <updated>2022-05-17T05:11:03.821Z</updated>
     <content type="html"><![CDATA[<h1 id="依赖注入-ioc" tabindex="-1"> 依赖注入（IOC）</h1>
 <p>IOC(Inversion of Control)控制反转，是面向对象编程中的一种设计原则，可以用来减低计算机代码之间的耦合度。</p>
 <h2 id="什么是-ioc" tabindex="-1"> 什么是 IOC</h2>
@@ -332,7 +332,7 @@ export declare function Resource(...props: any[]): Function;</p>
     <title type="html">中间件（Middleware）</title>
     <id>https://umajs.github.io/development/Middleware.html</id>
     <link href="https://umajs.github.io/development/Middleware.html"/>
-    <updated>2022-05-17T05:10:54.377Z</updated>
+    <updated>2022-05-17T05:11:03.821Z</updated>
     <content type="html"><![CDATA[<h1 id="中间件-middleware" tabindex="-1"> 中间件（Middleware）</h1>
 <p>Uma 基于 Koa2，兼容 middleware。在已有中间件的基础上提供两种使用形式：插件形式、AOP 形式。</p>
 <h2 id="插件形式" tabindex="-1"> 插件形式</h2>
@@ -394,7 +394,7 @@ export declare function Resource(...props: any[]): Function;</p>
     <title type="html">插件（Plugin）</title>
     <id>https://umajs.github.io/development/Plugin.html</id>
     <link href="https://umajs.github.io/development/Plugin.html"/>
-    <updated>2022-05-17T05:10:54.377Z</updated>
+    <updated>2022-05-17T05:11:03.821Z</updated>
     <content type="html"><![CDATA[<h1 id="插件-plugin" tabindex="-1"> 插件（Plugin）</h1>
 <h2 id="为什么使用插件" tabindex="-1"> 为什么使用插件</h2>
 <p><code>Uma</code> 的插件内部机制就是借用了 <code>Koa</code> 的中间件，但是仅有中间件无法满足框架的扩展，另外中间件的配置对于业务多样性解决也偏单一。</p>
@@ -460,7 +460,7 @@ export declare function Resource(...props: any[]): Function;</p>
     <title type="html">统一返回（Result）</title>
     <id>https://umajs.github.io/development/Result.html</id>
     <link href="https://umajs.github.io/development/Result.html"/>
-    <updated>2022-05-17T05:10:54.378Z</updated>
+    <updated>2022-05-17T05:11:03.821Z</updated>
     <content type="html"><![CDATA[<h1 id="统一返回-result" tabindex="-1"> 统一返回（Result）</h1>
 <p>在 koa 和大多数框架中，没有统一返回，这样在使用框架返回数据的时候需要额外处理，如果要对返回结果做处理可能需要修改很多地方，但是在进行了统一返回之后这些都变得很简单。</p>
 <h2 id="result" tabindex="-1"> Result</h2>
@@ -576,7 +576,7 @@ export declare function Resource(...props: any[]): Function;</p>
     <title type="html">路由（Router）</title>
     <id>https://umajs.github.io/development/Router.html</id>
     <link href="https://umajs.github.io/development/Router.html"/>
-    <updated>2022-05-17T05:10:54.378Z</updated>
+    <updated>2022-05-17T05:11:03.822Z</updated>
     <content type="html"><![CDATA[<h1 id="路由-router" tabindex="-1"> 路由（Router）</h1>
 <p>路由主要用于确认如何响应客户端的请求，当用户访问一个地址时，需要找到指定的 controller 的指定方法对用户请求进行处理。确认一个请求主要对请求的两部分：路径和特定 HTTP 请求方法，进行判断。</p>
 <h2 id="使用" tabindex="-1"> 使用</h2>
@@ -757,7 +757,7 @@ export declare function Resource(...props: any[]): Function;</p>
     <title type="html">服务（Service）</title>
     <id>https://umajs.github.io/development/Service.html</id>
     <link href="https://umajs.github.io/development/Service.html"/>
-    <updated>2022-05-17T05:10:54.379Z</updated>
+    <updated>2022-05-17T05:11:03.822Z</updated>
     <content type="html"><![CDATA[<h1 id="服务-service" tabindex="-1"> 服务（Service）</h1>
 <h2 id="使用" tabindex="-1"> 使用</h2>
 <h3 id="cli-工具在初始化会自动生成-service-目录-可直接在-service-目录中编写-service" tabindex="-1"> cli 工具在初始化会自动生成 service 目录，可直接在 service 目录中编写 service</h3>
@@ -842,7 +842,7 @@ export declare function Resource(...props: any[]): Function;</p>
     <title type="html">Uma 对象</title>
     <id>https://umajs.github.io/development/Uma.html</id>
     <link href="https://umajs.github.io/development/Uma.html"/>
-    <updated>2022-05-17T05:10:54.379Z</updated>
+    <updated>2022-05-17T05:11:03.822Z</updated>
     <content type="html"><![CDATA[<h1 id="uma-对象" tabindex="-1"> Uma 对象</h1>
 <p>框架向外暴露了 Uma 对象，方便在项目中随时调用</p>
 <h2 id="api" tabindex="-1"> API</h2>
@@ -950,7 +950,7 @@ export declare function Resource(...props: any[]): Function;</p>
     <title type="html">Uma 与 Koa</title>
     <id>https://umajs.github.io/newbieGuide/Uma.html</id>
     <link href="https://umajs.github.io/newbieGuide/Uma.html"/>
-    <updated>2022-05-17T05:10:54.394Z</updated>
+    <updated>2022-05-17T05:11:03.836Z</updated>
     <content type="html"><![CDATA[<h1 id="uma-与-koa" tabindex="-1"> Uma 与 Koa</h1>
 <blockquote>
 <p>使用客户端与服务端通用开发语言的问题是一直是开发者需要面临的问题，而 NodeJs 的出现使得 JavaScript 一跃成为最流行的 web 开发语言。各类 node web 框架层出不穷，其中不乏著名的 Express、Koa......</p>
@@ -1050,7 +1050,7 @@ Koa 配合 <code>try..catch..</code> 的错误处理方式便显得更加优雅�
     <title type="html">框架介绍</title>
     <id>https://umajs.github.io/newbieGuide/introduce.html</id>
     <link href="https://umajs.github.io/newbieGuide/introduce.html"/>
-    <updated>2022-05-17T05:10:54.395Z</updated>
+    <updated>2022-05-17T05:11:03.836Z</updated>
     <content type="html"><![CDATA[<h1 id="框架介绍" tabindex="-1"> 框架介绍</h1>
 <p><img src="@source/../public/images/UMajsV2.png" alt="image"></p>
 <p><code>Umajs</code> 是基于 Koa2 使用 TypeScript 开发、通过装饰器使用大部分功能的 Web 框架。</p>
@@ -1132,7 +1132,7 @@ Koa 配合 <code>try..catch..</code> 的错误处理方式便显得更加优雅�
     <title type="html">快速开始</title>
     <id>https://umajs.github.io/newbieGuide/quickstart.html</id>
     <link href="https://umajs.github.io/newbieGuide/quickstart.html"/>
-    <updated>2022-05-17T05:10:54.395Z</updated>
+    <updated>2022-05-17T05:11:03.836Z</updated>
     <content type="html"><![CDATA[<h1 id="快速开始" tabindex="-1"> 快速开始</h1>
 <h2 id="环境准备" tabindex="-1"> 环境准备</h2>
 <ul>
@@ -1205,7 +1205,7 @@ Koa 配合 <code>try..catch..</code> 的错误处理方式便显得更加优雅�
     <title type="html">参数装饰器（ArgDecorator）</title>
     <id>https://umajs.github.io/other/ArgDecorator.html</id>
     <link href="https://umajs.github.io/other/ArgDecorator.html"/>
-    <updated>2022-05-17T05:10:54.395Z</updated>
+    <updated>2022-05-17T05:11:03.836Z</updated>
     <content type="html"><![CDATA[<h1 id="参数装饰器-argdecorator" tabindex="-1"> 参数装饰器（ArgDecorator）</h1>
 <p><code>Umajs</code> 提供了 <code>createArgDecorator</code> 可以很方便的创建自定义参数装饰器，并且框架还提供了如下装饰器直接使用。</p>
 <h2 id="使用" tabindex="-1"> 使用</h2>
@@ -1424,7 +1424,7 @@ Koa 配合 <code>try..catch..</code> 的错误处理方式便显得更加优雅�
     <title type="html">断点调试（Debugger）</title>
     <id>https://umajs.github.io/other/debug.html</id>
     <link href="https://umajs.github.io/other/debug.html"/>
-    <updated>2022-05-17T05:10:54.395Z</updated>
+    <updated>2022-05-17T05:11:03.836Z</updated>
     <content type="html"><![CDATA[<h1 id="断点调试-debugger" tabindex="-1"> 断点调试（Debugger）</h1>
 <p>为了方便用户的调试，通过 cli 工具生成的项目中，为大家预置了调试配置。</p>
 <h2 id="开启调试" tabindex="-1"> 开启调试</h2>
@@ -1444,7 +1444,7 @@ For help see https://nodejs.org/en/docs/inspector
     <title type="html">错误处理（ErrorHandler）</title>
     <id>https://umajs.github.io/other/errorHandling.html</id>
     <link href="https://umajs.github.io/other/errorHandling.html"/>
-    <updated>2022-05-17T05:10:54.396Z</updated>
+    <updated>2022-05-17T05:11:03.837Z</updated>
     <content type="html"><![CDATA[<h1 id="错误处理-errorhandler" tabindex="-1"> 错误处理（ErrorHandler）</h1>
 <p>程序在执行过程中总会遇到一些可预测或者不可预测的异常，如果对这些异常不做处理，可能会导致程序的崩溃，所以我们需要对程序的异常进行捕获并做相应的处理。下面介绍下在使用 Uma 进行开发时有哪些方法可以捕获程序的异常。</p>
 <h2 id="在方法中-try-catch" tabindex="-1"> 在方法中 try-catch</h2>
@@ -1529,7 +1529,7 @@ For help see https://nodejs.org/en/docs/inspector
     <title type="html">express迁移</title>
     <id>https://umajs.github.io/other/expressUpdate.html</id>
     <link href="https://umajs.github.io/other/expressUpdate.html"/>
-    <updated>2022-05-17T05:10:54.396Z</updated>
+    <updated>2022-05-17T05:11:03.837Z</updated>
     <content type="html"><![CDATA[<h1 id="express迁移" tabindex="-1"> express迁移</h1>
 <blockquote>
 <p>对于一些历史项目，我们可以采取逐步升级，将 umajs 集成到 express 项目中。新的接口和逻辑通过 Umajs 来写，然后再慢慢将老的逻辑迁移到 Umajs 中。</p>
@@ -1570,7 +1570,7 @@ For help see https://nodejs.org/en/docs/inspector
     <title type="html">koa渐进迁移</title>
     <id>https://umajs.github.io/other/preMigration.html</id>
     <link href="https://umajs.github.io/other/preMigration.html"/>
-    <updated>2022-05-17T05:10:54.396Z</updated>
+    <updated>2022-05-17T05:11:03.837Z</updated>
     <content type="html"><![CDATA[<h1 id="koa渐进迁移" tabindex="-1"> koa渐进迁移</h1>
 <p>Uma 提供了中间件，方便 Koa 或者 Koa 衍生框架采用渐进迁移的方式迁移至 Umajs 框架。</p>
 <h2 id="中间件" tabindex="-1"> 中间件</h2>
@@ -1600,7 +1600,7 @@ For help see https://nodejs.org/en/docs/inspector
     <title type="html">v1迁移指南</title>
     <id>https://umajs.github.io/other/v1Update.html</id>
     <link href="https://umajs.github.io/other/v1Update.html"/>
-    <updated>2022-05-17T05:10:54.396Z</updated>
+    <updated>2022-05-17T05:11:03.837Z</updated>
     <content type="html"><![CDATA[<h1 id="v1迁移指南" tabindex="-1"> v1迁移指南</h1>
 <blockquote>
 <p>本文档介绍从V1版本升级到V2.0的迁移指南，想要了解V2中的变化，请查看<a href="https://github.com/Umajs/Umajs/pull/74" target="_blank" rel="noopener noreferrer">PR</a>。</p>
@@ -1739,7 +1739,7 @@ For help see https://nodejs.org/en/docs/inspector
     <title type="html">跨域处理（Cors）</title>
     <id>https://umajs.github.io/plugin/Cors.html</id>
     <link href="https://umajs.github.io/plugin/Cors.html"/>
-    <updated>2022-05-17T05:10:54.396Z</updated>
+    <updated>2022-05-17T05:11:03.837Z</updated>
     <content type="html"><![CDATA[<h1 id="跨域处理-cors" tabindex="-1"> 跨域处理（Cors）</h1>
 <p>跨域处理插件</p>
 <h2 id="安装" tabindex="-1"> 安装</h2>
@@ -1759,7 +1759,7 @@ For help see https://nodejs.org/en/docs/inspector
     <title type="html">日志（Logger）</title>
     <id>https://umajs.github.io/plugin/Logger.html</id>
     <link href="https://umajs.github.io/plugin/Logger.html"/>
-    <updated>2022-05-17T05:10:54.397Z</updated>
+    <updated>2022-05-17T05:11:03.838Z</updated>
     <content type="html"><![CDATA[<h1 id="日志-logger" tabindex="-1"> 日志（Logger）</h1>
 <h2 id="日志" tabindex="-1"> 日志</h2>
 <p>日志对于 Web 项目的运行状态、问题排查等都非常重要。框架的<code>@umajs/logger</code>模块提供日志支持。并且提供<code>@umajs/plugin-logger</code>模块，以插件的机制将 logger 实例绑定在 ctx 上，方便用户使用。</p>
@@ -1984,7 +1984,7 @@ For help see https://nodejs.org/en/docs/inspector
     <title type="html">会话（Session）</title>
     <id>https://umajs.github.io/plugin/Session.html</id>
     <link href="https://umajs.github.io/plugin/Session.html"/>
-    <updated>2022-05-17T05:10:54.397Z</updated>
+    <updated>2022-05-17T05:11:03.838Z</updated>
     <content type="html"><![CDATA[<h1 id="会话-session" tabindex="-1"> 会话（Session）</h1>
 <p>为<code>Uma</code>简化会话中间件。默认为基于 cookie 的会话</p>
 <h2 id="快速开始" tabindex="-1"> 快速开始</h2>
@@ -2054,7 +2054,7 @@ For help see https://nodejs.org/en/docs/inspector
     <title type="html">静态资源（Static）</title>
     <id>https://umajs.github.io/plugin/Static.html</id>
     <link href="https://umajs.github.io/plugin/Static.html"/>
-    <updated>2022-05-17T05:10:54.397Z</updated>
+    <updated>2022-05-17T05:11:03.838Z</updated>
     <content type="html"><![CDATA[<h1 id="静态资源-static" tabindex="-1"> 静态资源（Static）</h1>
 <p>静态资源返回插件</p>
 <h2 id="安装" tabindex="-1"> 安装</h2>
@@ -2109,7 +2109,7 @@ For help see https://nodejs.org/en/docs/inspector
     <title type="html">状态（Status）</title>
     <id>https://umajs.github.io/plugin/Status.html</id>
     <link href="https://umajs.github.io/plugin/Status.html"/>
-    <updated>2022-05-17T05:10:54.397Z</updated>
+    <updated>2022-05-17T05:11:03.838Z</updated>
     <content type="html"><![CDATA[<h1 id="状态-status" tabindex="-1"> 状态（Status）</h1>
 <p>为了方便用户对 response<code>不同状态码</code>情况和<code>错误</code>进行处理，<code>Uma</code>提供了状态处理插件 plugin-status</p>
 <h2 id="安装" tabindex="-1"> 安装</h2>
@@ -2171,7 +2171,7 @@ For help see https://nodejs.org/en/docs/inspector
     <title type="html">模板引擎（Views）</title>
     <id>https://umajs.github.io/plugin/Views.html</id>
     <link href="https://umajs.github.io/plugin/Views.html"/>
-    <updated>2022-05-17T05:10:54.397Z</updated>
+    <updated>2022-05-17T05:11:03.838Z</updated>
     <content type="html"><![CDATA[<h1 id="模板引擎-views" tabindex="-1"> 模板引擎（Views）</h1>
 <p>模板引擎插件</p>
 <h2 id="安装" tabindex="-1"> 安装</h2>
@@ -2220,7 +2220,7 @@ For help see https://nodejs.org/en/docs/inspector
     <title type="html">插件开发</title>
     <id>https://umajs.github.io/plugin/dev.html</id>
     <link href="https://umajs.github.io/plugin/dev.html"/>
-    <updated>2022-05-17T05:10:54.398Z</updated>
+    <updated>2022-05-17T05:11:03.839Z</updated>
     <content type="html"><![CDATA[<h1 id="插件开发" tabindex="-1"> 插件开发</h1>
 <p>任何 Koa 的中间件都可以直接被框架使用。在实际使用场景中，中间件有全局加载（模版渲染中间件）和局部加载（要忽略的路由规则）的需求。针对这种情况，插件形式的中间件有下面两种形式。</p>
 <h2 id="初始化插件" tabindex="-1"> 初始化插件</h2>
@@ -2331,7 +2331,7 @@ For help see https://nodejs.org/en/docs/inspector
     <title type="html">国际化（I18n）</title>
     <id>https://umajs.github.io/plugin/i18n.html</id>
     <link href="https://umajs.github.io/plugin/i18n.html"/>
-    <updated>2022-05-17T05:10:54.398Z</updated>
+    <updated>2022-05-17T05:11:03.839Z</updated>
     <content type="html"><![CDATA[<h1 id="国际化-i18n" tabindex="-1"> 国际化（I18n）</h1>
 <p>为了满足用户对于多语言应用的需求，本框架内置了国际化(I18n)支持</p>
 <h2 id="安装" tabindex="-1"> 安装</h2>
@@ -2461,7 +2461,7 @@ For help see https://nodejs.org/en/docs/inspector
     <title type="html">定时任务(Schedule)</title>
     <id>https://umajs.github.io/plugin/schedule.html</id>
     <link href="https://umajs.github.io/plugin/schedule.html"/>
-    <updated>2022-05-17T05:10:54.398Z</updated>
+    <updated>2022-05-17T05:11:03.839Z</updated>
     <content type="html"><![CDATA[<h1 id="定时任务-schedule" tabindex="-1"> 定时任务(Schedule)</h1>
 <p>例：我们在 app/schedule 目录下创建一个
 pvSchedule.ts 文件</p>
@@ -2592,7 +2592,7 @@ pvSchedule.ts 文件</p>
     <title type="html">react-ssr</title>
     <id>https://umajs.github.io/ssr/React-ssr.html</id>
     <link href="https://umajs.github.io/ssr/React-ssr.html"/>
-    <updated>2022-05-17T05:10:54.400Z</updated>
+    <updated>2022-05-17T05:11:03.840Z</updated>
     <content type="html"><![CDATA[<h1 id="react-ssr" tabindex="-1"> react-ssr</h1>
 <blockquote>
 <p><code>Umajs-react-ssr</code>是由<a href="https://github.com/Umajs/plugin-react-ssr" target="_blank" rel="noopener noreferrer">@umajs/plugin-react-ssr</a> 搭配<a href="https://github.com/dazjean/Srejs" target="_blank" rel="noopener noreferrer">Srejs</a>构建的轻量级，使用简单，灵活的<code>React</code>服务端渲染解决方案;可以在<code>controller</code>和<code>middleware</code>中灵活使用,通过模板引擎式的语法对<code>react</code>页面组件进行服务端渲染。</p>
@@ -2827,7 +2827,7 @@ yarn start
     <title type="html">vue-ssr</title>
     <id>https://umajs.github.io/ssr/Vue-ssr.html</id>
     <link href="https://umajs.github.io/ssr/Vue-ssr.html"/>
-    <updated>2022-05-17T05:10:54.401Z</updated>
+    <updated>2022-05-17T05:11:03.841Z</updated>
     <content type="html"><![CDATA[<h1 id="vue-ssr" tabindex="-1"> vue-ssr</h1>
 <blockquote>
 <p><code>Umajs-vue-ssr</code>是由<a href="https://github.com/Umajs/plugin-vue-ssr" target="_blank" rel="noopener noreferrer">@umajs/plugin-vue-ssr</a> 搭配<a href="https://github.com/dazjean/Srejs" target="_blank" rel="noopener noreferrer">Srejs</a>构建的轻量级，使用简单，灵活的<code>vue</code>服务端渲染解决方案;可以在<code>controller</code>和<code>middleware</code>中灵活使用,通过模板引擎式的语法对<code>vue</code>页面组件进行服务端渲染。</p>
