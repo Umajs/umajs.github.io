@@ -6,8 +6,8 @@
     <link>https://umajs.github.io/v1/</link>
     <description>Umajs，an easy-to-use NodeJS framework base on Typescript.</description>
     <language>zh-CN</language>
-    <pubDate>Mon, 08 Nov 2021 08:43:28 GMT</pubDate>
-    <lastBuildDate>Mon, 08 Nov 2021 08:43:28 GMT</lastBuildDate>
+    <pubDate>Tue, 02 Aug 2022 03:17:37 GMT</pubDate>
+    <lastBuildDate>Tue, 02 Aug 2022 03:17:37 GMT</lastBuildDate>
     <generator>vuepress-plugin-feed2</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <item>
@@ -2687,16 +2687,18 @@ Koa 配合 <code>try..catch..</code> 的错误处理方式便显得更加优雅�
 <span><span style="color: #C9D1D9">      ssr: </span><span style="color: #79C0FF">true</span><span style="color: #C9D1D9">, </span><span style="color: #8B949E">// 全局开启服务端渲染</span></span>
 <span><span style="color: #C9D1D9">      cache: </span><span style="color: #79C0FF">false</span><span style="color: #C9D1D9">, </span><span style="color: #8B949E">// 全局使用服务端渲染缓存 开发环境设置true无效</span></span>
 <span><span style="color: #C9D1D9">      prefixCDN: </span><span style="color: #A5D6FF">&#39;/&#39;</span><span style="color: #C9D1D9">, </span><span style="color: #8B949E">// 客户端代码部署CDN前缀</span></span>
+<span><span style="color: #C9D1D9">      useEngine: </span><span style="color: #79C0FF">false</span><span style="color: #C9D1D9">, </span><span style="color: #8B949E">// 全局使用模板渲染引擎渲染，默认为false</span></span>
 <span><span style="color: #C9D1D9">    },</span></span>
 <span><span style="color: #C9D1D9">  }</span><span style="color: #FFA657">,</span></span>
 <span><span style="color: #FFA657">}</span></span>
-<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br></div></div><h2 id="_5、web-目录结构" tabindex="-1"> 5、web 目录结构</h2>
+<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br></div></div><h2 id="_5、web-目录结构" tabindex="-1"> 5、web 目录结构</h2>
 <div><pre style="background-color: #0d1117"><code><span><span style="color: #C9D1D9">   </span><span style="color: #FF7B72">-</span><span style="color: #C9D1D9"> web # rootDir配置可修改</span></span>
+<span><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">-</span><span style="color: #C9D1D9"> layout # 用以定制通用的页眉页脚菜单栏，pages目录下的组件会作为children传入，自行放置布局；当存在该目录时，优先加载该目录为index；</span></span>
 <span><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">-</span><span style="color: #C9D1D9"> pages # 固定目录</span></span>
 <span><span style="color: #C9D1D9">            </span><span style="color: #FF7B72">-</span><span style="color: #C9D1D9"> home #页面名称</span></span>
 <span><span style="color: #C9D1D9">                </span><span style="color: #FF7B72">-</span><span style="color: #C9D1D9"> index.tsx</span></span>
 <span><span style="color: #C9D1D9">                </span><span style="color: #FF7B72">-</span><span style="color: #C9D1D9"> index.scss</span></span>
-<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br></div></div><h2 id="_6、创建-react-页面组件" tabindex="-1"> 6、创建 react 页面组件</h2>
+<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br></div></div><h2 id="_6、创建-react-页面组件" tabindex="-1"> 6、创建 react 页面组件</h2>
 <blockquote>
 <p>页面组件开发模式支持 js ,tsx。</p>
 </blockquote>
@@ -2727,12 +2729,13 @@ yarn start
 <div><pre style="background-color: #0d1117"><code><span><span style="color: #FF7B72">interface</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">TviewOptions</span><span style="color: #C9D1D9">{</span></span>
 <span><span style="color: #C9D1D9">    </span><span style="color: #FFA657">ssr</span><span style="color: #FF7B72">?:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">boolean</span><span style="color: #C9D1D9">, </span><span style="color: #8B949E">// 全局开启服务端渲染</span></span>
 <span><span style="color: #C9D1D9">    </span><span style="color: #FFA657">cache</span><span style="color: #FF7B72">?:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">boolean</span><span style="color: #C9D1D9">, </span><span style="color: #8B949E">// 全局使用服务端渲染缓存</span></span>
-<span><span style="color: #C9D1D9">    </span><span style="color: #FFA657">useEngine</span><span style="color: #FF7B72">?:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">boolean</span><span style="color: #C9D1D9">, </span><span style="color: #8B949E">// 渲染自定义html的页面组件时，选择性开启使用模板引擎</span></span>
+<span><span style="color: #C9D1D9">    </span><span style="color: #FFA657">useEngine</span><span style="color: #FF7B72">?:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">boolean</span><span style="color: #C9D1D9">, </span><span style="color: #8B949E">// 渲染自定义html的页面组件时，选择性开启使用模板引擎，此处配置优先级最高</span></span>
 <span><span style="color: #C9D1D9">    </span><span style="color: #FFA657">baseName</span><span style="color: #FF7B72">?:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">string</span><span style="color: #C9D1D9">, </span><span style="color: #8B949E">//客户端根路由 仅使用react-router时有效</span></span>
+<span><span style="color: #C9D1D9">    </span><span style="color: #FFA657">layout</span><span style="color: #FF7B72">?:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">boolean</span><span style="color: #C9D1D9">, </span><span style="color: #8B949E">// 开启关闭页面布局layout，当web目录下存在layout文件夹时自动开启，可传入false关闭；</span></span>
 <span><span style="color: #C9D1D9">}</span></span>
 <span><span style="color: #C9D1D9">Result.</span><span style="color: #D2A8FF">reactView</span><span style="color: #C9D1D9">(viewName:string,initProps</span><span style="color: #FF7B72">?:</span><span style="color: #C9D1D9">object,options</span><span style="color: #FF7B72">?:</span><span style="color: #C9D1D9">TviewOptions);</span></span>
 <span><span style="color: #C9D1D9">ctx.</span><span style="color: #D2A8FF">reactView</span><span style="color: #C9D1D9">(viewName:string,initProps</span><span style="color: #FF7B72">?:</span><span style="color: #C9D1D9">object,options</span><span style="color: #FF7B72">?:</span><span style="color: #C9D1D9">TviewOptions);</span></span>
-<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br></div></div><p><em>如果 options 参数传递为空 则默认会使用全局配置属性，全局配置采用插件集成时传递的 options 参数</em></p>
+<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br></div></div><p><em>如果 options 参数传递为空 则默认会使用全局配置属性，全局配置采用插件集成时传递的 options 参数</em></p>
 <p><strong>注意</strong> <code>cache</code>只在<code>生产环境</code>开启有效。</p>
 <h2 id="_9、controller中使用" tabindex="-1"> 9、<strong>controller</strong>中使用</h2>
 <div><pre style="background-color: #0d1117"><code><span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> { BaseController, Path } </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;@umajs/core&#39;</span></span>
