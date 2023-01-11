@@ -6,8 +6,8 @@
     <link>https://umajs.github.io/</link>
     <description>Umajs，an easy-to-use NodeJS framework base on Typescript.</description>
     <language>zh-CN</language>
-    <pubDate>Tue, 12 Jul 2022 07:56:15 GMT</pubDate>
-    <lastBuildDate>Tue, 12 Jul 2022 07:56:15 GMT</lastBuildDate>
+    <pubDate>Wed, 11 Jan 2023 07:00:37 GMT</pubDate>
+    <lastBuildDate>Wed, 11 Jan 2023 07:00:37 GMT</lastBuildDate>
     <generator>vuepress-plugin-feed2</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <item>
@@ -477,9 +477,18 @@ export declare function Resource(...props: any[]): Function;</p>
 <p>通过渲染模板的方式将数据返回。</p>
 <h4 id="result-stream-data-filename" tabindex="-1"> <code>Result.stream(data, fileName)</code></h4>
 <p>将文件以流（stream）的方式返回</p>
-<h4 id="result-download-filepath-opts" tabindex="-1"> <code>Result.download(filePath, opts)</code></h4>
+<div><pre style="background-color: #0d1117"><code><span><span style="color: #C9D1D9">    @</span><span style="color: #D2A8FF">Path</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">&#39;/stream&#39;</span><span style="color: #C9D1D9">)</span></span>
+<span><span style="color: #C9D1D9">    </span><span style="color: #D2A8FF">donwStream</span><span style="color: #C9D1D9">() {</span></span>
+<span><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rs</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> fs.</span><span style="color: #D2A8FF">createReadStream</span><span style="color: #C9D1D9">(path.</span><span style="color: #D2A8FF">resolve</span><span style="color: #C9D1D9">(__dirname, </span><span style="color: #A5D6FF">&#39;./template.controller.ts&#39;</span><span style="color: #C9D1D9">));</span></span>
+<span><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> Result.</span><span style="color: #D2A8FF">stream</span><span style="color: #C9D1D9">(rs, </span><span style="color: #A5D6FF">&#39;controller.ts&#39;</span><span style="color: #C9D1D9">);</span></span>
+<span><span style="color: #C9D1D9">    }</span></span>
+<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br></div></div><h4 id="result-download-filepath-opts" tabindex="-1"> <code>Result.download(filePath, opts)</code></h4>
 <p>下载文件</p>
-<h4 id="result-done" tabindex="-1"> <code>Result.done()</code></h4>
+<div><pre style="background-color: #0d1117"><code><span><span style="color: #C9D1D9">    @</span><span style="color: #D2A8FF">Path</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">&#39;/download&#39;</span><span style="color: #C9D1D9">)</span></span>
+<span><span style="color: #C9D1D9">    </span><span style="color: #D2A8FF">downFile</span><span style="color: #C9D1D9">() {</span></span>
+<span><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> Result.</span><span style="color: #D2A8FF">download</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">&#39;/src/controller/template.controller.ts&#39;</span><span style="color: #C9D1D9">);</span></span>
+<span><span style="color: #C9D1D9">    }</span></span>
+<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br></div></div><h4 id="result-done" tabindex="-1"> <code>Result.done()</code></h4>
 <p>使用 ctx 进行完了操作，不需要使用 Result 进行其它的返回时使用此方法，常用于框架的迁移。</p>
 <blockquote>
 <p>例如下面两个方法 <code>json1</code> 和 <code>json2</code> 表示的意思是一样的。</p>
