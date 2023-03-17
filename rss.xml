@@ -6,8 +6,8 @@
     <link>https://umajs.github.io/</link>
     <description>Umajs，an easy-to-use NodeJS framework base on Typescript.</description>
     <language>zh-CN</language>
-    <pubDate>Wed, 11 Jan 2023 07:01:25 GMT</pubDate>
-    <lastBuildDate>Wed, 11 Jan 2023 07:01:25 GMT</lastBuildDate>
+    <pubDate>Fri, 17 Mar 2023 10:19:56 GMT</pubDate>
+    <lastBuildDate>Fri, 17 Mar 2023 10:19:56 GMT</lastBuildDate>
     <generator>vuepress-plugin-feed2</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <item>
@@ -2583,22 +2583,37 @@ pvSchedule.ts 文件</p>
 <span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br></div></div><h3 id="集群-分布式部署-执行定时任务" tabindex="-1"> 集群/分布式部署 执行定时任务</h3>
 <ul>
 <li>插件包含在分布式部署下，需要保证同一个定时任务只能运行一次，所以需要用事物锁来控制;</li>
-<li>插件采用的是分布式事务锁方案，支持单台 redis 和多台 redis 方案，基于 redis 实现</li>
+<li>插件采用的是分布式事务锁方案，支持单台 redis 和多台 redis 方案，基于 ioredis 实现</li>
 </ul>
 <div><pre style="background-color: #0d1117"><code><span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">*</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">as</span><span style="color: #C9D1D9"> RedLock  </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;redlock&#39;</span></span>
+<span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">*</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">as</span><span style="color: #C9D1D9"> Redis </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;ioredis&#39;</span><span style="color: #C9D1D9">;</span></span>
 <span></span>
-<span><span style="color: #FF7B72">var</span><span style="color: #C9D1D9"> client1 </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">require</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">&#39;redis&#39;</span><span style="color: #C9D1D9">).</span><span style="color: #D2A8FF">createClient</span><span style="color: #C9D1D9">(</span><span style="color: #79C0FF">6379</span><span style="color: #C9D1D9">, </span><span style="color: #A5D6FF">&#39;redis1.example.com&#39;</span><span style="color: #C9D1D9">);</span></span>
-<span><span style="color: #FF7B72">var</span><span style="color: #C9D1D9"> client2 </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">require</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">&#39;redis&#39;</span><span style="color: #C9D1D9">).</span><span style="color: #D2A8FF">createClient</span><span style="color: #C9D1D9">(</span><span style="color: #79C0FF">6379</span><span style="color: #C9D1D9">, </span><span style="color: #A5D6FF">&#39;redis2.example.com&#39;</span><span style="color: #C9D1D9">);</span></span>
+<span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">client1</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">new</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">Redis</span><span style="color: #C9D1D9">({</span></span>
+<span><span style="color: #C9D1D9">    host: </span><span style="color: #A5D6FF">&#39;redis1.example.com&#39;</span><span style="color: #C9D1D9">,</span></span>
+<span><span style="color: #C9D1D9">    port: </span><span style="color: #79C0FF">6379</span><span style="color: #C9D1D9">,</span></span>
+<span><span style="color: #C9D1D9">    family: </span><span style="color: #79C0FF">4</span><span style="color: #C9D1D9">,</span></span>
+<span><span style="color: #C9D1D9">    db: </span><span style="color: #79C0FF">0</span><span style="color: #C9D1D9">,</span></span>
+<span><span style="color: #C9D1D9">    pass: </span><span style="color: #A5D6FF">&#39;xxx&#39;</span><span style="color: #C9D1D9">,</span></span>
+<span><span style="color: #C9D1D9">    password: </span><span style="color: #A5D6FF">&#39;xxx&#39;</span><span style="color: #C9D1D9">,</span></span>
+<span><span style="color: #C9D1D9">});</span></span>
+<span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">client2</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">new</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">Redis</span><span style="color: #C9D1D9">({</span></span>
+<span><span style="color: #C9D1D9">    host: </span><span style="color: #A5D6FF">&#39;redis2.example.com&#39;</span><span style="color: #C9D1D9">,</span></span>
+<span><span style="color: #C9D1D9">    port: </span><span style="color: #79C0FF">6378</span><span style="color: #C9D1D9">,</span></span>
+<span><span style="color: #C9D1D9">    family: </span><span style="color: #79C0FF">4</span><span style="color: #C9D1D9">,</span></span>
+<span><span style="color: #C9D1D9">    db: </span><span style="color: #79C0FF">0</span><span style="color: #C9D1D9">,</span></span>
+<span><span style="color: #C9D1D9">    pass: </span><span style="color: #A5D6FF">&#39;xxx&#39;</span><span style="color: #C9D1D9">,</span></span>
+<span><span style="color: #C9D1D9">    password: </span><span style="color: #A5D6FF">&#39;xxx&#39;</span><span style="color: #C9D1D9">,</span></span>
+<span><span style="color: #C9D1D9">});</span></span>
 <span></span>
-<span><span style="color: #C9D1D9">   </span><span style="color: #79C0FF">this</span><span style="color: #C9D1D9">.scheduleInfo</span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> {</span></span>
-<span><span style="color: #C9D1D9">            rule: </span><span style="color: #A5D6FF">&#39;0 0/1 * * * ?&#39;</span><span style="color: #C9D1D9">, </span><span style="color: #8B949E">// 每1分鐘更新一次</span></span>
-<span><span style="color: #C9D1D9">            name: </span><span style="color: #A5D6FF">&#39;pv&#39;</span><span style="color: #C9D1D9">, </span><span style="color: #8B949E">// 任务名称</span></span>
-<span><span style="color: #C9D1D9">            switch: </span><span style="color: #79C0FF">true</span><span style="color: #C9D1D9">, </span><span style="color: #8B949E">// 定时任务开启</span></span>
-<span><span style="color: #C9D1D9">            redLock:</span><span style="color: #FF7B72">new</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">RedLock</span><span style="color: #C9D1D9">([client1,client2]), </span><span style="color: #8B949E">// 采用redis锁</span></span>
-<span><span style="color: #C9D1D9">            redLockTKL:</span><span style="color: #79C0FF">10000</span><span style="color: #C9D1D9"> ,</span><span style="color: #8B949E">//单位毫秒，锁的生存时间，在该时间内，若锁未释放，强行释放 避免死锁情况</span></span>
-<span><span style="color: #C9D1D9">            sleep:</span><span style="color: #79C0FF">1000</span><span style="color: #C9D1D9">  </span><span style="color: #8B949E">//单位毫秒，执行任务后主动释放锁的时间</span></span>
-<span><span style="color: #C9D1D9">    },</span></span>
-<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br></div></div>]]></content:encoded>
+<span><span style="color: #79C0FF">this</span><span style="color: #C9D1D9">.scheduleInfo</span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> {</span></span>
+<span><span style="color: #C9D1D9">    rule: </span><span style="color: #A5D6FF">&#39;0 0/1 * * * ?&#39;</span><span style="color: #C9D1D9">, </span><span style="color: #8B949E">// 每1分鐘更新一次</span></span>
+<span><span style="color: #C9D1D9">    name: </span><span style="color: #A5D6FF">&#39;pv&#39;</span><span style="color: #C9D1D9">, </span><span style="color: #8B949E">// 任务名称</span></span>
+<span><span style="color: #C9D1D9">    switch: </span><span style="color: #79C0FF">true</span><span style="color: #C9D1D9">, </span><span style="color: #8B949E">// 定时任务开启</span></span>
+<span><span style="color: #C9D1D9">    redLock:</span><span style="color: #FF7B72">new</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">RedLock</span><span style="color: #C9D1D9">([client1,client2]), </span><span style="color: #8B949E">// 采用redis锁 </span></span>
+<span><span style="color: #C9D1D9">    redLockTKL:</span><span style="color: #79C0FF">10000</span><span style="color: #C9D1D9"> ,</span><span style="color: #8B949E">//单位毫秒，锁的生存时间，在该时间内，若锁未释放，强行释放 避免死锁情况</span></span>
+<span><span style="color: #C9D1D9">    sleep:</span><span style="color: #79C0FF">1000</span><span style="color: #C9D1D9">  </span><span style="color: #8B949E">//单位毫秒，执行任务后主动释放锁的时间</span></span>
+<span><span style="color: #C9D1D9">}</span></span>
+<span></span></code></pre><div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br><span>21</span><br><span>22</span><br><span>23</span><br><span>24</span><br><span>25</span><br><span>26</span><br><span>27</span><br><span>28</span><br></div></div>]]></content:encoded>
     </item>
     <item>
       <title>react-ssr</title>
